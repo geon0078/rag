@@ -136,7 +136,7 @@
 
 | # | 문제 | 가설 원인 | 다음 조치 |
 |---|---|---|---|
-| 1 | **negative_rejection 0.833** (-10pt) | 완화된 judge가 negative 쿼리도 grounded로 통과 (`"버스 시간표"`, `"비밀번호 뭐였지?"` 등 5건) | LLM 기반 의도 분류기 도입 (CLAUDE.md "no hardcoded pattern" 원칙)으로 negative를 사전 차단 |
+| 1 | **negative_rejection 0.833** (-10pt) | 완화된 judge가 negative 쿼리도 grounded로 통과 (`"버스 시간표"`, `"비밀번호 뭐였지?"` 등 5건) | **사전(pre-retrieval) intent gate 실험 실패 (2026-04-27)** — over-rejection 14건, 5-run variance 확인 결과 12/14가 결정론적 misclassification. 다음 sprint에 retrieval-after gate (옵션 3, low-recall 후 거부)로 이관. 현재 0.833은 목표 ≥0.80 충족이므로 수용. |
 | 2 | **routing_top3 0.926** (-2.4pt) | source_collection 다양성 부족 — 강의평가/학칙_조항/FAQ 쏠림 | hybrid_cc_weight 재튜닝, 컬렉션별 BM25 boost 도입 검토 |
 | 3 | **citation 0.896** (-0.4pt, 거의 도달) | 잔여 17건 모두 FALLBACK 답변(인용 불가) | fallback_rate를 더 낮추거나 문제없음으로 수용 |
 | 4 | RAGAS 전반 하락 | 채점 모집단 변화(borderline 답변 채점 포함) + 일부 TimeoutError | 모집단 정합성 확보 후 재측정, 답변 프롬프트 명세화 |
@@ -174,3 +174,4 @@ RERANKER_ENABLED=true python scripts/eval_supplementary.py
 | 2026-04-26 | FALLBACK contexts 보존 (eval signal) | routing_top3 0.479 → 0.933 |
 | 2026-04-27 | **reranker OFF 기본값** (CPU 운영 결정) | 운영 레이턴시 −1.75s/q, routing/citation −6pt |
 | 2026-04-27 | **groundedness 프롬프트 완화** (paraphrase·multi-hop·계산 허용) | citation 0.405→0.896 (+49pt), routing 0.877→0.926 (+5pt), fallback 0.607→0.117 (−49pt). Trade-off: negative_rejection 0.933→0.833 (−10pt) |
+| 2026-04-27 | **사전 intent gate 실험 → 실패 → revert (`bb30a33`)** | LLM(solar-pro3) 기반 pre-retrieval intent classifier 도입 시도. 결과: negative 0.833→0.967(+13pt) 대신 routing 0.926→0.828(−10pt), citation 0.896→0.804(−9pt), campus_filter 1.000→0.882(−12pt). `scripts/debug_intent_overreject.py`로 6개 프롬프트 변형(V1~V6) A/B 테스트 → 어느 것도 합격선 미충족. `scripts/debug_intent_variance.py`(5-run) 결과 over-rejected 14건 중 12건이 결정론적 오분류 → 프롬프트 수준 해결 불가능 확인. **결론**: pre-retrieval gate 폐기, retrieval-after gate(옵션 3, low-context confidence 기반 거부)로 다음 sprint 이관. 디버그 스크립트와 보고서는 `scripts/debug_intent_*.py`, `reports/intent_*.json`로 보존. |

@@ -1,0 +1,432 @@
+{
+  "items": [
+    {
+      "qid": "97e8529d-a268-47fa-b5c8-bcce0686e9ca",
+      "query": "교수가 자신의 자녀의 강의를 평가할 때 어떤 절차를 따라야 하나요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "5fdae476-e8ef-4074-a52e-ebd1f2b12e6e",
+      "query": "캠퍼스 간 교차수강 신청 시 수강생 수가 10명 미만인 과목이 폐강될 경우, 해당 과목의 교직원은 학교기업 순이익 보상금을 받을 수 있나요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "87e103d5-1f34-41f2-8776-9dce3e5b25d5",
+      "query": "기숙사 와이파이가 안 잡히는데 윈도우 10/11에서 어떻게 설정해야 하나요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "7034a942-cf52-4ce8-ad37-957ba9085b30",
+      "query": "HUMAN 영역은 어떤 종류의 과목이에요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "595a5573-ee9f-4cae-988c-3bbd29d17386",
+      "query": "시험 준비 시 가장 중요한 부분이 뭐예요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "0b34874b-304c-47ca-a28c-8de6a2a4cd5f",
+      "query": "시험 준비를 어떻게 해야 좋은 성적을 받을 수 있을까요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "8f54279b-70d1-4981-9e34-2aee6eb3271d",
+      "query": "이 수업에서 주의해야 할 점은 무엇인가요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "5dd28a1a-2d0f-40e1-8adb-22b3d0e020f2",
+      "query": "사담과 반복적인 수업을 싫어하는 학생에게 이 강의를 추천하지 않는 이유는 무엇인가요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "dfd7c1a0-de74-426f-b8f1-d82386e5c3e5",
+      "query": "이 수업에서 학생들이 자주 언급하는 부정적인 부분은 무엇인가요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "9184ba15-b010-433d-894b-1544d026f420",
+      "query": "두 강의 모두 교양 과목으로 적합한가? 각 강의의 추천 대상과 단점을 고려하여 설명하시오.",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "62a70a19-4267-40fe-a11c-9039e6c6cb1f",
+      "query": "택배 접수를 할 수 있는 곳은 어디인가요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "5dc2af28-5457-4e4b-9217-560dd9673b82",
+      "query": "멀티미디어실 좌석 예약 후 15분이 지나도 안 가면 어떻게 되나요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "ccc6f55a-6e6a-4807-8cab-b9306ebc1360",
+      "query": "국외 전자책을 신청하려면 어떤 절차를 따라야 해?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "b11d6c3c-edff-4da3-a51b-00e563f23c9f",
+      "query": "을지대 재학 중인 외국인 유학생으로 TOPIK 4급이며 직전 학기 평점 3.5를 받은 경우, 받을 수 있는 장학금은 무엇이며 각각 얼마인가요?",
+      "expected": "answerable",
+      "group": "over_rejected"
+    },
+    {
+      "qid": "qa_neg_004",
+      "query": "버스 시간표 알려줘",
+      "expected": "unanswerable",
+      "group": "true_negative"
+    },
+    {
+      "qid": "qa_neg_011",
+      "query": "그거 어떻게 해?",
+      "expected": "unanswerable",
+      "group": "true_negative"
+    },
+    {
+      "qid": "qa_neg_014",
+      "query": "...",
+      "expected": "unanswerable",
+      "group": "true_negative"
+    },
+    {
+      "qid": "qa_neg_024",
+      "query": "내 비밀번호 뭐였지?",
+      "expected": "unanswerable",
+      "group": "true_negative"
+    },
+    {
+      "qid": "qa_neg_028",
+      "query": "성남캠퍼스에 간호학과 있지?",
+      "expected": "unanswerable",
+      "group": "true_negative"
+    },
+    {
+      "qid": "ctrl_0",
+      "query": "수강신청 언제 시작해?",
+      "expected": "answerable",
+      "group": "control"
+    },
+    {
+      "qid": "ctrl_1",
+      "query": "간호학과 졸업 학점은?",
+      "expected": "answerable",
+      "group": "control"
+    },
+    {
+      "qid": "ctrl_2",
+      "query": "성남캠퍼스 도서관 전화번호 알려줘",
+      "expected": "answerable",
+      "group": "control"
+    },
+    {
+      "qid": "ctrl_3",
+      "query": "장학금 신청 절차 알려줘",
+      "expected": "answerable",
+      "group": "control"
+    },
+    {
+      "qid": "ctrl_4",
+      "query": "휴학 신청은 어떻게 해?",
+      "expected": "answerable",
+      "group": "control"
+    }
+  ],
+  "variants": {
+    "V1_current": {
+      "name": "V1_current",
+      "total": 24,
+      "correct": 19,
+      "by_group": {
+        "control": {
+          "n": 5,
+          "correct": 5
+        },
+        "over_rejected": {
+          "n": 14,
+          "correct": 11
+        },
+        "true_negative": {
+          "n": 5,
+          "correct": 3
+        }
+      },
+      "errors": [
+        {
+          "qid": "7034a942-cf52-4ce8-ad37-957ba9085b30",
+          "query": "HUMAN 영역은 어떤 종류의 과목이에요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "0b34874b-304c-47ca-a28c-8de6a2a4cd5f",
+          "query": "시험 준비를 어떻게 해야 좋은 성적을 받을 수 있을까요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "62a70a19-4267-40fe-a11c-9039e6c6cb1f",
+          "query": "택배 접수를 할 수 있는 곳은 어디인가요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "qa_neg_014",
+          "query": "...",
+          "expected": "unanswerable",
+          "got": "answerable"
+        },
+        {
+          "qid": "qa_neg_028",
+          "query": "성남캠퍼스에 간호학과 있지?",
+          "expected": "unanswerable",
+          "got": "answerable"
+        }
+      ]
+    },
+    "V2_explicit_categories": {
+      "name": "V2_explicit_categories",
+      "total": 24,
+      "correct": 14,
+      "by_group": {
+        "control": {
+          "n": 5,
+          "correct": 5
+        },
+        "over_rejected": {
+          "n": 14,
+          "correct": 6
+        },
+        "true_negative": {
+          "n": 5,
+          "correct": 3
+        }
+      },
+      "errors": [
+        {
+          "qid": "97e8529d-a268-47fa-b5c8-bcce0686e9ca",
+          "query": "교수가 자신의 자녀의 강의를 평가할 때 어떤 절차를 따라야 하나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "5fdae476-e8ef-4074-a52e-ebd1f2b12e6e",
+          "query": "캠퍼스 간 교차수강 신청 시 수강생 수가 10명 미만인 과목이 폐강될 경우, 해당 과목의 교직원은 학교기업 순이익 보상금을 받을 수 있나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "87e103d5-1f34-41f2-8776-9dce3e5b25d5",
+          "query": "기숙사 와이파이가 안 잡히는데 윈도우 10/11에서 어떻게 설정해야 하나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "7034a942-cf52-4ce8-ad37-957ba9085b30",
+          "query": "HUMAN 영역은 어떤 종류의 과목이에요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "62a70a19-4267-40fe-a11c-9039e6c6cb1f",
+          "query": "택배 접수를 할 수 있는 곳은 어디인가요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "5dc2af28-5457-4e4b-9217-560dd9673b82",
+          "query": "멀티미디어실 좌석 예약 후 15분이 지나도 안 가면 어떻게 되나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "ccc6f55a-6e6a-4807-8cab-b9306ebc1360",
+          "query": "국외 전자책을 신청하려면 어떤 절차를 따라야 해?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "b11d6c3c-edff-4da3-a51b-00e563f23c9f",
+          "query": "을지대 재학 중인 외국인 유학생으로 TOPIK 4급이며 직전 학기 평점 3.5를 받은 경우, 받을 수 있는 장학금은 무엇이며 각각 얼마인가요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "qa_neg_014",
+          "query": "...",
+          "expected": "unanswerable",
+          "got": "answerable"
+        },
+        {
+          "qid": "qa_neg_028",
+          "query": "성남캠퍼스에 간호학과 있지?",
+          "expected": "unanswerable",
+          "got": "answerable"
+        }
+      ]
+    },
+    "V3_strict_unanswerable": {
+      "name": "V3_strict_unanswerable",
+      "total": 24,
+      "correct": 15,
+      "by_group": {
+        "control": {
+          "n": 5,
+          "correct": 5
+        },
+        "over_rejected": {
+          "n": 14,
+          "correct": 5
+        },
+        "true_negative": {
+          "n": 5,
+          "correct": 5
+        }
+      },
+      "errors": [
+        {
+          "qid": "97e8529d-a268-47fa-b5c8-bcce0686e9ca",
+          "query": "교수가 자신의 자녀의 강의를 평가할 때 어떤 절차를 따라야 하나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "5fdae476-e8ef-4074-a52e-ebd1f2b12e6e",
+          "query": "캠퍼스 간 교차수강 신청 시 수강생 수가 10명 미만인 과목이 폐강될 경우, 해당 과목의 교직원은 학교기업 순이익 보상금을 받을 수 있나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "7034a942-cf52-4ce8-ad37-957ba9085b30",
+          "query": "HUMAN 영역은 어떤 종류의 과목이에요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "5dd28a1a-2d0f-40e1-8adb-22b3d0e020f2",
+          "query": "사담과 반복적인 수업을 싫어하는 학생에게 이 강의를 추천하지 않는 이유는 무엇인가요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "9184ba15-b010-433d-894b-1544d026f420",
+          "query": "두 강의 모두 교양 과목으로 적합한가? 각 강의의 추천 대상과 단점을 고려하여 설명하시오.",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "62a70a19-4267-40fe-a11c-9039e6c6cb1f",
+          "query": "택배 접수를 할 수 있는 곳은 어디인가요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "5dc2af28-5457-4e4b-9217-560dd9673b82",
+          "query": "멀티미디어실 좌석 예약 후 15분이 지나도 안 가면 어떻게 되나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "ccc6f55a-6e6a-4807-8cab-b9306ebc1360",
+          "query": "국외 전자책을 신청하려면 어떤 절차를 따라야 해?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "b11d6c3c-edff-4da3-a51b-00e563f23c9f",
+          "query": "을지대 재학 중인 외국인 유학생으로 TOPIK 4급이며 직전 학기 평점 3.5를 받은 경우, 받을 수 있는 장학금은 무엇이며 각각 얼마인가요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        }
+      ]
+    },
+    "V4_few_shot_anchors": {
+      "name": "V4_few_shot_anchors",
+      "total": 24,
+      "correct": 15,
+      "by_group": {
+        "control": {
+          "n": 5,
+          "correct": 5
+        },
+        "over_rejected": {
+          "n": 14,
+          "correct": 7
+        },
+        "true_negative": {
+          "n": 5,
+          "correct": 3
+        }
+      },
+      "errors": [
+        {
+          "qid": "97e8529d-a268-47fa-b5c8-bcce0686e9ca",
+          "query": "교수가 자신의 자녀의 강의를 평가할 때 어떤 절차를 따라야 하나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "5fdae476-e8ef-4074-a52e-ebd1f2b12e6e",
+          "query": "캠퍼스 간 교차수강 신청 시 수강생 수가 10명 미만인 과목이 폐강될 경우, 해당 과목의 교직원은 학교기업 순이익 보상금을 받을 수 있나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "87e103d5-1f34-41f2-8776-9dce3e5b25d5",
+          "query": "기숙사 와이파이가 안 잡히는데 윈도우 10/11에서 어떻게 설정해야 하나요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "9184ba15-b010-433d-894b-1544d026f420",
+          "query": "두 강의 모두 교양 과목으로 적합한가? 각 강의의 추천 대상과 단점을 고려하여 설명하시오.",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "62a70a19-4267-40fe-a11c-9039e6c6cb1f",
+          "query": "택배 접수를 할 수 있는 곳은 어디인가요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "ccc6f55a-6e6a-4807-8cab-b9306ebc1360",
+          "query": "국외 전자책을 신청하려면 어떤 절차를 따라야 해?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "b11d6c3c-edff-4da3-a51b-00e563f23c9f",
+          "query": "을지대 재학 중인 외국인 유학생으로 TOPIK 4급이며 직전 학기 평점 3.5를 받은 경우, 받을 수 있는 장학금은 무엇이며 각각 얼마인가요?",
+          "expected": "answerable",
+          "got": "unanswerable"
+        },
+        {
+          "qid": "qa_neg_014",
+          "query": "...",
+          "expected": "unanswerable",
+          "got": "answerable"
+        },
+        {
+          "qid": "qa_neg_028",
+          "query": "성남캠퍼스에 간호학과 있지?",
+          "expected": "unanswerable",
+          "got": "answerable"
+        }
+      ]
+    }
+  }
+}
