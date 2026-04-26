@@ -17,7 +17,6 @@ from typing import Any
 from src.config import settings
 from src.generation.citation import ensure_citation
 from src.generation.groundedness import GroundednessChecker
-from src.generation.intent_classifier import IntentClassifier
 from src.generation.prompts import annotate_inferred_campus, format_context
 from src.generation.solar_llm import SolarLLM
 from src.retrieval.hybrid import HybridRetriever
@@ -111,7 +110,6 @@ class RagPipeline:
         reranker: Any = None,
         llm: SolarLLM | None = None,
         groundedness: GroundednessChecker | None = None,
-        intent: IntentClassifier | None = None,
     ) -> None:
         self.retriever = retriever or HybridRetriever()
         if reranker is None:
@@ -125,7 +123,6 @@ class RagPipeline:
             self.reranker = reranker
         self.llm = llm or SolarLLM()
         self.groundedness = groundedness or GroundednessChecker()
-        self.intent = intent or IntentClassifier()
 
     async def _retrieve_then_rerank(
         self,
@@ -148,24 +145,6 @@ class RagPipeline:
     async def run(self, query: str) -> dict[str, Any]:
         t0 = time.time()
         log.info(f"pipeline.run: {query!r}")
-
-        # Intent gate: filter clearly-out-of-scope queries before retrieval.
-        # Catches private info, ambiguous junk, external services, false-premise
-        # questions — recovers negative_rejection which the relaxed groundedness
-        # judge no longer guards against.
-        if not await self.intent.is_answerable(query):
-            log.info("intent=unanswerable -> skip retrieval, return fallback")
-            return {
-                "answer": FALLBACK_ANSWER,
-                "grounded": False,
-                "verdict": "unanswerable",
-                "sources": [],
-                "contexts": [],
-                "retry": False,
-                "resolved_campus": None,
-                "campus_was_inferred": False,
-                "elapsed_ms": int((time.time() - t0) * 1000),
-            }
 
         relaxable = _is_relaxable(query)
 
