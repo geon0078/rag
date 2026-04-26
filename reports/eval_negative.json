@@ -1,0 +1,8 @@
+{
+  "n": 7,
+  "rejected": 7,
+  "rejection_rate": 1.0,
+  "target": 0.8,
+  "passed": true,
+  "failures": []
+}

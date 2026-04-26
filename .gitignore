@@ -1,0 +1,43 @@
+# Secrets
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Indexes / artifacts
+qdrant_data/
+redis_data/
+*.pkl
+benchmark/
+.cache/
+.huggingface/
+
+# Data outputs (large)
+data/corpus.parquet
+data/corpus_review.csv
+data/collections/
+_check/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Runtime telemetry / query logs (may contain user content)
+logs/
+.claude/
+
+# Vector DB / large parquet outputs
+data/corpus_autorag.parquet
+qdrant_storage/

@@ -1,0 +1,52 @@
+# Core
+python-dotenv>=1.0.0
+pydantic>=2.9
+pyyaml>=6.0
+
+# AutoRAG (Phase 5)
+AutoRAG[ko]>=0.3
+langchain-upstage>=0.5
+langchain-text-splitters>=0.3
+
+# Vector DB
+qdrant-client>=1.13
+
+# BM25 + 한국어
+rank-bm25>=0.2
+konlpy>=0.6
+kiwipiepy>=0.20
+
+# Reranker
+sentence-transformers>=3.3
+FlagEmbedding>=1.3
+torch>=2.2
+
+# API
+fastapi>=0.115
+uvicorn[standard]>=0.32
+httpx>=0.27
+sse-starlette>=2.1
+
+# OpenAI SDK (Solar via OpenAI-compatible endpoint)
+openai>=1.55
+
+# Cache
+redis>=5.2
+
+# Evaluation
+ragas>=0.2
+
+# Logging
+loguru>=0.7
+
+# Data
+pandas>=2.2
+pyarrow>=18.0
+tqdm>=4.66
+numpy>=1.26
+
+# Dashboard (Phase 7)
+streamlit>=1.40
+
+# Web UI (Gradio)
+gradio>=5.0

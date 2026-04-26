@@ -1,0 +1,1117 @@
+{
+  "D1": {
+    "schema_version": 2,
+    "doc_count": 2382,
+    "payload_count": 2382,
+    "campus_distribution": {
+      "전체": 2132,
+      "성남": 247,
+      "의정부": 3
+    },
+    "hakchik_count": 286,
+    "hakchik_first_campus": "전체",
+    "sample_keys": [
+      "campus",
+      "category",
+      "chapter",
+      "doc_id",
+      "end_date",
+      "low_confidence",
+      "section",
+      "source_collection",
+      "start_date",
+      "subcategory",
+      "title",
+      "contents"
+    ]
+  },
+  "D2": [
+    {
+      "qid": "87f528ae-7f2a-41b4-a799-3f0490ea8d3e",
+      "query": "교내에서 10명 이상 모인 집회를 열려면 어떤 절차를 따라야 하나요?",
+      "variants": {
+        "no_filter": {
+          "n_hits": 5,
+          "collections": [
+            "학칙_조항",
+            "학칙_조항",
+            "시설_연락처",
+            "FAQ",
+            "FAQ"
+          ],
+          "campuses": [
+            "전체",
+            "전체",
+            "전체",
+            "성남",
+            "전체"
+          ]
+        },
+        "campus_성남_only": {
+          "n_hits": 5,
+          "collections": [
+            "FAQ",
+            "FAQ",
+            "시설_연락처",
+            "시설_연락처",
+            "학사정보"
+          ],
+          "campuses": [
+            "성남",
+            "성남",
+            "성남",
+            "성남",
+            "성남"
+          ]
+        },
+        "campus_성남_or_전체": {
+          "n_hits": 5,
+          "collections": [
+            "학칙_조항",
+            "학칙_조항",
+            "시설_연락처",
+            "FAQ",
+            "FAQ"
+          ],
+          "campuses": [
+            "전체",
+            "전체",
+            "전체",
+            "성남",
+            "전체"
+          ]
+        }
+      }
+    },
+    {
+      "qid": "7c67e036-57bb-4de8-8c42-fd4ff3f8aee5",
+      "query": "학사학위 소지자가 편입할 수 있는 학년은 몇 학년인가요?",
+      "variants": {
+        "no_filter": {
+          "n_hits": 5,
+          "collections": [
+            "학칙_조항",
+            "학칙_조항",
+            "학칙_조항",
+            "FAQ",
+            "FAQ"
+          ],
+          "campuses": [
+            "전체",
+            "전체",
+            "전체",
+            "전체",
+            "전체"
+          ]
+        },
+        "campus_성남_only": {
+          "n_hits": 5,
+          "collections": [
+            "학사일정",
+            "학사일정",
+            "FAQ",
+            "학사일정",
+            "학사일정"
+          ],
+          "campuses": [
+            "성남",
+            "성남",
+            "성남",
+            "성남",
+            "성남"
+          ]
+        },
+        "campus_성남_or_전체": {
+          "n_hits": 5,
+          "collections": [
+            "학칙_조항",
+            "학칙_조항",
+            "학칙_조항",
+            "FAQ",
+            "FAQ"
+          ],
+          "campuses": [
+            "전체",
+            "전체",
+            "전체",
+            "전체",
+            "전체"
+          ]
+        }
+      }
+    },
+    {
+      "qid": "49dba65e-8c3b-4f85-a3d2-5fabc48a6649",
+      "query": "학교에서 포상 받을 수 있는 학생들은 어떤 경우인가요?",
+      "variants": {
+        "no_filter": {
+          "n_hits": 5,
+          "collections": [
+            "학칙_조항",
+            "학칙_조항",
+            "FAQ",
+            "학사정보",
+            "FAQ"
+          ],
+          "campuses": [
+            "전체",
+            "전체",
+            "전체",
+            "성남",
+            "전체"
+          ]
+        },
+        "campus_성남_only": {
+          "n_hits": 5,
+          "collections": [
+            "학사정보",
+            "FAQ",
+            "FAQ",
+            "시설_연락처",
+            "학사정보"
+          ],
+          "campuses": [
+            "성남",
+            "성남",
+            "성남",
+            "성남",
+            "성남"
+          ]
+        },
+        "campus_성남_or_전체": {
+          "n_hits": 5,
+          "collections": [
+            "학칙_조항",
+            "학칙_조항",
+            "FAQ",
+            "학사정보",
+            "FAQ"
+          ],
+          "campuses": [
+            "전체",
+            "전체",
+            "전체",
+            "성남",
+            "전체"
+          ]
+        }
+      }
+    }
+  ],
+  "D3": {
+    "n_total": 20,
+    "n_with_filter_match": 19,
+    "n_no_filter_match": 19,
+    "details": [
+      {
+        "qid": "a3931946-eed2-44c7-8b52-8ba353b5624b",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학사정보",
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학사정보",
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ"
+        ]
+      },
+      {
+        "qid": "8b7527fb-56ff-41ae-a7d4-05765313160f",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ]
+      },
+      {
+        "qid": "d3526f02-16cb-4315-ab89-a3579c5cb1e6",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ"
+        ]
+      },
+      {
+        "qid": "a3f8e4af-3317-4856-ba56-6cdd384981a2",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학사정보",
+          "FAQ",
+          "시설_연락처"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학사정보",
+          "FAQ",
+          "시설_연락처"
+        ]
+      },
+      {
+        "qid": "46f57fc2-f302-4260-92bc-b982ea28fb18",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ]
+      },
+      {
+        "qid": "97e8529d-a268-47fa-b5c8-bcce0686e9ca",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "FAQ",
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "FAQ",
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ"
+        ]
+      },
+      {
+        "qid": "a6ac5ac8-b9f2-4140-b76a-7bb720fec619",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": false,
+        "no_filter_match": false,
+        "with_filter_cols": [
+          "FAQ",
+          "FAQ",
+          "FAQ",
+          "학사정보",
+          "학사정보"
+        ],
+        "no_filter_cols": [
+          "FAQ",
+          "FAQ",
+          "FAQ",
+          "학사정보",
+          "학사정보"
+        ]
+      },
+      {
+        "qid": "9e649432-6bb8-46de-890d-8fb94342b239",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학사정보",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ],
+        "no_filter_cols": [
+          "학사정보",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ]
+      },
+      {
+        "qid": "43680182-637d-42ea-ac20-b3cd70955b9f",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ",
+          "FAQ",
+          "FAQ"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ",
+          "FAQ",
+          "FAQ"
+        ]
+      },
+      {
+        "qid": "e2f43f71-f364-4cbe-b375-008bc55e9a61",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "장학금",
+          "학칙_조항"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "장학금",
+          "학칙_조항"
+        ]
+      },
+      {
+        "qid": "509a9850-a56a-4cdd-b6e3-8764b1f7ded5",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "FAQ",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ],
+        "no_filter_cols": [
+          "FAQ",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ]
+      },
+      {
+        "qid": "5fdae476-e8ef-4074-a52e-ebd1f2b12e6e",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학사정보",
+          "학칙_조항",
+          "학칙_조항"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학사정보",
+          "학칙_조항",
+          "학칙_조항"
+        ]
+      },
+      {
+        "qid": "efa58ed8-8c9f-478e-b7ac-c21b6437a5c2",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "FAQ",
+          "학칙_조항",
+          "학칙_조항",
+          "학사정보"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "FAQ",
+          "학칙_조항",
+          "학칙_조항",
+          "학사정보"
+        ]
+      },
+      {
+        "qid": "f881200e-f32a-4060-aa52-d7a41f60fc6a",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항"
+        ]
+      },
+      {
+        "qid": "0bed5fd6-7c78-46df-9b83-6c35b45e4d30",
+        "expected": "학칙_조항",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ",
+          "FAQ"
+        ],
+        "no_filter_cols": [
+          "학칙_조항",
+          "학칙_조항",
+          "학칙_조항",
+          "FAQ",
+          "FAQ"
+        ]
+      },
+      {
+        "qid": "5525a4de-dfe9-48eb-8fde-a790ee7cae7e",
+        "expected": "FAQ",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "FAQ",
+          "장학금",
+          "장학금",
+          "강의평가",
+          "학칙_조항"
+        ],
+        "no_filter_cols": [
+          "FAQ",
+          "장학금",
+          "장학금",
+          "강의평가",
+          "학칙_조항"
+        ]
+      },
+      {
+        "qid": "92306b79-1dcf-45cd-821f-fbaaf8c30131",
+        "expected": "FAQ",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "FAQ",
+          "시설_연락처",
+          "시설_연락처",
+          "FAQ",
+          "FAQ"
+        ],
+        "no_filter_cols": [
+          "FAQ",
+          "시설_연락처",
+          "시설_연락처",
+          "FAQ",
+          "FAQ"
+        ]
+      },
+      {
+        "qid": "31027c7f-7c0d-40c2-9541-e5a659812442",
+        "expected": "FAQ",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "시설_연락처",
+          "시설_연락처",
+          "시설_연락처",
+          "FAQ",
+          "FAQ"
+        ],
+        "no_filter_cols": [
+          "시설_연락처",
+          "시설_연락처",
+          "시설_연락처",
+          "FAQ",
+          "FAQ"
+        ]
+      },
+      {
+        "qid": "1f54fef3-3500-4d75-91ea-8f7d4c07e1b5",
+        "expected": "FAQ",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "FAQ",
+          "FAQ",
+          "FAQ",
+          "학사정보",
+          "시설_연락처"
+        ],
+        "no_filter_cols": [
+          "FAQ",
+          "FAQ",
+          "FAQ",
+          "학사정보",
+          "시설_연락처"
+        ]
+      },
+      {
+        "qid": "f2ee5066-07b0-404b-9dd3-827852ec2838",
+        "expected": "FAQ",
+        "campus": "성남",
+        "sparse_filter": {
+          "campus": [
+            "성남",
+            "전체"
+          ]
+        },
+        "with_filter_match": true,
+        "no_filter_match": true,
+        "with_filter_cols": [
+          "FAQ",
+          "학칙_조항",
+          "FAQ",
+          "시설_연락처",
+          "학사정보"
+        ],
+        "no_filter_cols": [
+          "FAQ",
+          "학칙_조항",
+          "FAQ",
+          "시설_연락처",
+          "학사정보"
+        ]
+      }
+    ]
+  },
+  "D4": [
+    {
+      "qid": "31027c7f-7c0d-40c2-9541-e5a659812442",
+      "expected": "성남",
+      "router_campus": "성남",
+      "sparse_filter": {
+        "campus": [
+          "성남",
+          "전체"
+        ]
+      },
+      "chunks": [
+        {
+          "doc_id": "si_static_info_261",
+          "campus": "성남",
+          "source_collection": "시설_연락처",
+          "score": 19.37099268631851
+        },
+        {
+          "doc_id": "si_static_info_301",
+          "campus": "성남",
+          "source_collection": "시설_연락처",
+          "score": 16.945189004024307
+        },
+        {
+          "doc_id": "si_static_info_254",
+          "campus": "성남",
+          "source_collection": "시설_연락처",
+          "score": 16.590657295930754
+        },
+        {
+          "doc_id": "si_static_info_180",
+          "campus": "전체",
+          "source_collection": "FAQ",
+          "score": 15.610703893478934
+        },
+        {
+          "doc_id": "si_static_info_115",
+          "campus": "성남",
+          "source_collection": "FAQ",
+          "score": 15.584962932493443
+        }
+      ]
+    },
+    {
+      "qid": "e2d8a798-426b-443c-aa44-7214a4d46a55",
+      "expected": "성남",
+      "router_campus": "성남",
+      "sparse_filter": {
+        "campus": [
+          "성남",
+          "전체"
+        ]
+      },
+      "chunks": [
+        {
+          "doc_id": "si_static_info_52",
+          "campus": "성남",
+          "source_collection": "FAQ",
+          "score": 42.11855423436155
+        },
+        {
+          "doc_id": "si_static_info_261",
+          "campus": "성남",
+          "source_collection": "시설_연락처",
+          "score": 34.777421305189144
+        },
+        {
+          "doc_id": "si_static_info_115",
+          "campus": "성남",
+          "source_collection": "FAQ",
+          "score": 32.826646367978576
+        },
+        {
+          "doc_id": "si_static_info_7",
+          "campus": "전체",
+          "source_collection": "FAQ",
+          "score": 32.50585159570261
+        },
+        {
+          "doc_id": "si_static_info_280",
+          "campus": "성남",
+          "source_collection": "시설_연락처",
+          "score": 30.589251922681374
+        }
+      ]
+    },
+    {
+      "qid": "a4d65097-0462-4e2f-b93f-f4e9d50e18cb",
+      "expected": "성남",
+      "router_campus": "성남",
+      "sparse_filter": {
+        "campus": [
+          "성남",
+          "전체"
+        ]
+      },
+      "chunks": [
+        {
+          "doc_id": "si_static_info_42",
+          "campus": "성남",
+          "source_collection": "FAQ",
+          "score": 28.930708172405836
+        },
+        {
+          "doc_id": "si_static_info_278",
+          "campus": "성남",
+          "source_collection": "시설_연락처",
+          "score": 22.788878584271576
+        },
+        {
+          "doc_id": "si_static_info_290_part3",
+          "campus": "전체",
+          "source_collection": "시설_연락처",
+          "score": 22.706065183937127
+        },
+        {
+          "doc_id": "si_static_info_291_part3",
+          "campus": "전체",
+          "source_collection": "시설_연락처",
+          "score": 21.246398995727304
+        },
+        {
+          "doc_id": "si_static_info_288_part3",
+          "campus": "전체",
+          "source_collection": "시설_연락처",
+          "score": 21.055127259342743
+        }
+      ]
+    },
+    {
+      "qid": "c63da871-80ab-429c-8895-fa2fdc2f0aed",
+      "expected": "성남",
+      "router_campus": "성남",
+      "sparse_filter": {
+        "campus": [
+          "성남",
+          "전체"
+        ]
+      },
+      "chunks": [
+        {
+          "doc_id": "si_static_info_75",
+          "campus": "성남",
+          "source_collection": "FAQ",
+          "score": 22.571819454590873
+        },
+        {
+          "doc_id": "si_static_info_141",
+          "campus": "성남",
+          "source_collection": "시설_연락처",
+          "score": 16.761888540444907
+        },
+        {
+          "doc_id": "si_static_info_118",
+          "campus": "전체",
+          "source_collection": "FAQ",
+          "score": 16.708670763486264
+        },
+        {
+          "doc_id": "si_static_info_125",
+          "campus": "전체",
+          "source_collection": "FAQ",
+          "score": 16.66949170853313
+        },
+        {
+          "doc_id": "si_static_info_204",
+          "campus": "성남",
+          "source_collection": "장학금",
+          "score": 16.4750670756545
+        }
+      ]
+    },
+    {
+      "qid": "55c262b7-ce35-4ced-8c0f-b7cf091418fd",
+      "expected": "성남",
+      "router_campus": "성남",
+      "sparse_filter": {
+        "campus": [
+          "성남",
+          "전체"
+        ]
+      },
+      "chunks": [
+        {
+          "doc_id": "cal_calendar_6",
+          "campus": "성남",
+          "source_collection": "학사일정",
+          "score": 18.99026228774367
+        },
+        {
+          "doc_id": "cal_calendar_66",
+          "campus": "성남",
+          "source_collection": "학사일정",
+          "score": 18.99026228774367
+        },
+        {
+          "doc_id": "cal_calendar_55",
+          "campus": "성남",
+          "source_collection": "학사일정",
+          "score": 18.919841359434727
+        },
+        {
+          "doc_id": "si_static_info_204",
+          "campus": "성남",
+          "source_collection": "장학금",
+          "score": 17.249405932634108
+        },
+        {
+          "doc_id": "si_static_info_241",
+          "campus": "전체",
+          "source_collection": "시설_연락처",
+          "score": 16.839303766785857
+        }
+      ]
+    },
+    {
+      "qid": "751a1318-d2ea-455f-91ff-bf343abb5235",
+      "expected": "성남",
+      "router_campus": "성남",
+      "sparse_filter": {
+        "campus": [
+          "성남",
+          "전체"
+        ]
+      },
+      "chunks": [
+        {
+          "doc_id": "cal_calendar_36",
+          "campus": "성남",
+          "source_collection": "학사일정",
+          "score": 37.763138281657255
+        },
+        {
+          "doc_id": "cal_calendar_4",
+          "campus": "성남",
+          "source_collection": "학사일정",
+          "score": 37.665258311329055
+        },
+        {
+          "doc_id": "cal_calendar_10",
+          "campus": "성남",
+          "source_collection": "학사일정",
+          "score": 36.214813759297044
+        },
+        {
+          "doc_id": "학칙_학칙_대학_313",
+          "campus": "전체",
+          "source_collection": "학칙_조항",
+          "score": 33.944357151605324
+        },
+        {
+          "doc_id": "cal_calendar_31",
+          "campus": "성남",
+          "source_collection": "학사일정",
+          "score": 33.919267072245724
+        }
+      ]
+    }
+  ],
+  "D5": [
+    {
+      "qid": "a3931946-eed2-44c7-8b52-8ba353b5624b",
+      "expected": "학칙_조항",
+      "campus": "성남",
+      "dense_n": 10,
+      "dense_campuses": {
+        "전체": 10
+      },
+      "dense_cols": {
+        "학칙_조항": 9,
+        "학사정보": 1
+      },
+      "sparse_n": 10,
+      "sparse_campuses": {
+        "전체": 10
+      },
+      "sparse_cols": {
+        "학칙_조항": 7,
+        "학사정보": 2,
+        "FAQ": 1
+      }
+    },
+    {
+      "qid": "8b7527fb-56ff-41ae-a7d4-05765313160f",
+      "expected": "학칙_조항",
+      "campus": "성남",
+      "dense_n": 10,
+      "dense_campuses": {
+        "전체": 10
+      },
+      "dense_cols": {
+        "학칙_조항": 10
+      },
+      "sparse_n": 10,
+      "sparse_campuses": {
+        "전체": 10
+      },
+      "sparse_cols": {
+        "학칙_조항": 9,
+        "FAQ": 1
+      }
+    },
+    {
+      "qid": "d3526f02-16cb-4315-ab89-a3579c5cb1e6",
+      "expected": "학칙_조항",
+      "campus": "성남",
+      "dense_n": 10,
+      "dense_campuses": {
+        "전체": 10
+      },
+      "dense_cols": {
+        "학칙_조항": 9,
+        "장학금": 1
+      },
+      "sparse_n": 10,
+      "sparse_campuses": {
+        "전체": 8,
+        "성남": 2
+      },
+      "sparse_cols": {
+        "학칙_조항": 4,
+        "FAQ": 4,
+        "장학금": 2
+      }
+    },
+    {
+      "qid": "a3f8e4af-3317-4856-ba56-6cdd384981a2",
+      "expected": "학칙_조항",
+      "campus": "성남",
+      "dense_n": 10,
+      "dense_campuses": {
+        "전체": 10
+      },
+      "dense_cols": {
+        "학사정보": 2,
+        "학칙_조항": 8
+      },
+      "sparse_n": 10,
+      "sparse_campuses": {
+        "전체": 10
+      },
+      "sparse_cols": {
+        "학칙_조항": 3,
+        "학사정보": 3,
+        "FAQ": 3,
+        "시설_연락처": 1
+      }
+    },
+    {
+      "qid": "46f57fc2-f302-4260-92bc-b982ea28fb18",
+      "expected": "학칙_조항",
+      "campus": "성남",
+      "dense_n": 10,
+      "dense_campuses": {
+        "전체": 10
+      },
+      "dense_cols": {
+        "학칙_조항": 10
+      },
+      "sparse_n": 10,
+      "sparse_campuses": {
+        "전체": 10
+      },
+      "sparse_cols": {
+        "학칙_조항": 10
+      }
+    }
+  ]
+}

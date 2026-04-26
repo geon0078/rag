@@ -1,0 +1,49 @@
+# Routing rules consumed by src/retrieval/router.py
+# Modify keywords here, not in code (per CLAUDE.md: avoid hardcoded pattern matching)
+
+campus_keywords:
+  성남: ["성남", "성남캠퍼스"]
+  의정부: ["의정부", "의정부캠퍼스"]
+  대전: ["대전", "대전캠퍼스"]
+
+collection_priority:
+  - keywords: ["장학금", "장학"]
+    boost_collection: "장학금"
+    weight: 2.0
+  - keywords: ["전화번호", "연락처", "사무실", "팩스"]
+    boost_collection: "시설_연락처"
+    weight: 2.0
+  - keywords: ["수강신청", "개강", "휴학", "복학", "졸업식", "학위수여식", "방학", "공휴일"]
+    boost_collection: "학사일정"
+    weight: 2.0
+  - keywords: ["학칙", "조항"]
+    boost_collection: "학칙_조항"
+    weight: 1.8
+  - keywords: ["FAQ", "자주", "질문"]
+    boost_collection: "FAQ"
+    weight: 1.5
+  - keywords: ["강의평가", "수업후기", "교수님", "시험"]
+    boost_collection: "강의평가"
+    weight: 1.5
+  - keywords: ["커리큘럼", "교육과정", "로드맵"]
+    boost_collection: "교육과정"
+    weight: 1.5
+  - keywords: ["학과", "전공", "단과대학"]
+    boost_collection: "학과정보"
+    weight: 1.3
+  - keywords: ["졸업요건", "학점", "이수"]
+    boost_collection: "학사정보"
+    weight: 1.5
+
+# Per-collection BM25/Dense weights (used by hybrid.py if AutoRAG benchmark confirms)
+collection_weights:
+  학칙_조항:    {bm25: 0.5, dense: 0.5}
+  FAQ:          {bm25: 0.6, dense: 0.4}
+  시설_연락처:  {bm25: 0.7, dense: 0.3}
+  장학금:       {bm25: 0.4, dense: 0.6}
+  학사정보:     {bm25: 0.4, dense: 0.6}
+  학사일정:     {bm25: 0.5, dense: 0.5}
+  강의평가:     {bm25: 0.3, dense: 0.7}
+  학과정보:     {bm25: 0.5, dense: 0.5}
+  교육과정:     {bm25: 0.5, dense: 0.5}
+  기타:         {bm25: 0.5, dense: 0.5}
