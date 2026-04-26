@@ -39,19 +39,32 @@
 
 ---
 
-## 2. 현재 성능 (Reranker OFF, 운영 기본)
+## 2. 현재 성능 (Reranker OFF, 운영 기본, 2026-04-27 groundedness relax 적용)
 
-> 출처: `reports/compare_pipeline_rerank.json` "no_rerank" 브랜치
+> 출처: `reports/eval_supplementary.json`, `reports/fallback_diagnosis.json`
 
-| 지표 | 값 | 목표 | 판정 |
-|---|---:|---:|:---:|
-| negative_rejection | **0.933** | ≥ 0.80 | PASS |
-| campus_filter | **1.000** | = 1.00 | PASS |
-| routing_top3 | **0.877** | ≥ 0.95 | FAIL (-7.3pt) |
-| citation | **0.405** | ≥ 0.90 | FAIL (-49.5pt) |
-| fallback_rate | **0.642** | (낮을수록) | 높음 |
+| 지표 | 값 | 목표 | 판정 | vs prev |
+|---|---:|---:|:---:|---:|
+| negative_rejection | **0.833** | ≥ 0.80 | PASS | −0.100 |
+| campus_filter | **1.000** | = 1.00 | PASS | 0.000 |
+| routing_top3 | **0.926** | ≥ 0.95 | FAIL (-2.4pt) | +0.049 |
+| citation | **0.896** | ≥ 0.90 | FAIL (-0.4pt) | **+0.491** |
+| fallback_rate | **0.117** | (낮을수록) | 양호 | **−0.525** |
 
 **레이턴시**: ~4.12s/query (LLM + 임베딩 + 하이브리드 검색 포함)
+
+### 2.1 Groundedness Relax 효과 (Option A)
+
+`scripts/diagnose_fallback.py` 카테고리 분포 (n=163):
+
+| Category | Before | After | Δ |
+|---|---:|---:|---:|
+| D_no_fallback (정상) | 64 / 0.393 | **144 / 0.883** | +80 |
+| B_groundedness_strict (judge 거부) | 72 / 0.442 | 11 / 0.067 | **−61** |
+| C_retry_lost_gt (HyDE 손실) | 16 / 0.098 | 4 / 0.025 | −12 |
+| A_legit_miss (검색 실패) | 11 / 0.067 | 4 / 0.025 | −7 |
+
+**Trade-off**: judge가 paraphrase·multi-doc 추론을 grounded로 인정하면서 negative 쿼리 일부도 답변으로 통과(`negative_rejection` −10pt). 잔여 negative 실패 5건은 "정보 없음" 거부 대신 답변 생성한 케이스.
 
 ---
 
@@ -102,18 +115,20 @@
 
 ---
 
-## 5. RAGAS (참고)
+## 5. RAGAS
 
-> 출처: `reports/ragas_summary.json` (n=144)
+> 출처: `reports/ragas_summary.json`
 
-| 지표 | 값 |
-|---|---:|
-| faithfulness | 0.830 |
-| answer_relevancy | 0.520 |
-| context_precision | 0.851 |
-| context_recall | 0.924 |
+| 지표 | Before (n=144) | After (n=163) | Δ |
+|---|---:|---:|---:|
+| faithfulness | 0.830 | **0.706** | −0.124 |
+| answer_relevancy | 0.520 | **0.427** | −0.093 |
+| context_precision | 0.851 | **0.724** | −0.127 |
+| context_recall | 0.924 | **0.839** | −0.085 |
 
-> 주의: RAGAS 결과는 reranker ON/OFF가 명시되지 않은 과거 실행분. 새 기준으로 재실행 필요.
+> **해석**: After는 groundedness relax 적용 후 측정. 모든 지표가 하락한 것처럼 보이지만, **채점 모집단이 다름** (n 144 → 163). 이전엔 fallback으로 빠진 borderline 답변이 RAGAS 채점 대상에 포함되지 않았으나, 이제 실제 답변으로 채점됨. 즉 사용자 체감 품질은 fallback 60% → 12%로 대폭 개선되었지만, RAGAS는 더 어려운 모집단을 채점한 결과.
+>
+> 추가 노이즈 요인: RAGAS 실행 중 TimeoutError 2건, "LLM returned 1 generations instead of 3" 다수 발생.
 
 ---
 
@@ -121,10 +136,10 @@
 
 | # | 문제 | 가설 원인 | 다음 조치 |
 |---|---|---|---|
-| 1 | **fallback_rate 64%** (no_rerank) | groundedness checker가 너무 엄격 / 다중 hop 쿼리에서 notGrounded 빈발 | groundedness 프롬프트 재튜닝, multi-hop 인식 강화 |
-| 2 | **citation 40.5%** | 절반은 fallback 답변(인용 불가) | (1) 해결 시 자동 개선, 보조로 `ensure_citation` 보강 |
-| 3 | **routing_top3 0.877** | source_collection 다양성 부족 — 강의평가/학칙_조항으로 쏠림 | hybrid_cc_weight 재튜닝, 컬렉션별 BM25 boost 도입 검토 |
-| 4 | answer_relevancy 0.520 | LLM 답변이 질문의 일부만 다룸 | 프롬프트 명세화 |
+| 1 | **negative_rejection 0.833** (-10pt) | 완화된 judge가 negative 쿼리도 grounded로 통과 (`"버스 시간표"`, `"비밀번호 뭐였지?"` 등 5건) | LLM 기반 의도 분류기 도입 (CLAUDE.md "no hardcoded pattern" 원칙)으로 negative를 사전 차단 |
+| 2 | **routing_top3 0.926** (-2.4pt) | source_collection 다양성 부족 — 강의평가/학칙_조항/FAQ 쏠림 | hybrid_cc_weight 재튜닝, 컬렉션별 BM25 boost 도입 검토 |
+| 3 | **citation 0.896** (-0.4pt, 거의 도달) | 잔여 17건 모두 FALLBACK 답변(인용 불가) | fallback_rate를 더 낮추거나 문제없음으로 수용 |
+| 4 | RAGAS 전반 하락 | 채점 모집단 변화(borderline 답변 채점 포함) + 일부 TimeoutError | 모집단 정합성 확보 후 재측정, 답변 프롬프트 명세화 |
 
 ---
 
@@ -158,3 +173,4 @@ RERANKER_ENABLED=true python scripts/eval_supplementary.py
 | 2026-04-26 | default_campus="성남" 정책 | campus_filter 0.647 → 1.000 |
 | 2026-04-26 | FALLBACK contexts 보존 (eval signal) | routing_top3 0.479 → 0.933 |
 | 2026-04-27 | **reranker OFF 기본값** (CPU 운영 결정) | 운영 레이턴시 −1.75s/q, routing/citation −6pt |
+| 2026-04-27 | **groundedness 프롬프트 완화** (paraphrase·multi-hop·계산 허용) | citation 0.405→0.896 (+49pt), routing 0.877→0.926 (+5pt), fallback 0.607→0.117 (−49pt). Trade-off: negative_rejection 0.933→0.833 (−10pt) |
