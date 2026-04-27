@@ -12,6 +12,7 @@ import argparse
 import functools
 import inspect
 import os
+import re
 import sys
 import tempfile
 from pathlib import Path
@@ -88,6 +89,35 @@ def _expand_env_yaml(src: Path) -> Path:
     return tmp
 
 
+# AutoRAG embeds the expanded config (with the live API key) into trial
+# artefacts (summary.csv, config.yaml). Redact those after the run so that
+# benchmark output never leaves a secret on disk.
+_API_KEY_PATTERNS = [
+    re.compile(r"up_[A-Za-z0-9]{20,}"),
+    re.compile(r"sk-[A-Za-z0-9]{20,}"),
+]
+
+
+def _sanitize_benchmark_outputs(project_dir: Path) -> int:
+    redacted = 0
+    for path in project_dir.rglob("*"):
+        if not path.is_file():
+            continue
+        if path.suffix not in {".csv", ".yaml", ".yml", ".json", ".log"}:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue
+        new = text
+        for pat in _API_KEY_PATTERNS:
+            new = pat.sub("REDACTED_API_KEY", new)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            redacted += 1
+    return redacted
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--config", default=str(PROJECT_ROOT / "configs" / "autorag.yaml"))
@@ -118,7 +148,15 @@ def main() -> None:
         corpus_data_path=args.corpus,
         project_dir=args.project_dir,
     )
-    evaluator.start_trial(str(expanded_config), skip_validation=args.skip_validation)
+    try:
+        evaluator.start_trial(str(expanded_config), skip_validation=args.skip_validation)
+    finally:
+        # Run sanitize even on failure — partial outputs may still embed the key.
+        n = _sanitize_benchmark_outputs(Path(args.project_dir))
+        if n:
+            log.info(f"sanitize: redacted API keys in {n} file(s) under {args.project_dir}")
+        else:
+            log.info("sanitize: no API key patterns found in benchmark outputs")
 
 
 if __name__ == "__main__":

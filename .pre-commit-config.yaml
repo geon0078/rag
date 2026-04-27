@@ -1,0 +1,18 @@
+# pre-commit hooks for the eulji-rag repo.
+#
+# Setup once per clone:
+#   pip install pre-commit
+#   pre-commit install
+#
+# After that, every `git commit` runs the hooks below on the staged files.
+# Run manually with:  pre-commit run --all-files
+
+repos:
+  - repo: local
+    hooks:
+      - id: check-secrets
+        name: Block API keys / private keys in staged files
+        entry: python scripts/check_secrets.py --staged
+        language: system
+        pass_filenames: false
+        always_run: true
