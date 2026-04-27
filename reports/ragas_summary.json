@@ -1,7 +1,33 @@
 {
-  "faithfulness": 0.7060506539886242,
-  "answer_relevancy": 0.4273848146509019,
-  "context_precision": 0.7237638398531854,
-  "context_recall": 0.8394683026584868,
-  "n": 163
+  "faithfulness": 0.694672801245891,
+  "answer_relevancy": 0.4199156436220563,
+  "context_precision": 0.763169785701048,
+  "context_recall": 0.8691206543967279,
+  "n": 163,
+  "meta": {
+    "started_at": "2026-04-27T15:09:32+09:00",
+    "started_at_utc": "2026-04-27T06:09:32+00:00",
+    "git_commit": "31fa8da",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.7",
+    "config": {
+      "llm_model_pro": "solar-pro3",
+      "llm_model_mini": "solar-mini",
+      "llm_temperature": 0.0,
+      "embedding_model_query": "solar-embedding-1-large-query",
+      "embedding_model_passage": "solar-embedding-1-large-passage",
+      "qdrant_collection": "euljiu_knowledge",
+      "hybrid_method": "cc",
+      "hybrid_cc_weight": 0.4,
+      "hybrid_cc_normalize": "mm",
+      "top_k_dense": 30,
+      "top_k_sparse": 30,
+      "top_k_rerank_final": 5,
+      "reranker_enabled": false,
+      "reranker_model": null,
+      "default_campus": "성남",
+      "bm25_tokenizer": "okt"
+    },
+    "n_samples": 163
+  }
 }

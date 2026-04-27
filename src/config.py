@@ -48,7 +48,12 @@ class Settings(BaseModel):
     top_k_rerank_retry: int = 10
 
     hybrid_method: str = "cc"  # "cc" (convex combination) or "rrf"
-    hybrid_cc_weight: float = 0.15  # semantic weight; (1 - w) goes to BM25
+    # AutoRAG no-rerank sweep (2026-04-27) over 4 norms × 21 weights tied at
+    # F1=0.1985 / Recall=0.9693 across {mm:0.4, dbsf:0.5, tmm:0.5, z:0.35,
+    # rrf:k=4}. Picked mm normalize (current) + 0.4 weight as the minimal-
+    # change winner. Previous 0.15 came from the original AutoRAG run that
+    # included reranker; 0.4 is the rerank-OFF optimum.
+    hybrid_cc_weight: float = 0.4  # semantic weight; (1 - w) goes to BM25
     hybrid_cc_normalize: str = "mm"  # mm | tmm | z | dbsf
     rrf_k: int = 60  # used only when hybrid_method == "rrf"
 

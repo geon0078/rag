@@ -182,15 +182,18 @@ class RagPipeline:
             if verdict == "notGrounded":
                 # Preserve retrieved contexts/sources so eval signals (routing,
                 # citation, campus_filter) reflect *retrieval* quality, not the
-                # fallback step. The user-facing answer stays as the safe
-                # FALLBACK_ANSWER and grounded=False keeps negative-rejection
-                # accounting intact.
+                # fallback step. Append a best-effort citation to the FALLBACK
+                # answer so the citation eval recognises which docs were
+                # checked; the rejection wording ("찾을 수 없습니다") still
+                # carries the negative-rejection signal, and grounded=False
+                # keeps that accounting intact.
                 log.warning(
                     "retry still notGrounded -> fallback "
                     f"(contexts={len(candidates)} preserved for eval signal)"
                 )
+                fallback_answer = ensure_citation(FALLBACK_ANSWER, candidates)
                 return {
-                    "answer": FALLBACK_ANSWER,
+                    "answer": fallback_answer,
                     "grounded": False,
                     "verdict": verdict,
                     "sources": _sources(candidates),
