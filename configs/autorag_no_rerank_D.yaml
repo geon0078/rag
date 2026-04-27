@@ -1,0 +1,144 @@
+vectordb:
+  - name: solar_chroma
+    db_type: chroma
+    client_type: persistent
+    embedding_model: solar_passage
+    collection_name: euljiu_solar
+    path: ${PROJECT_DIR}/resources/chroma
+    similarity_metric: cosine
+    embedding_batch: 32
+
+node_lines:
+  - node_line_name: retrieve_node_line
+    nodes:
+      - node_type: lexical_retrieval
+        strategy:
+          metrics: [retrieval_f1, retrieval_recall, retrieval_precision]
+        top_k: 10
+        modules:
+          - module_type: bm25
+            bm25_tokenizer: [ko_okt]
+
+      - node_type: semantic_retrieval
+        strategy:
+          metrics: [retrieval_f1, retrieval_recall, retrieval_precision]
+        top_k: 10
+        modules:
+          - module_type: vectordb
+            vectordb: solar_chroma
+
+      - node_type: hybrid_retrieval
+        strategy:
+          metrics: [retrieval_f1, retrieval_recall, retrieval_precision]
+        top_k: 10
+        modules:
+          - module_type: hybrid_cc
+            normalize_method: [dbsf]
+            weight_range: (0.5, 0.5)
+            test_weight_size: 1
+
+      - node_type: passage_reranker
+        strategy:
+          metrics: [retrieval_f1, retrieval_recall, retrieval_precision]
+        top_k: 5
+        modules:
+          - module_type: pass_reranker
+
+  - node_line_name: post_retrieve_node_line
+    nodes:
+      - node_type: prompt_maker
+        strategy:
+          metrics:
+            - metric_name: bleu
+            - metric_name: meteor
+            - metric_name: rouge
+          generator_modules:
+            - module_type: llama_index_llm
+              llm: openailike
+              model: solar-pro3
+              api_base: https://api.upstage.ai/v1/solar
+              api_key: ${UPSTAGE_API_KEY}
+              temperature: 0.0
+              max_tokens: 800
+              batch: 4
+        modules:
+          - module_type: fstring
+            prompt:
+              - |
+                다음 [참고 문서]만을 근거로 [질문]에 한국어로 정확하게 답하세요.
+                문서에 없는 정보는 추측하지 말고 "정보가 부족합니다"라고 답하세요.
+
+                [참고 문서]
+                {retrieved_contents}
+
+                [질문]
+                {query}
+
+                [답변]
+              - |
+                당신은 을지대학교 학사 안내 도우미입니다.
+                아래 [참고 문서]만을 근거로 [질문]에 한국어로 답하세요.
+
+                답변 작성 규칙:
+                1. 문서에 명시된 사실만 기술하고, 문서에 없는 정보는 추측하지 마세요.
+                2. 모든 사실 진술 끝에 반드시 [출처: doc_id] 형식의 인용을 붙이세요.
+                3. 정보가 부족하면 "제공된 자료에서 해당 정보를 찾을 수 없습니다."라고 답하세요.
+
+                [참고 문서]
+                {retrieved_contents}
+
+                [질문]
+                {query}
+
+                [답변]
+              - |
+                다음 [참고 문서]를 근거로 [질문]에 답하세요. 다음 단계로 추론하세요:
+
+                1) 질문이 묻는 핵심 정보를 한 문장으로 정리합니다.
+                2) [참고 문서]에서 그 정보를 직접 또는 간접적으로 뒷받침하는 근거를 찾습니다.
+                3) 근거를 종합하여 한국어로 정확한 최종 답변을 작성합니다.
+                4) 근거가 부족하면 "정보가 부족합니다"라고 답합니다.
+
+                [참고 문서]
+                {retrieved_contents}
+
+                [질문]
+                {query}
+
+                [답변]
+              - |
+                다음은 을지대학교 학사 안내 응답 예시입니다. 같은 형식으로 [질문]에 답하세요.
+
+                [예시 질문]
+                휴학 신청 기간은 언제인가요?
+
+                [예시 답변]
+                휴학 신청 기간은 매 학기 개강 후 4주 이내입니다. [출처: 학칙_제15조] 신청은 학사정보시스템에서 진행할 수 있습니다. [출처: 학사정보_휴복학]
+
+                ---
+
+                위 형식을 참고하여 아래 [참고 문서]만을 근거로 답하세요. 자료에 없으면 "정보가 부족합니다"라고 답합니다.
+
+                [참고 문서]
+                {retrieved_contents}
+
+                [질문]
+                {query}
+
+                [답변]
+
+      - node_type: generator
+        strategy:
+          metrics:
+            - metric_name: bleu
+            - metric_name: meteor
+            - metric_name: rouge
+        modules:
+          - module_type: llama_index_llm
+            llm: openailike
+            model: solar-pro3
+            api_base: https://api.upstage.ai/v1/solar
+            api_key: ${UPSTAGE_API_KEY}
+            temperature: 0.0
+            max_tokens: 800
+            batch: 4

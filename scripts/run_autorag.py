@@ -23,6 +23,9 @@ os.environ.setdefault("JAVA_HOME", r"C:\Program Files\Eclipse Adoptium\jdk-21.0.
 
 import autorag  # noqa: E402
 from llama_index.llms.openai_like import OpenAILike  # noqa: E402
+from llama_index.embeddings.openai_like import OpenAILikeEmbedding  # noqa: E402
+from autorag import LazyInit  # noqa: E402
+from autorag.embedding.base import embedding_models  # noqa: E402
 from autorag.evaluator import Evaluator  # noqa: E402
 
 from src.config import settings  # noqa: E402
@@ -47,6 +50,34 @@ _solar_patched_init.__signature__ = inspect.signature(_OPENAILIKE_ORIG_INIT)
 OpenAILike.__init__ = _solar_patched_init
 
 
+def _register_solar_embeddings() -> None:
+    """Register Solar passage/query embeddings into AutoRAG's model registry.
+
+    AutoRAG's load_from_dict rejects `type: openai_like` (it is in the
+    embedding_map but not the allowed-types whitelist), so the only path is
+    a string key into `embedding_models`. We add `solar_passage` (corpus
+    indexing) and `solar_query` (query-time embedding).
+    """
+    api_key = os.environ.get("UPSTAGE_API_KEY") or settings.upstage_api_key
+    if not api_key:
+        raise RuntimeError("UPSTAGE_API_KEY missing — cannot register Solar embeddings")
+
+    embedding_models["solar_passage"] = LazyInit(
+        OpenAILikeEmbedding,
+        model_name="solar-embedding-1-large-passage",
+        api_base=settings.upstage_base_url,
+        api_key=api_key,
+        embed_batch_size=settings.embed_batch_size,
+    )
+    embedding_models["solar_query"] = LazyInit(
+        OpenAILikeEmbedding,
+        model_name="solar-embedding-1-large-query",
+        api_base=settings.upstage_base_url,
+        api_key=api_key,
+        embed_batch_size=settings.embed_batch_size,
+    )
+
+
 def _expand_env_yaml(src: Path) -> Path:
     """Expand ${VAR} placeholders in YAML and write to a temp copy."""
     text = src.read_text(encoding="utf-8")
@@ -69,6 +100,9 @@ def main() -> None:
     if not settings.upstage_api_key:
         raise SystemExit("UPSTAGE_API_KEY missing — set it in .env")
     os.environ["UPSTAGE_API_KEY"] = settings.upstage_api_key
+
+    _register_solar_embeddings()
+    log.info("registered Solar embeddings: solar_passage, solar_query")
 
     Path(args.project_dir).mkdir(parents=True, exist_ok=True)
 

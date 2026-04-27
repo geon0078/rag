@@ -19,7 +19,10 @@ import argparse
 import asyncio
 import json
 import os
+import platform
+import subprocess
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -27,6 +30,7 @@ import pandas as pd
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from src.config import settings  # noqa: E402
 from src.pipeline.rag_pipeline import RagPipeline  # noqa: E402
 from src.utils.logger import get_logger  # noqa: E402
 
@@ -34,6 +38,47 @@ log = get_logger("evaluate_ragas")
 
 QA_PATH = PROJECT_ROOT / "data" / "qa.parquet"
 DEFAULT_OUT_DIR = PROJECT_ROOT / "reports"
+
+
+def _git_commit() -> str | None:
+    try:
+        out = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            cwd=PROJECT_ROOT,
+            stderr=subprocess.DEVNULL,
+            timeout=2,
+        )
+        return out.decode().strip()
+    except Exception:
+        return None
+
+
+def _build_env_metadata(started_at: datetime) -> dict:
+    return {
+        "started_at": started_at.isoformat(timespec="seconds"),
+        "started_at_utc": started_at.astimezone(timezone.utc).isoformat(timespec="seconds"),
+        "git_commit": _git_commit(),
+        "platform": platform.platform(),
+        "python": sys.version.split()[0],
+        "config": {
+            "llm_model_pro": settings.llm_model_pro,
+            "llm_model_mini": settings.llm_model_mini,
+            "llm_temperature": settings.llm_temperature,
+            "embedding_model_query": settings.embedding_model_query,
+            "embedding_model_passage": settings.embedding_model_passage,
+            "qdrant_collection": settings.qdrant_collection,
+            "hybrid_method": settings.hybrid_method,
+            "hybrid_cc_weight": settings.hybrid_cc_weight,
+            "hybrid_cc_normalize": settings.hybrid_cc_normalize,
+            "top_k_dense": settings.top_k_dense,
+            "top_k_sparse": settings.top_k_sparse,
+            "top_k_rerank_final": settings.top_k_rerank_final,
+            "reranker_enabled": settings.reranker_enabled,
+            "reranker_model": settings.reranker_model if settings.reranker_enabled else None,
+            "default_campus": settings.default_campus,
+            "bm25_tokenizer": settings.bm25_tokenizer,
+        },
+    }
 
 
 async def _collect_samples(qa_df: pd.DataFrame, limit: int | None) -> list[dict]:
@@ -120,7 +165,7 @@ def _run_ragas(samples: list[dict]) -> pd.DataFrame:
     return df
 
 
-def _write_outputs(df: pd.DataFrame, out_dir: Path) -> dict:
+def _write_outputs(df: pd.DataFrame, out_dir: Path, env_meta: dict) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     metric_cols = [
@@ -128,8 +173,11 @@ def _write_outputs(df: pd.DataFrame, out_dir: Path) -> dict:
         for c in ["faithfulness", "answer_relevancy", "context_precision", "context_recall"]
         if c in df.columns
     ]
+    # Top-level keys preserved for backward compat with consumers that read
+    # `summary["faithfulness"]` etc. directly (e.g. scripts/generate_eval_report.py).
     summary = {col: float(df[col].mean()) for col in metric_cols}
     summary["n"] = int(len(df))
+    summary["meta"] = {**env_meta, "n_samples": int(len(df))}
 
     df.to_json(out_dir / "ragas_report.json", orient="records", force_ascii=False)
     (out_dir / "ragas_summary.json").write_text(
@@ -160,6 +208,10 @@ def main() -> int:
     qa_df = qa_df[qa_df["qa_type"] != "negative"].reset_index(drop=True)
     log.info(f"Evaluating {len(qa_df)} non-negative QAs")
 
+    started_at = datetime.now(timezone.utc).astimezone()
+    env_meta = _build_env_metadata(started_at)
+    log.info(f"Run metadata: started_at={env_meta['started_at']} commit={env_meta['git_commit']}")
+
     samples = asyncio.run(_collect_samples(qa_df, args.limit))
     if not samples:
         log.error("No samples collected; aborting")
@@ -167,10 +219,12 @@ def main() -> int:
     log.info(f"Collected {len(samples)} samples for RAGAS")
 
     df = _run_ragas(samples)
-    summary = _write_outputs(df, args.out_dir)
+    summary = _write_outputs(df, args.out_dir, env_meta)
 
     log.info("RAGAS aggregate scores:")
     for k, v in summary.items():
+        if k == "meta":
+            continue
         log.info(f"  {k}: {v}")
     return 0
 
