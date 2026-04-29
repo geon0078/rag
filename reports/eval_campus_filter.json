@@ -1,8 +1,36 @@
 {
-  "n": 17,
-  "correct": 17,
-  "accuracy": 1.0,
+  "n": 32,
+  "correct": 30,
+  "accuracy": 0.9375,
   "target": 1.0,
-  "passed": true,
-  "failures": []
+  "passed": false,
+  "failures": [
+    {
+      "qid": "870513e8-3927-42a4-b7e5-b6cc99567ee8",
+      "expected": "대전",
+      "got": [
+        "전체",
+        "성남",
+        "전체",
+        "전체",
+        "전체"
+      ]
+    },
+    {
+      "qid": "962ce767-c804-4aca-88c0-f07daad11bf5",
+      "expected": "대전",
+      "got": [
+        "전체",
+        "전체",
+        "전체",
+        "성남",
+        "성남",
+        "전체",
+        "성남",
+        "전체",
+        "전체",
+        "전체"
+      ]
+    }
+  ]
 }

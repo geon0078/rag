@@ -1,0 +1,5873 @@
+{
+  "meta": {
+    "started_at": "2026-04-29T06:45:01+09:00",
+    "finished_at": "2026-04-29T06:45:20+09:00",
+    "eval_set": "D:\\github\\eulGPT\\AI-ver-4\\data\\eval_dataset_250_manual.parquet",
+    "n": 250,
+    "n_errors": 250,
+    "onyx_base": "http://localhost:3010"
+  },
+  "retrieval": {
+    "overall": {
+      "n": 250.0,
+      "hit@5": 0.464,
+      "recall@5": 0.454,
+      "ndcg@5": 0.3797729893683602,
+      "hit@10": 0.532,
+      "recall@10": 0.518,
+      "ndcg@10": 0.4008473552216559,
+      "mrr": 0.36835079365079365
+    },
+    "by_collection": {
+      "강의평가": {
+        "n": 54.0,
+        "hit@5": 0.46296296296296297,
+        "recall@5": 0.46296296296296297,
+        "ndcg@5": 0.3138938133366071,
+        "hit@10": 0.5370370370370371,
+        "recall@10": 0.5277777777777778,
+        "ndcg@10": 0.33586629372625304,
+        "mrr": 0.27568342151675485
+      },
+      "학사정보": {
+        "n": 35.0,
+        "hit@5": 0.5714285714285714,
+        "recall@5": 0.5428571428571428,
+        "ndcg@5": 0.5043481932899719,
+        "hit@10": 0.6857142857142857,
+        "recall@10": 0.6571428571428571,
+        "ndcg@10": 0.5397451370642843,
+        "mrr": 0.508922902494331
+      },
+      "FAQ": {
+        "n": 17.0,
+        "hit@5": 0.47058823529411764,
+        "recall@5": 0.47058823529411764,
+        "ndcg@5": 0.43709862106314074,
+        "hit@10": 0.5294117647058824,
+        "recall@10": 0.5294117647058824,
+        "ndcg@10": 0.4556553785211248,
+        "mrr": 0.4338235294117647
+      },
+      "시설_연락처": {
+        "n": 37.0,
+        "hit@5": 0.6486486486486487,
+        "recall@5": 0.6486486486486487,
+        "ndcg@5": 0.6329654267337348,
+        "hit@10": 0.6486486486486487,
+        "recall@10": 0.6486486486486487,
+        "ndcg@10": 0.6329654267337348,
+        "mrr": 0.6306306306306306
+      },
+      "학사일정": {
+        "n": 10.0,
+        "hit@5": 0.5,
+        "recall@5": 0.5,
+        "ndcg@5": 0.4130929753571458,
+        "hit@10": 0.7,
+        "recall@10": 0.7,
+        "ndcg@10": 0.4797596420238124,
+        "mrr": 0.4119047619047619
+      },
+      "장학금": {
+        "n": 17.0,
+        "hit@5": 0.5882352941176471,
+        "recall@5": 0.5588235294117647,
+        "ndcg@5": 0.45081163149912373,
+        "hit@10": 0.5882352941176471,
+        "recall@10": 0.5588235294117647,
+        "ndcg@10": 0.45081163149912373,
+        "mrr": 0.4411764705882353
+      },
+      "교육과정": {
+        "n": 11.0,
+        "hit@5": 0.9090909090909091,
+        "recall@5": 0.8636363636363636,
+        "ndcg@5": 0.7186429076010895,
+        "hit@10": 0.9090909090909091,
+        "recall@10": 0.9090909090909091,
+        "ndcg@10": 0.7384981291300136,
+        "mrr": 0.6954545454545454
+      },
+      "학과정보": {
+        "n": 4.0,
+        "hit@5": 0.0,
+        "recall@5": 0.0,
+        "ndcg@5": 0.0,
+        "hit@10": 0.25,
+        "recall@10": 0.25,
+        "ndcg@10": 0.07886621919643219,
+        "mrr": 0.03125
+      },
+      "학칙_조항": {
+        "n": 56.0,
+        "hit@5": 0.14285714285714285,
+        "recall@5": 0.13392857142857142,
+        "ndcg@5": 0.07863830410070674,
+        "hit@10": 0.23214285714285715,
+        "recall@10": 0.20535714285714285,
+        "ndcg@10": 0.10233795826366797,
+        "mrr": 0.07296626984126985
+      },
+      "기타": {
+        "n": 9.0,
+        "hit@5": 0.6666666666666666,
+        "recall@5": 0.6666666666666666,
+        "ndcg@5": 0.5985392008038379,
+        "hit@10": 0.6666666666666666,
+        "recall@10": 0.6666666666666666,
+        "ndcg@10": 0.5985392008038379,
+        "mrr": 0.5777777777777778
+      }
+    }
+  },
+  "generation": {
+    "citation": 1.0,
+    "answered": 0.0
+  },
+  "rows": [
+    {
+      "qid": "a1b2c3d4-0001-4000-8000-000000000001",
+      "query": "글로벌문화영어 시험 어떻게 나와?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_0_c1"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_219",
+        "lec_lecture_reviews_0_c1",
+        "lec_lecture_reviews_0_c8",
+        "lec_lecture_reviews_0_c6",
+        "lec_lecture_reviews_0_c0",
+        "lec_lecture_reviews_0_c7",
+        "lec_lecture_reviews_0_c5",
+        "lec_lecture_reviews_0_c3",
+        "lec_lecture_reviews_0_c4",
+        "lec_lecture_reviews_0_c2"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0002-4000-8000-000000000002",
+      "query": "글로벌문화영어 과제 많아?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_0_c2"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_0_c2",
+        "lec_lecture_reviews_0_c3",
+        "lec_lecture_reviews_0_c1",
+        "lec_lecture_reviews_0_c0",
+        "lec_lecture_reviews_0_c7",
+        "lec_lecture_reviews_0_c5",
+        "lec_lecture_reviews_0_c4",
+        "lec_lecture_reviews_0_c6",
+        "lec_lecture_reviews_0_c8",
+        "lec_lecture_reviews_52_c2"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0003-4000-8000-000000000003",
+      "query": "경영학개론 팀플 있어?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_1_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_1_c9",
+        "lec_lecture_reviews_1_c7",
+        "lec_lecture_reviews_1_c3",
+        "lec_lecture_reviews_1_c6",
+        "lec_lecture_reviews_1_c2",
+        "lec_lecture_reviews_1_c0",
+        "lec_lecture_reviews_1_c8",
+        "lec_lecture_reviews_1_c1",
+        "lec_lecture_reviews_1_c4",
+        "lec_lecture_reviews_1_c5"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0004-4000-8000-000000000004",
+      "query": "경영학개론 학점 잘 줘?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_1_c5"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_1_c5",
+        "lec_lecture_reviews_1_c8",
+        "lec_lecture_reviews_1_c6",
+        "lec_lecture_reviews_1_c9",
+        "lec_lecture_reviews_1_c4",
+        "lec_lecture_reviews_1_c1",
+        "lec_lecture_reviews_1_c0",
+        "lec_lecture_reviews_1_c7",
+        "lec_lecture_reviews_1_c2",
+        "lec_lecture_reviews_1_c3"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0005-4000-8000-000000000005",
+      "query": "국토와자연의이해 사담 많아?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_2_c0"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_2_c18",
+        "lec_lecture_reviews_2_c12",
+        "lec_lecture_reviews_2_c21",
+        "lec_lecture_reviews_2_c16",
+        "lec_lecture_reviews_2_c9",
+        "lec_lecture_reviews_2_c11",
+        "lec_lecture_reviews_2_c5",
+        "lec_lecture_reviews_2_c8",
+        "lec_lecture_reviews_2_c7",
+        "lec_lecture_reviews_2_c23"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0006-4000-8000-000000000006",
+      "query": "국토와자연의이해 시험 어려워?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_2_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_2_c7",
+        "lec_lecture_reviews_2_c5",
+        "lec_lecture_reviews_2_c6",
+        "lec_lecture_reviews_2_c23",
+        "lec_lecture_reviews_2_c4",
+        "lec_lecture_reviews_2_c17",
+        "lec_lecture_reviews_2_c3",
+        "lec_lecture_reviews_2_c16",
+        "lec_lecture_reviews_2_c22",
+        "lec_lecture_reviews_2_c24"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0007-4000-8000-000000000007",
+      "query": "서양철학의이해 시험 범위 넓어?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_3_c6"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_3_c1",
+        "lec_lecture_reviews_3_c8",
+        "lec_lecture_reviews_3_c6",
+        "lec_lecture_reviews_3_c4",
+        "lec_lecture_reviews_3_c7",
+        "lec_lecture_reviews_3_c5",
+        "lec_lecture_reviews_3_c2",
+        "lec_lecture_reviews_3_c3",
+        "lec_lecture_reviews_3_c0",
+        "lec_lecture_reviews_84_c1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0008-4000-8000-000000000008",
+      "query": "실용영어청취및말하기 영어 못해도 돼?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_8_c7"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_8_c6",
+        "lec_lecture_reviews_8_c7",
+        "lec_lecture_reviews_8_c5",
+        "lec_lecture_reviews_8_c8",
+        "lec_lecture_reviews_8_c0",
+        "lec_lecture_reviews_8_c2",
+        "lec_lecture_reviews_8_c4",
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_269"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0009-4000-8000-000000000009",
+      "query": "한시의이해 학점 어떻게 받아?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_12_c21"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_212",
+        "lec_lecture_reviews_12_c12",
+        "lec_lecture_reviews_12_c10",
+        "lec_lecture_reviews_12_c9",
+        "lec_lecture_reviews_12_c11",
+        "lec_lecture_reviews_12_c19",
+        "lec_lecture_reviews_12_c5",
+        "lec_lecture_reviews_12_c14",
+        "lec_lecture_reviews_12_c7",
+        "lec_lecture_reviews_12_c6"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0010-4000-8000-000000000010",
+      "query": "젠더와미래사회 수업 재밌어?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_17_c5"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_17_c4",
+        "lec_lecture_reviews_17_c2",
+        "lec_lecture_reviews_17_c8",
+        "lec_lecture_reviews_17_c5",
+        "lec_lecture_reviews_17_c7",
+        "lec_lecture_reviews_17_c6",
+        "lec_lecture_reviews_17_c3",
+        "lec_lecture_reviews_17_c9",
+        "lec_lecture_reviews_17_c0",
+        "lec_lecture_reviews_17_c1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0011-4000-8000-000000000011",
+      "query": "한국문화탐구 암기 많아?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_20_c7"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_20_c8",
+        "lec_lecture_reviews_20_c6",
+        "lec_lecture_reviews_20_c0",
+        "lec_lecture_reviews_20_c4",
+        "lec_lecture_reviews_20_c7",
+        "lec_lecture_reviews_20_c5",
+        "lec_lecture_reviews_20_c3",
+        "lec_lecture_reviews_20_c1",
+        "lec_lecture_reviews_20_c2",
+        "lec_lecture_reviews_15_c13"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0012-4000-8000-000000000012",
+      "query": "인격개발과치유 힐링 돼?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_25_c5"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_269",
+        "lec_lecture_reviews_25_c7",
+        "lec_lecture_reviews_25_c5",
+        "lec_lecture_reviews_25_c3",
+        "lec_lecture_reviews_25_c6",
+        "lec_lecture_reviews_25_c1",
+        "lec_lecture_reviews_25_c4",
+        "lec_lecture_reviews_25_c0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0013-4000-8000-000000000013",
+      "query": "언어의이해 수업 어때?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_31_c0"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_31_c2",
+        "lec_lecture_reviews_31_c4",
+        "lec_lecture_reviews_31_c7",
+        "lec_lecture_reviews_31_c5",
+        "lec_lecture_reviews_31_c0",
+        "lec_lecture_reviews_31_c6",
+        "lec_lecture_reviews_31_c3",
+        "lec_lecture_reviews_31_c8",
+        "lec_lecture_reviews_31_c1",
+        "cal_calendar_24"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0014-4000-8000-000000000014",
+      "query": "광고와문화 출석 엄격해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_34_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_34_c3",
+        "lec_lecture_reviews_34_c6",
+        "lec_lecture_reviews_34_c7",
+        "lec_lecture_reviews_34_c5",
+        "lec_lecture_reviews_34_c2",
+        "lec_lecture_reviews_34_c0",
+        "lec_lecture_reviews_34_c8",
+        "lec_lecture_reviews_34_c1",
+        "lec_lecture_reviews_34_c4",
+        "학칙_학칙_대학_295"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0015-4000-8000-000000000015",
+      "query": "창의적발상과표현 출석 관리 어때?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_39_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_39_c3",
+        "lec_lecture_reviews_39_c6",
+        "lec_lecture_reviews_39_c0",
+        "lec_lecture_reviews_39_c7",
+        "lec_lecture_reviews_39_c5",
+        "lec_lecture_reviews_39_c1",
+        "lec_lecture_reviews_39_c8",
+        "lec_lecture_reviews_39_c4",
+        "lec_lecture_reviews_39_c2",
+        "si_static_info_126"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0016-4000-8000-000000000016",
+      "query": "다문화의이해 학점 경쟁 세?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_44_c7"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_44_c4",
+        "lec_lecture_reviews_44_c7",
+        "lec_lecture_reviews_44_c12",
+        "lec_lecture_reviews_44_c9",
+        "lec_lecture_reviews_44_c6",
+        "lec_lecture_reviews_44_c11",
+        "lec_lecture_reviews_44_c8",
+        "lec_lecture_reviews_44_c5",
+        "lec_lecture_reviews_44_c10",
+        "lec_lecture_reviews_44_c3"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0017-4000-8000-000000000017",
+      "query": "유럽지리와문화 시험 문제 어떤 유형이야?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_48_c2"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_48_c2",
+        "lec_lecture_reviews_48_c3",
+        "lec_lecture_reviews_48_c1",
+        "lec_lecture_reviews_48_c9",
+        "lec_lecture_reviews_48_c13",
+        "lec_lecture_reviews_48_c12",
+        "lec_lecture_reviews_48_c11",
+        "lec_lecture_reviews_48_c5",
+        "lec_lecture_reviews_48_c6",
+        "lec_lecture_reviews_48_c7"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0018-4000-8000-000000000018",
+      "query": "일본어회화1 학점 어때?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_60_c4"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_117",
+        "si_static_info_113",
+        "lec_lecture_reviews_50_c17",
+        "lec_lecture_reviews_82_c13",
+        "lec_lecture_reviews_102_c16",
+        "lec_lecture_reviews_32_c18",
+        "lec_lecture_reviews_18_c18",
+        "lec_lecture_reviews_95_c6",
+        "lec_lecture_reviews_18_c16",
+        "lec_lecture_reviews_12_c12"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0019-4000-8000-000000000019",
+      "query": "호신술 체력 필요해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_66_c23"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_66_c0",
+        "lec_lecture_reviews_66_c20",
+        "lec_lecture_reviews_66_c4",
+        "lec_lecture_reviews_66_c26",
+        "lec_lecture_reviews_66_c28",
+        "lec_lecture_reviews_66_c17",
+        "lec_lecture_reviews_66_c6",
+        "lec_lecture_reviews_66_c10",
+        "lec_lecture_reviews_66_c12",
+        "lec_lecture_reviews_66_c13"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0020-4000-8000-000000000020",
+      "query": "성공적인벤처창업입문 과제 어때?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_73_c9"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_73_c11",
+        "lec_lecture_reviews_73_c10",
+        "lec_lecture_reviews_73_c8",
+        "lec_lecture_reviews_73_c9",
+        "lec_lecture_reviews_73_c18",
+        "lec_lecture_reviews_73_c12",
+        "lec_lecture_reviews_73_c5",
+        "lec_lecture_reviews_73_c23",
+        "lec_lecture_reviews_73_c2",
+        "lec_lecture_reviews_73_c19"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0021-4000-8000-000000000021",
+      "query": "SF와인문학 어려워?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_79_c4"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_79_c8",
+        "lec_lecture_reviews_79_c5",
+        "lec_lecture_reviews_79_c4",
+        "lec_lecture_reviews_79_c6",
+        "lec_lecture_reviews_79_c3",
+        "lec_lecture_reviews_79_c7",
+        "lec_lecture_reviews_79_c2",
+        "lec_lecture_reviews_79_c9",
+        "lec_lecture_reviews_79_c0",
+        "lec_lecture_reviews_79_c1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0022-4000-8000-000000000022",
+      "query": "사회학개론 출석 엄격해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_89_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_89_c3",
+        "lec_lecture_reviews_89_c7",
+        "lec_lecture_reviews_89_c5",
+        "lec_lecture_reviews_89_c8",
+        "lec_lecture_reviews_89_c6",
+        "lec_lecture_reviews_89_c0",
+        "lec_lecture_reviews_89_c2",
+        "lec_lecture_reviews_89_c4",
+        "lec_lecture_reviews_89_c1",
+        "학칙_학칙_대학_295"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0023-4000-8000-000000000023",
+      "query": "동아시아문화의이해 수업 참여도 중요해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_96_c10"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_96_c10",
+        "lec_lecture_reviews_96_c20",
+        "lec_lecture_reviews_96_c12",
+        "lec_lecture_reviews_96_c3",
+        "lec_lecture_reviews_96_c2",
+        "lec_lecture_reviews_96_c0",
+        "lec_lecture_reviews_96_c13",
+        "lec_lecture_reviews_96_c18",
+        "lec_lecture_reviews_96_c6",
+        "lec_lecture_reviews_96_c9"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0024-4000-8000-000000000024",
+      "query": "진로탐색의이해 학점 받기 어려워?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_102_c13"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_102_c14",
+        "lec_lecture_reviews_102_c15",
+        "lec_lecture_reviews_102_c16",
+        "lec_lecture_reviews_102_c26",
+        "lec_lecture_reviews_102_c13",
+        "lec_lecture_reviews_102_c23",
+        "lec_lecture_reviews_102_c10",
+        "lec_lecture_reviews_102_c11",
+        "lec_lecture_reviews_102_c12",
+        "lec_lecture_reviews_102_c8"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0025-4000-8000-000000000025",
+      "query": "물리학 시험 어때?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_111_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_111_c7",
+        "lec_lecture_reviews_111_c3",
+        "lec_lecture_reviews_111_c1",
+        "lec_lecture_reviews_111_c10",
+        "lec_lecture_reviews_111_c2",
+        "lec_lecture_reviews_111_c9",
+        "lec_lecture_reviews_111_c5",
+        "lec_lecture_reviews_111_c8",
+        "lec_lecture_reviews_111_c0",
+        "lec_lecture_reviews_111_c4"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0026-4000-8000-000000000026",
+      "query": "수강취소하면 성적에 영향 있어?",
+      "expected_doc_ids": [
+        "si_static_info_268"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_268",
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_237",
+        "si_static_info_198",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_252"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0027-4000-8000-000000000027",
+      "query": "공결 신청 어떻게 해?",
+      "expected_doc_ids": [
+        "si_static_info_1"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_1",
+        "si_static_info_272",
+        "si_static_info_240",
+        "si_static_info_286_part0",
+        "si_static_info_321_part0",
+        "si_static_info_286_part1",
+        "si_static_info_321_part1",
+        "si_static_info_321_part2",
+        "si_static_info_308",
+        "si_static_info_309_part0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0028-4000-8000-000000000028",
+      "query": "기숙사 와이파이 어떻게 써?",
+      "expected_doc_ids": [
+        "si_static_info_7"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_247",
+        "si_static_info_58",
+        "si_static_info_224",
+        "si_static_info_66",
+        "si_static_info_56",
+        "si_static_info_52",
+        "si_static_info_88",
+        "si_static_info_31",
+        "si_static_info_252",
+        "si_static_info_248"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0029-4000-8000-000000000029",
+      "query": "학식당 어디야?",
+      "expected_doc_ids": [
+        "si_static_info_30"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_206",
+        "si_static_info_255",
+        "si_static_info_244",
+        "si_static_info_302",
+        "si_static_info_306",
+        "si_static_info_197",
+        "si_static_info_185",
+        "si_static_info_196",
+        "si_static_info_194"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0030-4000-8000-000000000030",
+      "query": "장학팀 전화번호 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_64"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_64",
+        "si_static_info_190",
+        "si_static_info_236",
+        "si_static_info_276",
+        "si_static_info_312",
+        "si_static_info_246",
+        "si_static_info_303",
+        "si_static_info_193",
+        "si_static_info_186",
+        "si_static_info_275"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0031-4000-8000-000000000031",
+      "query": "도서관 어디 있어?",
+      "expected_doc_ids": [
+        "si_static_info_45"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_237",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_293",
+        "si_static_info_185",
+        "si_static_info_298",
+        "si_static_info_296",
+        "si_static_info_299",
+        "si_static_info_187",
+        "si_static_info_297"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0032-4000-8000-000000000032",
+      "query": "보건실 어디야?",
+      "expected_doc_ids": [
+        "si_static_info_39"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_39",
+        "si_static_info_191",
+        "si_static_info_35",
+        "si_static_info_206",
+        "si_static_info_255",
+        "si_static_info_244",
+        "si_static_info_302",
+        "si_static_info_306",
+        "reg_regulations_23",
+        "si_static_info_197"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0033-4000-8000-000000000033",
+      "query": "개강이 언제야?",
+      "expected_doc_ids": [
+        "cal_calendar_9"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_238",
+        "si_static_info_242",
+        "si_static_info_204",
+        "si_static_info_267",
+        "si_static_info_218"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0034-4000-8000-000000000034",
+      "query": "수강신청 언제 해?",
+      "expected_doc_ids": [
+        "cal_calendar_7"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_219",
+        "si_static_info_111",
+        "si_static_info_40",
+        "si_static_info_118",
+        "si_static_info_128",
+        "cal_calendar_67",
+        "cal_calendar_7",
+        "si_static_info_142",
+        "reg_regulations_3",
+        "cal_calendar_32"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0035-4000-8000-000000000035",
+      "query": "졸업식 언제야?",
+      "expected_doc_ids": [
+        "cal_calendar_2"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_238",
+        "si_static_info_242",
+        "si_static_info_204",
+        "si_static_info_267",
+        "si_static_info_218"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0036-4000-8000-000000000036",
+      "query": "국가장학금 얼마나 받을 수 있어?",
+      "expected_doc_ids": [
+        "si_static_info_90"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_65",
+        "si_static_info_136",
+        "si_static_info_90",
+        "si_static_info_125",
+        "si_static_info_234",
+        "si_static_info_293",
+        "si_static_info_198",
+        "si_static_info_239",
+        "si_static_info_305",
+        "si_static_info_184"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0037-4000-8000-000000000037",
+      "query": "성적우수장학금 조건이 뭐야?",
+      "expected_doc_ids": [
+        "si_static_info_25"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_216",
+        "si_static_info_25",
+        "si_static_info_327",
+        "si_static_info_285",
+        "si_static_info_232",
+        "si_static_info_264",
+        "si_static_info_326",
+        "si_static_info_247",
+        "si_static_info_201",
+        "si_static_info_251"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0038-4000-8000-000000000038",
+      "query": "간호학과 교육과정 어디서 봐?",
+      "expected_doc_ids": [
+        "cur_curriculum_0"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_221",
+        "cur_curriculum_1",
+        "si_static_info_322",
+        "cur_curriculum_0",
+        "si_static_info_133",
+        "si_static_info_109",
+        "si_static_info_112",
+        "si_static_info_292",
+        "aca_academic_info_19_s1",
+        "aca_academic_info_19_s0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0039-4000-8000-000000000039",
+      "query": "방사선학과 어느 건물이야?",
+      "expected_doc_ids": [
+        "si_static_info_13"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_13",
+        "si_static_info_97",
+        "cur_curriculum_6",
+        "lec_lecture_reviews_101_c12",
+        "lec_lecture_reviews_60_c7",
+        "lec_lecture_reviews_54_c7",
+        "aca_academic_info_19_s2",
+        "aca_academic_info_12_s3_p1",
+        "si_static_info_187",
+        "lec_lecture_reviews_54_c4"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0040-4000-8000-000000000040",
+      "query": "치위생사 자격증 어떻게 따?",
+      "expected_doc_ids": [
+        "si_static_info_12"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292",
+        "si_static_info_29",
+        "si_static_info_122",
+        "si_static_info_278",
+        "si_static_info_114",
+        "si_static_info_280"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학과정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0041-4000-8000-000000000041",
+      "query": "학사경고 기준이 뭐야?",
+      "expected_doc_ids": [
+        "si_static_info_275"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_326",
+        "si_static_info_264",
+        "si_static_info_259",
+        "si_static_info_217_part0",
+        "si_static_info_217_part1",
+        "reg_regulations_47",
+        "학칙_학칙_대학_89",
+        "학칙_학칙_대학_319",
+        "si_static_info_275",
+        "학칙_학칙_대학_344"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0042-4000-8000-000000000042",
+      "query": "LMS 로그인 안 돼 어떻게 해?",
+      "expected_doc_ids": [
+        "si_static_info_269"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_269",
+        "si_static_info_175",
+        "si_static_info_304",
+        "si_static_info_214",
+        "si_static_info_52",
+        "si_static_info_121",
+        "si_static_info_295",
+        "si_static_info_288_part1",
+        "si_static_info_286_part1",
+        "si_static_info_286_part0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0043-4000-8000-000000000043",
+      "query": "복학 신청 어디서 해?",
+      "expected_doc_ids": [
+        "si_static_info_272"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_272",
+        "si_static_info_301",
+        "si_static_info_261",
+        "si_static_info_318_part1",
+        "si_static_info_318_part0",
+        "si_static_info_240",
+        "si_static_info_286_part0",
+        "si_static_info_321_part0",
+        "si_static_info_286_part1",
+        "si_static_info_321_part1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0044-4000-8000-000000000044",
+      "query": "카페 어느 건물이야?",
+      "expected_doc_ids": [
+        "si_static_info_28"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_28",
+        "si_static_info_238",
+        "si_static_info_96",
+        "lec_lecture_reviews_101_c12",
+        "lec_lecture_reviews_60_c7",
+        "lec_lecture_reviews_54_c7",
+        "si_static_info_152",
+        "si_static_info_61",
+        "si_static_info_187",
+        "lec_lecture_reviews_54_c4"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0045-4000-8000-000000000045",
+      "query": "편의점 어디 있어?",
+      "expected_doc_ids": [
+        "si_static_info_51"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_237",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_185",
+        "si_static_info_187",
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_198"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0046-4000-8000-000000000046",
+      "query": "빅데이터학과 전화번호 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_17"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_17",
+        "si_static_info_190",
+        "si_static_info_236",
+        "si_static_info_276",
+        "si_static_info_312",
+        "si_static_info_246",
+        "si_static_info_303",
+        "si_static_info_193",
+        "si_static_info_186",
+        "si_static_info_275"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0047-4000-8000-000000000047",
+      "query": "학생상담센터 어디야?",
+      "expected_doc_ids": [
+        "si_static_info_95"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_95",
+        "si_static_info_206",
+        "si_static_info_255",
+        "si_static_info_244",
+        "si_static_info_302",
+        "si_static_info_306",
+        "si_static_info_308",
+        "si_static_info_35",
+        "si_static_info_197",
+        "si_static_info_185"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0048-4000-8000-000000000048",
+      "query": "수강정정 언제야?",
+      "expected_doc_ids": [
+        "si_static_info_267"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_267",
+        "cal_calendar_10",
+        "cal_calendar_36",
+        "si_static_info_147",
+        "si_static_info_238",
+        "si_static_info_242",
+        "si_static_info_204",
+        "si_static_info_218",
+        "si_static_info_262_part4",
+        "si_static_info_266"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0049-4000-8000-000000000049",
+      "query": "폐강 기준이 뭐야?",
+      "expected_doc_ids": [
+        "si_static_info_264"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_264",
+        "si_static_info_326",
+        "si_static_info_259",
+        "si_static_info_217_part0",
+        "si_static_info_217_part1",
+        "si_static_info_166",
+        "si_static_info_327",
+        "si_static_info_151",
+        "si_static_info_285",
+        "si_static_info_232"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0050-4000-8000-000000000050",
+      "query": "과학기술문명론 시험 준비 어떻게 해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_50_c28"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_309_part0",
+        "si_static_info_278",
+        "si_static_info_280",
+        "si_static_info_272",
+        "si_static_info_253",
+        "si_static_info_317",
+        "si_static_info_240",
+        "si_static_info_295",
+        "si_static_info_308",
+        "si_static_info_288_part3"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0051-4000-8000-000000000051",
+      "query": "글로벌문화영어는 팝송을 어떻게 활용하여 영어 교육을 진행하나요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_0_c0"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_16",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_29",
+        "si_static_info_122",
+        "si_static_info_114",
+        "si_static_info_151",
+        "si_static_info_179",
+        "si_static_info_42",
+        "si_static_info_323"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0052-4000-8000-000000000052",
+      "query": "경영학개론에서 좋은 학점을 취득하기 위한 핵심 전략은 무엇인가요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_1_c9"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_225",
+        "si_static_info_144",
+        "si_static_info_48",
+        "lec_lecture_reviews_69_c8",
+        "학칙_학칙_대학_286",
+        "lec_lecture_reviews_38_c4",
+        "lec_lecture_reviews_68_c8",
+        "lec_lecture_reviews_13_c4",
+        "lec_lecture_reviews_69_c4",
+        "lec_lecture_reviews_85_c4"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0053-4000-8000-000000000053",
+      "query": "국토와자연의이해 수업에서 시험은 어떤 방식으로 출제되나요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_2_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_2_c12",
+        "lec_lecture_reviews_2_c21",
+        "lec_lecture_reviews_2_c9",
+        "lec_lecture_reviews_2_c16",
+        "lec_lecture_reviews_2_c11",
+        "lec_lecture_reviews_2_c7",
+        "lec_lecture_reviews_2_c5",
+        "lec_lecture_reviews_2_c8",
+        "lec_lecture_reviews_2_c19",
+        "lec_lecture_reviews_2_c23"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0054-4000-8000-000000000054",
+      "query": "국가장학금 I유형 신청 요건을 알고 싶습니다",
+      "expected_doc_ids": [
+        "si_static_info_90"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_90",
+        "si_static_info_125",
+        "si_static_info_65",
+        "si_static_info_136",
+        "si_static_info_218",
+        "cal_calendar_21",
+        "cal_calendar_49",
+        "si_static_info_281",
+        "si_static_info_201",
+        "si_static_info_240"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0055-4000-8000-000000000055",
+      "query": "수강 정정 가능 시기는 언제인가요?",
+      "expected_doc_ids": [
+        "si_static_info_267"
+      ],
+      "retrieved_doc_ids": [
+        "cal_calendar_26",
+        "cal_calendar_54",
+        "si_static_info_125",
+        "학칙_학칙_대학_332",
+        "si_static_info_75",
+        "si_static_info_23",
+        "si_static_info_262_part4",
+        "si_static_info_266",
+        "lec_lecture_reviews_2_c22",
+        "reg_regulations_82"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0056-4000-8000-000000000056",
+      "query": "재학연한은 최대 몇 년까지 허용되나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_11"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_202",
+        "si_static_info_24",
+        "si_static_info_241",
+        "si_static_info_48",
+        "si_static_info_68",
+        "si_static_info_113",
+        "si_static_info_140",
+        "학칙_학칙_대학_11",
+        "reg_regulations_71",
+        "si_static_info_82"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0057-4000-8000-000000000057",
+      "query": "을지대 성남캠퍼스에 가려면 대중교통으로 어떻게 가나요?",
+      "expected_doc_ids": [
+        "si_static_info_3"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_240",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292",
+        "si_static_info_29",
+        "si_static_info_122",
+        "si_static_info_278",
+        "si_static_info_114"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0058-4000-8000-000000000058",
+      "query": "한 학기에 신청 가능한 최대 학점은 몇 학점인가요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_78"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_24",
+        "si_static_info_202",
+        "si_static_info_241",
+        "si_static_info_68",
+        "si_static_info_48",
+        "si_static_info_113",
+        "si_static_info_185",
+        "si_static_info_140",
+        "si_static_info_208_part1",
+        "si_static_info_11"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0059-4000-8000-000000000059",
+      "query": "전과 신청은 어떤 절차로 이루어지나요?",
+      "expected_doc_ids": [
+        "si_static_info_273"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_63",
+        "aca_academic_info_15_s0",
+        "aca_academic_info_15_s2",
+        "aca_academic_info_15_s1",
+        "aca_academic_info_15_s3",
+        "aca_academic_info_15_s4",
+        "aca_academic_info_15_s5",
+        "si_static_info_273",
+        "si_static_info_308",
+        "si_static_info_1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0060-4000-8000-000000000060",
+      "query": "수업을 1년 이상 쉬고 싶은데 가능한가요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_60"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_177",
+        "si_static_info_227",
+        "si_static_info_62",
+        "학칙_학칙_대학_271",
+        "aca_academic_info_1_s2",
+        "reg_regulations_81_part1",
+        "si_static_info_104",
+        "aca_academic_info_1_s0",
+        "학칙_학칙_대학_96",
+        "reg_regulations_39"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0061-4000-8000-000000000061",
+      "query": "일본어회화1은 초보자도 들을 수 있나요? 그리고 학점은 잘 주나요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_60_c4"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96",
+        "si_static_info_135",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0062-4000-8000-000000000062",
+      "query": "학생식당 위치와 전화번호가 어떻게 돼?",
+      "expected_doc_ids": [
+        "si_static_info_30"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_30",
+        "si_static_info_221",
+        "si_static_info_269",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0063-4000-8000-000000000063",
+      "query": "수강신청은 언제이고 어디서 해?",
+      "expected_doc_ids": [
+        "si_static_info_262_part3"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_301",
+        "si_static_info_261",
+        "si_static_info_318_part0",
+        "si_static_info_318_part1",
+        "si_static_info_103",
+        "si_static_info_254",
+        "si_static_info_221",
+        "si_static_info_311_part0",
+        "si_static_info_23",
+        "si_static_info_310_part0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0064-4000-8000-000000000064",
+      "query": "국가장학금과 성적우수장학금의 신청 자격이 어떻게 달라?",
+      "expected_doc_ids": [
+        "si_static_info_90",
+        "si_static_info_25"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_201",
+        "si_static_info_240",
+        "si_static_info_272",
+        "si_static_info_286_part0",
+        "si_static_info_286_part1",
+        "si_static_info_321_part0",
+        "si_static_info_321_part1",
+        "si_static_info_321_part2",
+        "si_static_info_60",
+        "cal_calendar_21"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0065-4000-8000-000000000065",
+      "query": "휴학은 어떻게 신청하고 최대 몇 년까지 가능해?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_60"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_241",
+        "si_static_info_202",
+        "si_static_info_24",
+        "si_static_info_233",
+        "si_static_info_289",
+        "si_static_info_266",
+        "si_static_info_298",
+        "si_static_info_235",
+        "si_static_info_248",
+        "si_static_info_215"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0066-4000-8000-000000000066",
+      "query": "학사경고를 3번 연속으로 받으면 어떻게 되고 기준은 뭐야?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_89",
+        "학칙_학칙_대학_69"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_224",
+        "si_static_info_126",
+        "si_static_info_264",
+        "si_static_info_217_part1",
+        "si_static_info_327",
+        "si_static_info_285",
+        "si_static_info_232",
+        "si_static_info_326",
+        "si_static_info_247",
+        "si_static_info_201"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0067-4000-8000-000000000067",
+      "query": "복수전공을 하려면 최소 몇 학점을 이수해야 하고 부전공은 어때?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_100"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_48",
+        "si_static_info_241",
+        "si_static_info_68",
+        "si_static_info_113",
+        "si_static_info_202",
+        "si_static_info_24",
+        "si_static_info_77",
+        "si_static_info_181",
+        "lec_lecture_reviews_63_c16",
+        "lec_lecture_reviews_63_c21"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0068-4000-8000-000000000068",
+      "query": "진로상담센터 위치와 운영시간이 어떻게 돼?",
+      "expected_doc_ids": [
+        "si_static_info_310_part1"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_269",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292",
+        "si_static_info_29",
+        "si_static_info_122"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0069-4000-8000-000000000069",
+      "query": "수강바구니와 본 수강신청의 차이가 뭐고 수강바구니는 선착순이야?",
+      "expected_doc_ids": [
+        "si_static_info_262_part1",
+        "si_static_info_262_part2"
+      ],
+      "retrieved_doc_ids": [
+        "학칙_학칙_대학_252",
+        "학칙_학칙_대학_256",
+        "si_static_info_105",
+        "si_static_info_262_part2",
+        "si_static_info_262_part1",
+        "aca_academic_info_5_s5",
+        "학칙_학칙_대학_233",
+        "si_static_info_262_part3",
+        "reg_regulations_16_part1",
+        "si_static_info_262_part5"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0070-4000-8000-000000000070",
+      "query": "계절학기 신청 방법과 학점 제한은 어떻게 돼?",
+      "expected_doc_ids": [
+        "si_static_info_11"
+      ],
+      "retrieved_doc_ids": [
+        "cal_calendar_21",
+        "cal_calendar_49",
+        "si_static_info_274",
+        "si_static_info_11",
+        "si_static_info_214",
+        "si_static_info_304",
+        "cal_calendar_24",
+        "cal_calendar_52",
+        "si_static_info_240",
+        "si_static_info_272"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0071-4000-8000-000000000071",
+      "query": "을지대 학생이 졸업하려면 몇 학점이 필요하고 재학 기간은 얼마나 돼야 해?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_96"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_48",
+        "si_static_info_125",
+        "si_static_info_147",
+        "si_static_info_241",
+        "si_static_info_181",
+        "si_static_info_68",
+        "si_static_info_113",
+        "si_static_info_202",
+        "si_static_info_24",
+        "si_static_info_240"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0072-4000-8000-000000000072",
+      "query": "평점이 1.4인 학생이 이번 학기에 24학점을 신청하려면 가능해?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_78",
+        "학칙_학칙_대학_89"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_233",
+        "si_static_info_289",
+        "si_static_info_266",
+        "si_static_info_298",
+        "si_static_info_235",
+        "si_static_info_248",
+        "si_static_info_241",
+        "si_static_info_256",
+        "si_static_info_215",
+        "si_static_info_210"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0073-4000-8000-000000000073",
+      "query": "군복무 중에도 학점을 취득할 수 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_85"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96",
+        "si_static_info_135",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0074-4000-8000-000000000074",
+      "query": "국가근로장학금 시급은 얼마야? 그리고 소득 요건은 어떻게 돼?",
+      "expected_doc_ids": [
+        "si_static_info_131"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_131",
+        "si_static_info_200",
+        "si_static_info_287",
+        "si_static_info_300",
+        "si_static_info_257",
+        "si_static_info_222",
+        "si_static_info_269",
+        "si_static_info_199"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0075-4000-8000-000000000075",
+      "query": "3회 연속 학사경고를 받은 학생이 바로 제적되나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_91"
+      ],
+      "retrieved_doc_ids": [
+        "학칙_학칙_대학_319",
+        "si_static_info_275",
+        "reg_regulations_49",
+        "학칙_학칙_대학_91",
+        "reg_regulations_4",
+        "학칙_학칙_대학_69",
+        "si_static_info_276",
+        "학칙_학칙_대학_273",
+        "reg_regulations_94",
+        "si_static_info_322"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0076-4000-8000-000000000076",
+      "query": "을지대에서 복수전공을 이수한 학생의 졸업 학점 조건은 어떻게 달라지나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_96",
+        "학칙_학칙_대학_100"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_181",
+        "학칙_학칙_대학_328",
+        "si_static_info_29",
+        "si_static_info_77",
+        "si_static_info_321_part1",
+        "si_static_info_176",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "학칙_학칙_대학_100"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0077-4000-8000-000000000077",
+      "query": "수강신청 대기 순번을 실시간으로 확인할 수 있나요?",
+      "expected_doc_ids": [
+        "si_static_info_265"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_265",
+        "si_static_info_180",
+        "si_static_info_74",
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96",
+        "cal_calendar_67"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0078-4000-8000-000000000078",
+      "query": "수강취소 후 그 과목을 다음 학기에 다시 수강하면 성적에 불이익이 있나요?",
+      "expected_doc_ids": [
+        "si_static_info_268"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_24",
+        "si_static_info_266",
+        "si_static_info_140",
+        "si_static_info_173",
+        "si_static_info_35",
+        "si_static_info_170",
+        "si_static_info_176",
+        "si_static_info_96",
+        "si_static_info_74",
+        "si_static_info_268"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0079-4000-8000-000000000079",
+      "query": "학점은행제로 학사학위를 취득한 사람이 을지대에서 복수전공을 이수하려면 어떤 조건을 충족해야 해?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_97",
+        "학칙_학칙_대학_100"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_173",
+        "si_static_info_324",
+        "si_static_info_170",
+        "si_static_info_223",
+        "si_static_info_301",
+        "si_static_info_135",
+        "si_static_info_278",
+        "si_static_info_280",
+        "si_static_info_7",
+        "si_static_info_272"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0080-4000-8000-000000000080",
+      "query": "글로벌문화영어는 이런 거야: 팝송 기반 수업인데 학점은 후해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_0_c1,lec_lecture_reviews_0_c2"
+      ],
+      "retrieved_doc_ids": [
+        "aca_academic_info_12_s3_p1",
+        "aca_academic_info_12_s1",
+        "lec_lecture_reviews_0_c0",
+        "lec_lecture_reviews_67_c3",
+        "si_static_info_209_part6",
+        "si_static_info_320_part0",
+        "lec_lecture_reviews_0_c8",
+        "lec_lecture_reviews_0_c2",
+        "학칙_학칙_대학_269",
+        "lec_lecture_reviews_8_c1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0081-4000-8000-000000000081",
+      "query": "그 장학금은 어떻게 받을 수 있어요? (성적우수)",
+      "expected_doc_ids": [
+        "si_static_info_25"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_212",
+        "si_static_info_214",
+        "si_static_info_134",
+        "si_static_info_29",
+        "si_static_info_16",
+        "si_static_info_42",
+        "si_static_info_278",
+        "si_static_info_34",
+        "si_static_info_203",
+        "si_static_info_126"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0082-4000-8000-000000000082",
+      "query": "이거 어디서 신청해? (수강신청)",
+      "expected_doc_ids": [
+        "si_static_info_262_part3"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_207",
+        "cal_calendar_67",
+        "cal_calendar_7",
+        "si_static_info_301",
+        "reg_regulations_3",
+        "si_static_info_254",
+        "cal_calendar_32",
+        "학칙_학칙_대학_54",
+        "si_static_info_221",
+        "si_static_info_311_part0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0083-4000-8000-000000000083",
+      "query": "그 기간이 언제야? (수강바구니)",
+      "expected_doc_ids": [
+        "cal_calendar_0"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_267",
+        "cal_calendar_31",
+        "cal_calendar_0",
+        "cal_calendar_4",
+        "cal_calendar_61",
+        "cal_calendar_63",
+        "si_static_info_238",
+        "si_static_info_242",
+        "si_static_info_204",
+        "si_static_info_218"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0084-4000-8000-000000000084",
+      "query": "그거 어디 있어? (기숙사 관리실)",
+      "expected_doc_ids": [
+        "si_static_info_31"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_31",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_237",
+        "si_static_info_185",
+        "si_static_info_252",
+        "si_static_info_88",
+        "si_static_info_187",
+        "si_static_info_127",
+        "si_static_info_247"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0085-4000-8000-000000000085",
+      "query": "재학생의 수업 기간이 몇 년이야? (수업연한)",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_9"
+      ],
+      "retrieved_doc_ids": [
+        "reg_regulations_84",
+        "학칙_학칙_대학_9",
+        "si_static_info_267",
+        "si_static_info_241",
+        "si_static_info_68",
+        "si_static_info_48",
+        "si_static_info_113",
+        "si_static_info_202",
+        "si_static_info_24",
+        "cal_calendar_24"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0086-4000-8000-000000000086",
+      "query": "거기는 몇 층이야? (학생지원팀)",
+      "expected_doc_ids": [
+        "si_static_info_41"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_41",
+        "si_static_info_202",
+        "si_static_info_241",
+        "si_static_info_48",
+        "si_static_info_68",
+        "si_static_info_113",
+        "si_static_info_24",
+        "si_static_info_317",
+        "si_static_info_281",
+        "si_static_info_219"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0087-4000-8000-000000000087",
+      "query": "그 과목 온라인이야 오프라인이야? (과학기술문명론)",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_50_c28"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_230",
+        "lec_lecture_reviews_76_c7",
+        "lec_lecture_reviews_76_c5",
+        "lec_lecture_reviews_76_c3",
+        "lec_lecture_reviews_76_c8",
+        "lec_lecture_reviews_76_c0",
+        "lec_lecture_reviews_76_c6",
+        "lec_lecture_reviews_76_c1",
+        "lec_lecture_reviews_76_c2",
+        "lec_lecture_reviews_76_c4"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0088-4000-8000-000000000088",
+      "query": "경영학개론은 수업 내용이 지루하다는 평이 있는 PPT 강의로 진행되며 팀플 과제가 중간고사를 대신하는 구조인가요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_1_c1",
+        "lec_lecture_reviews_1_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_47_c2",
+        "lec_lecture_reviews_108_c0",
+        "lec_lecture_reviews_47_c0",
+        "lec_lecture_reviews_27_c0",
+        "lec_lecture_reviews_59_c0",
+        "lec_lecture_reviews_47_c3",
+        "lec_lecture_reviews_1_c3",
+        "lec_lecture_reviews_0_c0",
+        "lec_lecture_reviews_56_c6",
+        "lec_lecture_reviews_12_c15"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0089-4000-8000-000000000089",
+      "query": "학칙에서 한 학기 최소 이수 학점 기준이 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_78"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_24",
+        "si_static_info_217_part0",
+        "si_static_info_173",
+        "si_static_info_217_part1",
+        "si_static_info_35",
+        "si_static_info_170",
+        "si_static_info_326",
+        "si_static_info_264",
+        "si_static_info_96",
+        "si_static_info_166"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0090-4000-8000-000000000090",
+      "query": "기숙사 환불 규정에 대해 알고 싶어요",
+      "expected_doc_ids": [
+        "si_static_info_6"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_31",
+        "si_static_info_88",
+        "si_static_info_252",
+        "si_static_info_247",
+        "si_static_info_248",
+        "si_static_info_256",
+        "si_static_info_251",
+        "si_static_info_258",
+        "si_static_info_226",
+        "si_static_info_166"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0091-4000-8000-000000000091",
+      "query": "학교 행사에 기여한 학생에게 주는 장학금이 있나요?",
+      "expected_doc_ids": [
+        "si_static_info_124"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_96",
+        "si_static_info_173",
+        "si_static_info_35",
+        "si_static_info_170",
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_135",
+        "si_static_info_140",
+        "si_static_info_142",
+        "si_static_info_24"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0092-4000-8000-000000000092",
+      "query": "을지대 성남캠퍼스의 주소를 알고 싶습니다",
+      "expected_doc_ids": [
+        "si_static_info_3"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_319",
+        "si_static_info_96",
+        "lec_lecture_reviews_60_c4",
+        "si_static_info_143",
+        "si_static_info_61",
+        "si_static_info_142",
+        "si_static_info_240",
+        "si_static_info_262_part5"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0093-4000-8000-000000000093",
+      "query": "고등학교 재학 중 대학 연계 심화과정(UP)을 이수한 경우 학점을 인정받을 수 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_83"
+      ],
+      "retrieved_doc_ids": [
+        "학칙_학칙_대학_83",
+        "reg_regulations_16_part1",
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0094-4000-8000-000000000094",
+      "query": "심리상담은 어떤 방식으로 받을 수 있나요?",
+      "expected_doc_ids": [
+        "si_static_info_308"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_135",
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_35",
+        "si_static_info_96",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0095-4000-8000-000000000095",
+      "query": "에타 재학생 인증하면 어떤 혜택이 생겨?",
+      "expected_doc_ids": [
+        "si_static_info_4"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_4",
+        "si_static_info_128",
+        "cal_calendar_10",
+        "cal_calendar_31",
+        "cal_calendar_36",
+        "cal_calendar_0",
+        "cal_calendar_4",
+        "cal_calendar_61",
+        "cal_calendar_63",
+        "cal_calendar_51"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0096-4000-8000-000000000096",
+      "query": "학생증 어떻게 발급받아?",
+      "expected_doc_ids": [
+        "si_static_info_16"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_317",
+        "si_static_info_319",
+        "si_static_info_320_part0",
+        "si_static_info_320_part1",
+        "si_static_info_318_part1",
+        "si_static_info_318_part0",
+        "si_static_info_29",
+        "si_static_info_16",
+        "si_static_info_122",
+        "si_static_info_291_part2"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0097-4000-8000-000000000097",
+      "query": "셔틀버스 있어?",
+      "expected_doc_ids": [
+        "si_static_info_303"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_303",
+        "si_static_info_304",
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_237",
+        "si_static_info_198",
+        "si_static_info_245",
+        "si_static_info_249"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0098-4000-8000-000000000098",
+      "query": "자전거 보관소 있어?",
+      "expected_doc_ids": [
+        "si_static_info_305"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_305",
+        "si_static_info_255",
+        "si_static_info_302",
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_237",
+        "si_static_info_198",
+        "si_static_info_245"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0099-4000-8000-000000000099",
+      "query": "교내에서 킥보드 타도 돼?",
+      "expected_doc_ids": [
+        "si_static_info_307"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_307",
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_269"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0100-4000-8000-000000000100",
+      "query": "성적 어디서 확인해?",
+      "expected_doc_ids": [
+        "si_static_info_23"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_23",
+        "si_static_info_323",
+        "si_static_info_265",
+        "si_static_info_311_part0",
+        "si_static_info_301",
+        "si_static_info_254",
+        "si_static_info_221",
+        "si_static_info_310_part0",
+        "si_static_info_226",
+        "si_static_info_311_part1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0101-4000-8000-000000000101",
+      "query": "재학증명서 발급받고 싶은데 어떻게 해?",
+      "expected_doc_ids": [
+        "si_static_info_315_part0"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_278",
+        "si_static_info_280",
+        "si_static_info_272",
+        "si_static_info_253",
+        "si_static_info_317",
+        "si_static_info_240",
+        "si_static_info_295",
+        "si_static_info_308",
+        "si_static_info_288_part3",
+        "si_static_info_314_part0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0102-4000-8000-000000000102",
+      "query": "졸업증명서는 어떻게 발급해?",
+      "expected_doc_ids": [
+        "si_static_info_314_part0"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_314_part0",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292",
+        "si_static_info_29",
+        "si_static_info_122",
+        "si_static_info_278",
+        "si_static_info_114"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0103-4000-8000-000000000103",
+      "query": "영어청취수업 가산점 없으면 추천해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_8_c7"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_70",
+        "si_static_info_61",
+        "si_static_info_277",
+        "lec_lecture_reviews_12_c9",
+        "si_static_info_199",
+        "lec_lecture_reviews_56_c3",
+        "lec_lecture_reviews_21_c4",
+        "lec_lecture_reviews_7_c4",
+        "lec_lecture_reviews_13_c6",
+        "lec_lecture_reviews_23_c6"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0104-4000-8000-000000000104",
+      "query": "환경과인간 어떤 수업이야?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_0_c0"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_116_c5",
+        "lec_lecture_reviews_116_c7",
+        "lec_lecture_reviews_116_c9",
+        "lec_lecture_reviews_116_c4",
+        "lec_lecture_reviews_116_c1",
+        "lec_lecture_reviews_116_c8",
+        "lec_lecture_reviews_116_c10",
+        "lec_lecture_reviews_116_c3",
+        "lec_lecture_reviews_116_c0",
+        "lec_lecture_reviews_116_c2"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0105-4000-8000-000000000105",
+      "query": "이수학점 부족하면 어떻게 돼?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_86"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_181",
+        "si_static_info_214",
+        "si_static_info_304",
+        "reg_regulations_79_part1",
+        "학칙_학칙_대학_78",
+        "reg_regulations_79_part0",
+        "si_static_info_269",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0106-4000-8000-000000000106",
+      "query": "자퇴하려면 어떻게 해야 해?",
+      "expected_doc_ids": [
+        "si_static_info_274"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_309_part1",
+        "si_static_info_278",
+        "si_static_info_280",
+        "si_static_info_272",
+        "si_static_info_253",
+        "si_static_info_317",
+        "si_static_info_240",
+        "si_static_info_295",
+        "si_static_info_308",
+        "si_static_info_288_part3"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0107-4000-8000-000000000107",
+      "query": "편입학 조건이 어떻게 돼?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_43"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_304",
+        "si_static_info_214",
+        "si_static_info_216",
+        "si_static_info_269",
+        "reg_regulations_56",
+        "학칙_학칙_대학_43",
+        "학칙_학칙_대학_218",
+        "학칙_학칙_대학_215",
+        "학칙_학칙_대학_216",
+        "reg_regulations_40"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0108-4000-8000-000000000108",
+      "query": "입학식은 꼭 가야 해?",
+      "expected_doc_ids": [
+        "si_static_info_19"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_19",
+        "si_static_info_182",
+        "si_static_info_301",
+        "si_static_info_278",
+        "si_static_info_280",
+        "si_static_info_272",
+        "si_static_info_253",
+        "si_static_info_317",
+        "si_static_info_240",
+        "si_static_info_295"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0109-4000-8000-000000000109",
+      "query": "근로장학금 신청하고 싶은데 어디서 공고가 나?",
+      "expected_doc_ids": [
+        "si_static_info_15"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_200",
+        "si_static_info_204",
+        "si_static_info_202",
+        "si_static_info_301",
+        "si_static_info_254",
+        "si_static_info_221",
+        "si_static_info_311_part0",
+        "si_static_info_23",
+        "si_static_info_310_part0",
+        "si_static_info_226"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0110-4000-8000-000000000110",
+      "query": "학자금 대출받으면 등록금이 내 계좌로 와?",
+      "expected_doc_ids": [
+        "si_static_info_2"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_2",
+        "si_static_info_296",
+        "si_static_info_209_part0",
+        "si_static_info_43",
+        "학칙_학칙_대학_303",
+        "lec_lecture_reviews_99_c4",
+        "si_static_info_316_part0",
+        "si_static_info_203",
+        "si_static_info_316_part1",
+        "si_static_info_204"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0111-4000-8000-000000000111",
+      "query": "안경광학과는 어느 건물 몇 층이야?",
+      "expected_doc_ids": [
+        "si_static_info_84"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_195",
+        "si_static_info_241",
+        "si_static_info_48",
+        "si_static_info_68",
+        "si_static_info_113",
+        "si_static_info_202",
+        "si_static_info_24",
+        "lec_lecture_reviews_101_c12",
+        "lec_lecture_reviews_60_c7",
+        "lec_lecture_reviews_54_c7"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0112-4000-8000-000000000112",
+      "query": "임상병리학과 연락처 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_72"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_72",
+        "si_static_info_130",
+        "cur_curriculum_2",
+        "cur_curriculum_3",
+        "si_static_info_220",
+        "si_static_info_236",
+        "si_static_info_246",
+        "si_static_info_279",
+        "si_static_info_282",
+        "si_static_info_281"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0113-4000-8000-000000000113",
+      "query": "산학협력단이 어디 있어?",
+      "expected_doc_ids": [
+        "si_static_info_18"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_237",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_185",
+        "si_static_info_187",
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_198"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0114-4000-8000-000000000114",
+      "query": "교수학습개발센터 연락처가 어떻게 돼?",
+      "expected_doc_ids": [
+        "si_static_info_37"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_37",
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_251",
+        "si_static_info_269",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0115-4000-8000-000000000115",
+      "query": "입학홍보처 전화번호 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_79"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_79",
+        "si_static_info_190",
+        "si_static_info_236",
+        "si_static_info_276",
+        "si_static_info_312",
+        "si_static_info_246",
+        "si_static_info_303",
+        "si_static_info_193",
+        "si_static_info_186",
+        "si_static_info_275"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0116-4000-8000-000000000116",
+      "query": "취업 후 상환 학자금대출은 누가 받을 수 있어?",
+      "expected_doc_ids": [
+        "si_static_info_59"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_59",
+        "si_static_info_5",
+        "si_static_info_305",
+        "si_static_info_234",
+        "si_static_info_293",
+        "si_static_info_198",
+        "si_static_info_239",
+        "si_static_info_184",
+        "si_static_info_187",
+        "si_static_info_183"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0117-4000-8000-000000000117",
+      "query": "봉사활동 열심히 하면 장학금 받을 수 있어?",
+      "expected_doc_ids": [
+        "si_static_info_101"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_68",
+        "si_static_info_121",
+        "si_static_info_81",
+        "si_static_info_56",
+        "reg_regulations_66",
+        "학칙_학칙_대학_150",
+        "si_static_info_212",
+        "si_static_info_234",
+        "si_static_info_293",
+        "si_static_info_198"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0118-4000-8000-000000000118",
+      "query": "복지장학금은 어떻게 받아?",
+      "expected_doc_ids": [
+        "si_static_info_76"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_212",
+        "si_static_info_254",
+        "si_static_info_311_part0",
+        "si_static_info_310_part0",
+        "si_static_info_311_part1",
+        "si_static_info_310_part1",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0119-4000-8000-000000000119",
+      "query": "임상병리학과 교육과정 어디서 봐?",
+      "expected_doc_ids": [
+        "cur_curriculum_2"
+      ],
+      "retrieved_doc_ids": [
+        "cur_curriculum_2",
+        "cur_curriculum_3",
+        "si_static_info_221",
+        "si_static_info_322",
+        "si_static_info_72",
+        "si_static_info_130",
+        "si_static_info_292",
+        "aca_academic_info_19_s2",
+        "aca_academic_info_19_s0",
+        "aca_academic_info_19_s1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0120-4000-8000-000000000120",
+      "query": "응급구조학과 교육과정 로드맵 어디서 확인해?",
+      "expected_doc_ids": [
+        "cur_curriculum_5"
+      ],
+      "retrieved_doc_ids": [
+        "cur_curriculum_5",
+        "aca_academic_info_19_s2",
+        "cur_curriculum_22",
+        "cur_curriculum_11",
+        "cur_curriculum_13",
+        "cur_curriculum_15",
+        "cur_curriculum_18",
+        "cur_curriculum_10",
+        "cur_curriculum_14",
+        "cur_curriculum_17"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0121-4000-8000-000000000121",
+      "query": "자연계열학부에 어떤 전공이 있어?",
+      "expected_doc_ids": [
+        "si_static_info_153"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_237",
+        "si_static_info_198",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_252",
+        "si_static_info_187"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "기타",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0122-4000-8000-000000000122",
+      "query": "화장품과학전공 어느 건물이야?",
+      "expected_doc_ids": [
+        "si_static_info_154"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_154",
+        "cur_curriculum_26",
+        "si_static_info_153",
+        "lec_lecture_reviews_101_c12",
+        "lec_lecture_reviews_60_c7",
+        "lec_lecture_reviews_54_c7",
+        "aca_academic_info_19_s4",
+        "aca_academic_info_19_s5",
+        "si_static_info_187",
+        "aca_academic_info_8_s7"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "기타",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0123-4000-8000-000000000123",
+      "query": "물리치료학과 교육과정은 어디서 봐?",
+      "expected_doc_ids": [
+        "cur_curriculum_8"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_221",
+        "si_static_info_322",
+        "si_static_info_100",
+        "si_static_info_102",
+        "cur_curriculum_8",
+        "si_static_info_292",
+        "si_static_info_301",
+        "si_static_info_254",
+        "si_static_info_311_part0",
+        "si_static_info_23"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0124-4000-8000-000000000124",
+      "query": "치위생학과는 몇 층이야?",
+      "expected_doc_ids": [
+        "si_static_info_53"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_241",
+        "si_static_info_48",
+        "si_static_info_68",
+        "si_static_info_113",
+        "si_static_info_202",
+        "si_static_info_24",
+        "lec_lecture_reviews_101_c0",
+        "lec_lecture_reviews_63_c16",
+        "lec_lecture_reviews_63_c21",
+        "lec_lecture_reviews_63_c5"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0125-4000-8000-000000000125",
+      "query": "장례지도학과 위치 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_55"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_55",
+        "si_static_info_190",
+        "si_static_info_132",
+        "si_static_info_236",
+        "si_static_info_186",
+        "si_static_info_193",
+        "cur_curriculum_18",
+        "si_static_info_197",
+        "si_static_info_188",
+        "si_static_info_196"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0126-4000-8000-000000000126",
+      "query": "경영학개론 수업 스타일이 PPT 읽는 방식이라고 하는데 교수님이 친절하긴 한가요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_1_c1"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_1_c1",
+        "lec_lecture_reviews_1_c9",
+        "lec_lecture_reviews_1_c4",
+        "lec_lecture_reviews_1_c5",
+        "lec_lecture_reviews_1_c0",
+        "lec_lecture_reviews_1_c7",
+        "lec_lecture_reviews_1_c3",
+        "lec_lecture_reviews_1_c8",
+        "lec_lecture_reviews_1_c6",
+        "lec_lecture_reviews_1_c2"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0127-4000-8000-000000000127",
+      "query": "다문화의이해 수업은 시험 준비가 쉽다고 하는데 그러면 학점 경쟁이 치열한가요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_44_c7"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_44_c0",
+        "lec_lecture_reviews_44_c7",
+        "lec_lecture_reviews_44_c4",
+        "lec_lecture_reviews_44_c12",
+        "lec_lecture_reviews_44_c11",
+        "lec_lecture_reviews_44_c1",
+        "lec_lecture_reviews_44_c8",
+        "lec_lecture_reviews_44_c5",
+        "lec_lecture_reviews_44_c10",
+        "si_static_info_113"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0128-4000-8000-000000000128",
+      "query": "학칙에서 제적될 수 있는 사유가 어떻게 되나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_69"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_151",
+        "si_static_info_224",
+        "si_static_info_181",
+        "si_static_info_178",
+        "si_static_info_176",
+        "si_static_info_126",
+        "si_static_info_6",
+        "si_static_info_127",
+        "si_static_info_56",
+        "si_static_info_32"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0129-4000-8000-000000000129",
+      "query": "학기 중 수업 일수는 얼마나 되어야 하나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_22"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_114",
+        "si_static_info_182",
+        "si_static_info_63",
+        "si_static_info_149",
+        "si_static_info_1",
+        "si_static_info_19",
+        "si_static_info_42",
+        "si_static_info_23",
+        "si_static_info_174",
+        "si_static_info_118"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0130-4000-8000-000000000130",
+      "query": "고등학교처럼 중간에 다른 과에 옮기는 게 가능한가요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_47"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_177",
+        "si_static_info_227",
+        "si_static_info_113",
+        "si_static_info_62",
+        "lec_lecture_reviews_6_c0",
+        "si_static_info_70",
+        "lec_lecture_reviews_108_c0",
+        "si_static_info_38",
+        "lec_lecture_reviews_108_c2",
+        "lec_lecture_reviews_32_c0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0131-4000-8000-000000000131",
+      "query": "수업일수가 부족해질 경우 어떻게 되나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_22"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_178",
+        "si_static_info_151",
+        "si_static_info_176",
+        "si_static_info_181",
+        "si_static_info_224",
+        "si_static_info_126",
+        "si_static_info_6",
+        "si_static_info_56",
+        "si_static_info_127",
+        "si_static_info_32"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0132-4000-8000-000000000132",
+      "query": "학기 개시일과 종료일은 어떻게 정해져 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_16"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_24",
+        "si_static_info_173",
+        "si_static_info_35",
+        "si_static_info_170",
+        "si_static_info_96",
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_135",
+        "si_static_info_140",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0133-4000-8000-000000000133",
+      "query": "복학 신청 기한을 넘기면 어떻게 되나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_65"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_272",
+        "si_static_info_178",
+        "si_static_info_151",
+        "si_static_info_181",
+        "si_static_info_224",
+        "si_static_info_176",
+        "si_static_info_126",
+        "si_static_info_6",
+        "si_static_info_240",
+        "si_static_info_286_part0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0134-4000-8000-000000000134",
+      "query": "영어 증명서 발급도 써트피아에서 가능해?",
+      "expected_doc_ids": [
+        "si_static_info_313_part0"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_233",
+        "si_static_info_289",
+        "학칙_학칙_대학_331",
+        "si_static_info_266",
+        "si_static_info_298",
+        "si_static_info_235",
+        "si_static_info_248",
+        "si_static_info_241",
+        "si_static_info_256",
+        "si_static_info_215"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0135-4000-8000-000000000135",
+      "query": "교환학생 가려면 뭐가 필요해?",
+      "expected_doc_ids": [
+        "si_static_info_277"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_277",
+        "si_static_info_4",
+        "aca_academic_info_8_s8",
+        "si_static_info_209_part6"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0136-4000-8000-000000000136",
+      "query": "학번 모르면 어떻게 알아?",
+      "expected_doc_ids": [
+        "si_static_info_271"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_271",
+        "si_static_info_134",
+        "si_static_info_122",
+        "si_static_info_1",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_292",
+        "si_static_info_29",
+        "si_static_info_278"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0137-4000-8000-000000000137",
+      "query": "치위생학과는 졸업하면 어떤 자격증을 따나요?",
+      "expected_doc_ids": [
+        "si_static_info_12"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_173",
+        "si_static_info_324",
+        "si_static_info_170",
+        "si_static_info_223",
+        "si_static_info_135",
+        "si_static_info_7",
+        "lec_lecture_reviews_77_c25",
+        "lec_lecture_reviews_101_c22",
+        "lec_lecture_reviews_12_c18",
+        "lec_lecture_reviews_63_c24"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학과정보",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0138-4000-8000-000000000138",
+      "query": "국가근로장학금은 어디서 일하고 시급이 얼마야?",
+      "expected_doc_ids": [
+        "si_static_info_131"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_287",
+        "si_static_info_300",
+        "si_static_info_257",
+        "si_static_info_222",
+        "si_static_info_200",
+        "si_static_info_301",
+        "si_static_info_254",
+        "si_static_info_221",
+        "si_static_info_311_part0",
+        "si_static_info_23"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0139-4000-8000-000000000139",
+      "query": "수강신청 사이트 주소랑 수강바구니 기간이 언제야?",
+      "expected_doc_ids": [
+        "si_static_info_262_part3",
+        "cal_calendar_0"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_267",
+        "si_static_info_143",
+        "cal_calendar_31",
+        "cal_calendar_0",
+        "cal_calendar_4",
+        "cal_calendar_61",
+        "cal_calendar_63",
+        "si_static_info_121",
+        "si_static_info_238",
+        "si_static_info_242"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0140-4000-8000-000000000140",
+      "query": "방사선학과 전화번호랑 어느 건물인지 알고 싶어",
+      "expected_doc_ids": [
+        "si_static_info_13"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_13",
+        "si_static_info_97",
+        "cur_curriculum_6",
+        "lec_lecture_reviews_60_c4",
+        "lec_lecture_reviews_101_c12",
+        "lec_lecture_reviews_60_c7",
+        "lec_lecture_reviews_54_c7",
+        "aca_academic_info_19_s2",
+        "aca_academic_info_12_s3_p1",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0141-4000-8000-000000000141",
+      "query": "소속변경(전과)은 가능하고, 전과 후 이수 학점은 인정돼?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_47",
+        "학칙_학칙_대학_81"
+      ],
+      "retrieved_doc_ids": [
+        "aca_academic_info_15_s5",
+        "aca_academic_info_15_s3",
+        "aca_academic_info_15_s0",
+        "aca_academic_info_15_s2",
+        "aca_academic_info_15_s1",
+        "aca_academic_info_15_s4",
+        "si_static_info_273",
+        "si_static_info_63",
+        "reg_regulations_26",
+        "학칙_학칙_대학_47"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0142-4000-8000-000000000142",
+      "query": "진로취창업센터 위치랑 전화번호 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_26"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_26",
+        "si_static_info_190",
+        "si_static_info_236",
+        "si_static_info_276",
+        "si_static_info_312",
+        "si_static_info_246",
+        "si_static_info_303",
+        "si_static_info_193",
+        "si_static_info_186",
+        "si_static_info_275"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0143-4000-8000-000000000143",
+      "query": "복사실은 어디 있고 연락처가 어떻게 돼?",
+      "expected_doc_ids": [
+        "si_static_info_89"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_251",
+        "si_static_info_237",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_269",
+        "si_static_info_185",
+        "si_static_info_75",
+        "si_static_info_16"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0144-4000-8000-000000000144",
+      "query": "성적우수장학금과 봉사장학금 중 어느 게 나한테 맞아? 둘의 조건 비교해줘",
+      "expected_doc_ids": [
+        "si_static_info_25",
+        "si_static_info_101"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_101",
+        "si_static_info_113",
+        "aca_academic_info_8_s1",
+        "lec_lecture_reviews_54_c4",
+        "lec_lecture_reviews_60_c4",
+        "lec_lecture_reviews_101_c12",
+        "lec_lecture_reviews_60_c7",
+        "si_static_info_70",
+        "lec_lecture_reviews_54_c7",
+        "si_static_info_38"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0145-4000-8000-000000000145",
+      "query": "수강신청 첫날 꼭 접속해야 해? 수강바구니에 담아두면 자동으로 신청돼?",
+      "expected_doc_ids": [
+        "si_static_info_262_part2"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_38",
+        "si_static_info_262_part1",
+        "si_static_info_182",
+        "si_static_info_19",
+        "cal_calendar_67",
+        "cal_calendar_7",
+        "si_static_info_323",
+        "si_static_info_262_part5",
+        "reg_regulations_3",
+        "cal_calendar_32"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0146-4000-8000-000000000146",
+      "query": "진로상담은 어디서 받고 무슨 상담을 해줘?",
+      "expected_doc_ids": [
+        "si_static_info_310_part0",
+        "si_static_info_310_part1"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_174",
+        "si_static_info_310_part0",
+        "si_static_info_301",
+        "si_static_info_254",
+        "si_static_info_221",
+        "si_static_info_311_part0",
+        "si_static_info_23",
+        "si_static_info_226",
+        "si_static_info_311_part1",
+        "si_static_info_111"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0147-4000-8000-000000000147",
+      "query": "학점을 취득하지 않아도 제적될 수 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_89"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96",
+        "si_static_info_135",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0148-4000-8000-000000000148",
+      "query": "를지대 의과대학 학생의 재학연한은 일반 학생과 어떻게 다른가요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_11"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_5",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292",
+        "si_static_info_29",
+        "si_static_info_122",
+        "si_static_info_278",
+        "si_static_info_114"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0149-4000-8000-000000000149",
+      "query": "성적이 낮아서 졸업이 불가능한 학생도 제적될 수 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_69"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_235",
+        "si_static_info_24",
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96",
+        "si_static_info_135"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0150-4000-8000-000000000150",
+      "query": "군 복무 중 학점 취득은 최대 몇 학점이고 어떤 방법으로 가능해?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_85"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_241",
+        "si_static_info_202",
+        "si_static_info_24",
+        "si_static_info_113",
+        "si_static_info_233",
+        "si_static_info_289",
+        "si_static_info_266",
+        "si_static_info_298",
+        "si_static_info_235",
+        "si_static_info_248"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0151-4000-8000-000000000151",
+      "query": "수업일수가 부족하면 국가 보조금도 문제가 생기나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_22"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_181",
+        "si_static_info_56",
+        "aca_academic_info_14_s1",
+        "학칙_학칙_대학_276",
+        "reg_regulations_97",
+        "학칙_학칙_대학_192",
+        "reg_regulations_70",
+        "학칙_학칙_대학_0",
+        "lec_lecture_reviews_48_c2",
+        "lec_lecture_reviews_55_c2"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0152-4000-8000-000000000152",
+      "query": "학점 이수 부족으로 수료를 못하면 다음 학년으로 올라갈 수 없나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_86"
+      ],
+      "retrieved_doc_ids": [
+        "reg_regulations_37",
+        "학칙_학칙_대학_111",
+        "학칙_학칙_대학_88",
+        "si_static_info_113",
+        "reg_regulations_29",
+        "학칙_학칙_대학_30",
+        "lec_lecture_reviews_37_c4",
+        "lec_lecture_reviews_37_c6",
+        "학칙_학칙_대학_81",
+        "reg_regulations_16_part0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0153-4000-8000-000000000153",
+      "query": "졸업논문 대신 다른 방법으로 졸업할 수 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_94"
+      ],
+      "retrieved_doc_ids": [
+        "reg_regulations_25",
+        "학칙_학칙_대학_94",
+        "si_static_info_9",
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0154-4000-8000-000000000154",
+      "query": "우리 학과 교수님 자녀가 같은 강의를 들을 수 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_58"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_142",
+        "si_static_info_180",
+        "si_static_info_74",
+        "si_static_info_135",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0155-4000-8000-000000000155",
+      "query": "소단위전공(마이크로/나노 교육과정)은 일반 전공이랑 어떻게 달라?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_100"
+      ],
+      "retrieved_doc_ids": [
+        "aca_academic_info_13_s2",
+        "aca_academic_info_13_s3",
+        "aca_academic_info_13_s0",
+        "aca_academic_info_13_s1",
+        "aca_academic_info_13_s4",
+        "si_static_info_77",
+        "si_static_info_5",
+        "reg_regulations_96_part0",
+        "학칙_학칙_대학_100",
+        "reg_regulations_96_part1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0156-4000-8000-000000000156",
+      "query": "학부 입학생이 전공을 어떻게 배정받아?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_109"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_142",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292",
+        "si_static_info_29",
+        "si_static_info_122",
+        "si_static_info_278",
+        "si_static_info_114"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0157-4000-8000-000000000157",
+      "query": "학사경고를 받으면 다음 학기 등록 전에 통보받나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_89"
+      ],
+      "retrieved_doc_ids": [
+        "reg_regulations_55",
+        "학칙_학칙_대학_50",
+        "si_static_info_36",
+        "cal_calendar_33",
+        "cal_calendar_5",
+        "cal_calendar_65",
+        "학칙_학칙_대학_16",
+        "학칙_학칙_대학_271",
+        "cal_calendar_40",
+        "reg_regulations_4"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0158-4000-8000-000000000158",
+      "query": "서양철학 수업은 철학 모르는 학생도 들어도 될까요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_3_c6"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_235",
+        "lec_lecture_reviews_51_c8",
+        "lec_lecture_reviews_9_c7",
+        "si_static_info_271",
+        "lec_lecture_reviews_35_c5",
+        "lec_lecture_reviews_74_c8",
+        "lec_lecture_reviews_43_c4",
+        "학칙_학칙_대학_271",
+        "lec_lecture_reviews_98_c0",
+        "lec_lecture_reviews_24_c0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0159-4000-8000-000000000159",
+      "query": "취업 후 상환 대출이랑 일반 상환 대출이 어떻게 달라?",
+      "expected_doc_ids": [
+        "si_static_info_5",
+        "si_static_info_59"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_5",
+        "si_static_info_59",
+        "si_static_info_309_part0",
+        "si_static_info_209_part0",
+        "si_static_info_309_part1",
+        "si_static_info_199",
+        "si_static_info_280",
+        "si_static_info_288_part1",
+        "si_static_info_1",
+        "si_static_info_317"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0160-4000-8000-000000000160",
+      "query": "수강신청 때 시간표 중복이 생기면 어떻게 해결해?",
+      "expected_doc_ids": [
+        "si_static_info_263"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_263",
+        "si_static_info_175",
+        "si_static_info_56",
+        "si_static_info_323",
+        "si_static_info_265",
+        "si_static_info_303",
+        "si_static_info_325",
+        "cal_calendar_67",
+        "cal_calendar_7",
+        "si_static_info_262_part5"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0161-4000-8000-000000000161",
+      "query": "물리학 수업에서 A+ 받으려면 어떻게 준비해야 해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_111_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_111_c6",
+        "si_static_info_278",
+        "lec_lecture_reviews_111_c8",
+        "si_static_info_280",
+        "si_static_info_272",
+        "si_static_info_253",
+        "si_static_info_317",
+        "si_static_info_240",
+        "si_static_info_295",
+        "si_static_info_308"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0162-4000-8000-000000000162",
+      "query": "현대인과체력 같은 체육 수업 듣고 싶은데 성적은 어때?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_0_c0"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_72_c7",
+        "lec_lecture_reviews_72_c9",
+        "lec_lecture_reviews_72_c16",
+        "lec_lecture_reviews_72_c15",
+        "lec_lecture_reviews_72_c14",
+        "lec_lecture_reviews_72_c3",
+        "lec_lecture_reviews_72_c17",
+        "lec_lecture_reviews_72_c10",
+        "lec_lecture_reviews_72_c4",
+        "lec_lecture_reviews_72_c12"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0163-4000-8000-000000000163",
+      "query": "학교 근처 지하철역이 어디야?",
+      "expected_doc_ids": [
+        "si_static_info_306"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_306",
+        "si_static_info_61",
+        "si_static_info_206",
+        "si_static_info_255",
+        "si_static_info_244",
+        "si_static_info_302",
+        "si_static_info_34",
+        "si_static_info_320_part0",
+        "si_static_info_124",
+        "si_static_info_143"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0164-4000-8000-000000000164",
+      "query": "기숙사 신청하면 언제부터 들어갈 수 있어?",
+      "expected_doc_ids": [
+        "si_static_info_6"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_252",
+        "si_static_info_31",
+        "si_static_info_88",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_127",
+        "si_static_info_226",
+        "si_static_info_247",
+        "si_static_info_248",
+        "si_static_info_256"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0165-4000-8000-000000000165",
+      "query": "졸업 인증제가 뭐야?",
+      "expected_doc_ids": [
+        "si_static_info_14"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_232",
+        "si_static_info_327",
+        "si_static_info_285",
+        "si_static_info_264",
+        "si_static_info_326",
+        "학칙_학칙_대학_328",
+        "si_static_info_247",
+        "si_static_info_201",
+        "si_static_info_251",
+        "si_static_info_216"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학과정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0166-4000-8000-000000000166",
+      "query": "졸업논문이나 종합시험 중 하나만 해도 돼?",
+      "expected_doc_ids": [
+        "si_static_info_9"
+      ],
+      "retrieved_doc_ids": [
+        "학칙_학칙_대학_342",
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_269",
+        "si_static_info_146",
+        "lec_lecture_reviews_51_c2",
+        "lec_lecture_reviews_34_c0",
+        "si_static_info_9",
+        "lec_lecture_reviews_32_c11",
+        "lec_lecture_reviews_118_c1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학과정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0167-4000-8000-000000000167",
+      "query": "과학기술문명론 온라인 과목 꼬인 시험 어떻게 대비해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_50_c28"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_126",
+        "lec_lecture_reviews_50_c0",
+        "lec_lecture_reviews_50_c12",
+        "lec_lecture_reviews_50_c21",
+        "lec_lecture_reviews_50_c25",
+        "si_static_info_230",
+        "lec_lecture_reviews_50_c20",
+        "lec_lecture_reviews_76_c6",
+        "lec_lecture_reviews_76_c8",
+        "lec_lecture_reviews_76_c1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0168-4000-8000-000000000168",
+      "query": "창의적발상과표현은 출석 점수가 성적에 얼마나 영향을 미쳐?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_39_c3"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_268",
+        "lec_lecture_reviews_60_c3",
+        "lec_lecture_reviews_55_c4",
+        "학칙_학칙_대학_295",
+        "lec_lecture_reviews_5_c6",
+        "lec_lecture_reviews_98_c3",
+        "lec_lecture_reviews_28_c3",
+        "lec_lecture_reviews_34_c3",
+        "lec_lecture_reviews_36_c8",
+        "si_static_info_126"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0169-4000-8000-000000000169",
+      "query": "학자금 대출 관련 문의는 어디로 해?",
+      "expected_doc_ids": [
+        "si_static_info_2"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_2",
+        "si_static_info_192",
+        "si_static_info_321_part2",
+        "si_static_info_301",
+        "si_static_info_278",
+        "si_static_info_280",
+        "si_static_info_272",
+        "si_static_info_253",
+        "si_static_info_317",
+        "si_static_info_240"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0170-4000-8000-000000000170",
+      "query": "진로탐색의이해는 왜 쉬운 수업인데 학점 받기가 힘들어?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_102_c13"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_69",
+        "si_static_info_113",
+        "lec_lecture_reviews_78_c9",
+        "lec_lecture_reviews_68_c4",
+        "lec_lecture_reviews_95_c6",
+        "lec_lecture_reviews_68_c5",
+        "lec_lecture_reviews_99_c13",
+        "lec_lecture_reviews_17_c6",
+        "lec_lecture_reviews_46_c4",
+        "lec_lecture_reviews_114_c5"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0171-4000-8000-000000000171",
+      "query": "일본어를 전혀 모르는데 일본어회화1 들어도 괜찮아?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_60_c4"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_60_c7",
+        "lec_lecture_reviews_45_c7",
+        "lec_lecture_reviews_53_c6",
+        "lec_lecture_reviews_58_c9",
+        "lec_lecture_reviews_74_c7",
+        "lec_lecture_reviews_1_c8",
+        "lec_lecture_reviews_9_c7",
+        "lec_lecture_reviews_98_c7",
+        "lec_lecture_reviews_91_c7",
+        "lec_lecture_reviews_60_c0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0172-4000-8000-000000000172",
+      "query": "대외협력팀 전화번호 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_21"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_21",
+        "si_static_info_190",
+        "si_static_info_236",
+        "si_static_info_276",
+        "si_static_info_312",
+        "si_static_info_246",
+        "si_static_info_303",
+        "si_static_info_193",
+        "si_static_info_186",
+        "si_static_info_275"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0173-4000-8000-000000000173",
+      "query": "정보전산원 어디야?",
+      "expected_doc_ids": [
+        "si_static_info_22"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_22",
+        "si_static_info_206",
+        "si_static_info_255",
+        "si_static_info_244",
+        "si_static_info_302",
+        "si_static_info_306",
+        "si_static_info_197",
+        "si_static_info_185",
+        "si_static_info_196",
+        "si_static_info_194"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0174-4000-8000-000000000174",
+      "query": "총무팀 연락처 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_57"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_57",
+        "si_static_info_220",
+        "si_static_info_236",
+        "si_static_info_246",
+        "si_static_info_279",
+        "si_static_info_282",
+        "si_static_info_281",
+        "si_static_info_294_part5",
+        "si_static_info_284",
+        "si_static_info_250"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0175-4000-8000-000000000175",
+      "query": "교학처는 어디 있어?",
+      "expected_doc_ids": [
+        "si_static_info_54"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_237",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_185",
+        "si_static_info_187",
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_198"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0176-4000-8000-000000000176",
+      "query": "의료IT학과 연락처 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_0"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_0",
+        "si_static_info_49",
+        "cur_curriculum_12",
+        "si_static_info_220",
+        "si_static_info_236",
+        "si_static_info_246",
+        "si_static_info_279",
+        "si_static_info_282",
+        "si_static_info_281",
+        "si_static_info_294_part5"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0177-4000-8000-000000000177",
+      "query": "AI보건의료학과 어느 건물이야?",
+      "expected_doc_ids": [
+        "si_static_info_8"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_8",
+        "lec_lecture_reviews_101_c12",
+        "lec_lecture_reviews_60_c7",
+        "lec_lecture_reviews_54_c7",
+        "si_static_info_187",
+        "lec_lecture_reviews_54_c4",
+        "lec_lecture_reviews_60_c4"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0178-4000-8000-000000000178",
+      "query": "을지대 의료공학과 전화번호 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_10"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_10",
+        "si_static_info_107",
+        "cur_curriculum_14",
+        "si_static_info_262_part5",
+        "si_static_info_190",
+        "si_static_info_236",
+        "si_static_info_276",
+        "si_static_info_312",
+        "si_static_info_246",
+        "si_static_info_303"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0179-4000-8000-000000000179",
+      "query": "약학과 실험실 어디야?",
+      "expected_doc_ids": [
+        "si_static_info_94"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_94",
+        "si_static_info_123",
+        "si_static_info_206",
+        "si_static_info_255",
+        "si_static_info_244",
+        "si_static_info_302",
+        "si_static_info_306",
+        "si_static_info_197",
+        "si_static_info_185",
+        "si_static_info_196"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0180-4000-8000-000000000180",
+      "query": "기숙사 행정실 전화번호 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_88"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_88",
+        "si_static_info_258",
+        "si_static_info_31",
+        "si_static_info_252",
+        "si_static_info_250",
+        "si_static_info_246",
+        "si_static_info_247",
+        "si_static_info_248",
+        "si_static_info_256",
+        "si_static_info_251"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0181-4000-8000-000000000181",
+      "query": "국가장학금 II유형이랑 I유형의 차이가 뭐야?",
+      "expected_doc_ids": [
+        "si_static_info_65",
+        "si_static_info_90"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_65",
+        "si_static_info_136",
+        "si_static_info_90",
+        "si_static_info_125",
+        "si_static_info_327",
+        "si_static_info_285",
+        "si_static_info_232",
+        "si_static_info_264",
+        "si_static_info_326",
+        "si_static_info_247"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0182-4000-8000-000000000182",
+      "query": "물리치료학과 교육과정이랑 안경광학과 교육과정을 다른 학교에서도 확인할 수 있나요?",
+      "expected_doc_ids": [
+        "cur_curriculum_8",
+        "cur_curriculum_4"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_100",
+        "si_static_info_84",
+        "si_static_info_102",
+        "si_static_info_78",
+        "cur_curriculum_4",
+        "cur_curriculum_8",
+        "si_static_info_180",
+        "si_static_info_74",
+        "si_static_info_140",
+        "si_static_info_24"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0183-4000-8000-000000000183",
+      "query": "특기자 장학금은 체육만 해당되나요?",
+      "expected_doc_ids": [
+        "si_static_info_33"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_209_part0",
+        "si_static_info_218",
+        "si_static_info_214",
+        "si_static_info_207",
+        "si_static_info_60",
+        "si_static_info_211_part1",
+        "si_static_info_215",
+        "si_static_info_210",
+        "si_static_info_216",
+        "si_static_info_212"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0184-4000-8000-000000000184",
+      "query": "수강신청 꿀팁 영상 어디서 봐?",
+      "expected_doc_ids": [
+        "si_static_info_262_part5"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_221",
+        "si_static_info_322",
+        "si_static_info_115",
+        "si_static_info_292",
+        "cal_calendar_67",
+        "cal_calendar_7",
+        "si_static_info_262_part5",
+        "si_static_info_301",
+        "reg_regulations_3",
+        "si_static_info_254"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0185-4000-8000-000000000185",
+      "query": "EIS 비밀번호 5번 틀리면 어떡해?",
+      "expected_doc_ids": [
+        "si_static_info_270"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_270",
+        "si_static_info_247",
+        "si_static_info_263",
+        "si_static_info_143",
+        "lec_lecture_reviews_44_c4",
+        "lec_lecture_reviews_63_c16",
+        "lec_lecture_reviews_63_c21",
+        "lec_lecture_reviews_63_c5",
+        "si_static_info_269",
+        "lec_lecture_reviews_19_c6"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0186-4000-8000-000000000186",
+      "query": "교내 캠퍼스 간 교차 수강도 가능해?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_54"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_215",
+        "si_static_info_233",
+        "si_static_info_289",
+        "si_static_info_266",
+        "si_static_info_298",
+        "si_static_info_235",
+        "si_static_info_248",
+        "si_static_info_241",
+        "si_static_info_256",
+        "si_static_info_210"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0187-4000-8000-000000000187",
+      "query": "성적 이의신청은 어떻게 해?",
+      "expected_doc_ids": [
+        "si_static_info_23"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_278",
+        "si_static_info_280",
+        "si_static_info_272",
+        "si_static_info_253",
+        "si_static_info_317",
+        "si_static_info_240",
+        "si_static_info_308",
+        "si_static_info_295",
+        "si_static_info_288_part3",
+        "si_static_info_314_part0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0188-4000-8000-000000000188",
+      "query": "을지대에 자유전공학부가 있어? 그곳에서 어떤 전공을 선택할 수 있어?",
+      "expected_doc_ids": [
+        "si_static_info_153",
+        "si_static_info_158"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_234",
+        "si_static_info_293",
+        "si_static_info_198",
+        "si_static_info_297",
+        "si_static_info_239",
+        "si_static_info_184",
+        "si_static_info_237",
+        "si_static_info_305",
+        "si_static_info_245",
+        "si_static_info_249"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "기타",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0189-4000-8000-000000000189",
+      "query": "빅데이터인공지능전공 어디 있어?",
+      "expected_doc_ids": [
+        "si_static_info_160"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_237",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_185",
+        "si_static_info_160",
+        "cur_curriculum_37",
+        "cur_curriculum_28",
+        "si_static_info_187",
+        "si_static_info_297",
+        "si_static_info_234"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "기타",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0190-4000-8000-000000000190",
+      "query": "아동청소년상담전공 어느 건물이야?",
+      "expected_doc_ids": [
+        "si_static_info_162"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_162",
+        "cur_curriculum_36",
+        "aca_academic_info_8_s7",
+        "si_static_info_165",
+        "lec_lecture_reviews_101_c12",
+        "lec_lecture_reviews_60_c7",
+        "lec_lecture_reviews_54_c7",
+        "aca_academic_info_19_s4",
+        "aca_academic_info_19_s5",
+        "si_static_info_187"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "기타",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0191-4000-8000-000000000191",
+      "query": "등록은 어떻게 완료되나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_50"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_114",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292",
+        "si_static_info_29",
+        "si_static_info_122",
+        "si_static_info_278",
+        "si_static_info_280"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0192-4000-8000-000000000192",
+      "query": "수강신청 인원이 꽉 차면 대기할 수 있어?",
+      "expected_doc_ids": [
+        "si_static_info_265"
+      ],
+      "retrieved_doc_ids": [
+        "cal_calendar_67",
+        "cal_calendar_7",
+        "si_static_info_265",
+        "reg_regulations_3",
+        "si_static_info_262_part1",
+        "cal_calendar_32",
+        "학칙_학칙_대학_54",
+        "si_static_info_323",
+        "si_static_info_234",
+        "si_static_info_293"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0193-4000-8000-000000000193",
+      "query": "수강취소는 언제까지 할 수 있어?",
+      "expected_doc_ids": [
+        "si_static_info_266"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_266",
+        "si_static_info_177",
+        "si_static_info_234",
+        "si_static_info_293",
+        "si_static_info_198",
+        "si_static_info_239",
+        "si_static_info_305",
+        "si_static_info_297",
+        "si_static_info_184",
+        "si_static_info_237"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0194-4000-8000-000000000194",
+      "query": "2026학년도 1학기 등록 기간이 언제야?",
+      "expected_doc_ids": [
+        "cal_calendar_5"
+      ],
+      "retrieved_doc_ids": [
+        "cal_calendar_5",
+        "si_static_info_267",
+        "cal_calendar_33",
+        "cal_calendar_65",
+        "cal_calendar_9",
+        "cal_calendar_20",
+        "cal_calendar_10",
+        "cal_calendar_8",
+        "cal_calendar_0",
+        "cal_calendar_4"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0195-4000-8000-000000000195",
+      "query": "설 연휴 기간에 학교 수업 있어?",
+      "expected_doc_ids": [
+        "cal_calendar_3"
+      ],
+      "retrieved_doc_ids": [
+        "cal_calendar_62",
+        "cal_calendar_3",
+        "si_static_info_34",
+        "si_static_info_306",
+        "si_static_info_61",
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_237"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0196-4000-8000-000000000196",
+      "query": "2026학년도 입학식은 언제야?",
+      "expected_doc_ids": [
+        "cal_calendar_6"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_19",
+        "si_static_info_218",
+        "si_static_info_238",
+        "si_static_info_242",
+        "si_static_info_204",
+        "si_static_info_267",
+        "cal_calendar_6",
+        "cal_calendar_35",
+        "cal_calendar_9",
+        "cal_calendar_20"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0197-4000-8000-000000000197",
+      "query": "1학기 휴복학 신청 마감은 언제야?",
+      "expected_doc_ids": [
+        "cal_calendar_8"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_218",
+        "si_static_info_238",
+        "si_static_info_242",
+        "si_static_info_204",
+        "si_static_info_267",
+        "cal_calendar_69",
+        "cal_calendar_9",
+        "cal_calendar_20",
+        "cal_calendar_65",
+        "cal_calendar_5"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0198-4000-8000-000000000198",
+      "query": "수강바구니 2차 기간이 언제야?",
+      "expected_doc_ids": [
+        "cal_calendar_4"
+      ],
+      "retrieved_doc_ids": [
+        "cal_calendar_4",
+        "cal_calendar_63",
+        "si_static_info_267",
+        "si_static_info_218",
+        "cal_calendar_31",
+        "cal_calendar_0",
+        "cal_calendar_61",
+        "si_static_info_238",
+        "si_static_info_242",
+        "si_static_info_204"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0199-4000-8000-000000000199",
+      "query": "1학년 예비전공 선택은 언제야?",
+      "expected_doc_ids": [
+        "cal_calendar_1"
+      ],
+      "retrieved_doc_ids": [
+        "cal_calendar_1",
+        "si_static_info_229",
+        "si_static_info_238",
+        "si_static_info_242",
+        "si_static_info_204",
+        "si_static_info_267",
+        "si_static_info_218",
+        "aca_academic_info_15_s4",
+        "lec_lecture_reviews_70_c12",
+        "lec_lecture_reviews_102_c23"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사일정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0200-4000-8000-000000000200",
+      "query": "약학과 실험실 위치랑 임상병리학과 위치를 비교해줘",
+      "expected_doc_ids": [
+        "si_static_info_94",
+        "si_static_info_72"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_94",
+        "si_static_info_123",
+        "si_static_info_72",
+        "si_static_info_130",
+        "cur_curriculum_2",
+        "cur_curriculum_3",
+        "aca_academic_info_19_s2",
+        "aca_academic_info_8_s7"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0201-4000-8000-000000000201",
+      "query": "식품영양전공 어느 건물이야?",
+      "expected_doc_ids": [
+        "si_static_info_156"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_156",
+        "cur_curriculum_23",
+        "si_static_info_153",
+        "lec_lecture_reviews_101_c12",
+        "lec_lecture_reviews_60_c7",
+        "lec_lecture_reviews_54_c7",
+        "aca_academic_info_19_s4",
+        "aca_academic_info_19_s5",
+        "si_static_info_187",
+        "aca_academic_info_8_s7"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "기타",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0202-4000-8000-000000000202",
+      "query": "중독상담전공 연락처 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_161"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_161",
+        "cur_curriculum_34",
+        "si_static_info_220",
+        "si_static_info_236",
+        "si_static_info_246",
+        "si_static_info_279",
+        "si_static_info_282",
+        "si_static_info_281",
+        "si_static_info_294_part5",
+        "si_static_info_284"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "기타",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0203-4000-8000-000000000203",
+      "query": "식품생명공학전공 전화번호 알려줘",
+      "expected_doc_ids": [
+        "si_static_info_159"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_159",
+        "cur_curriculum_24",
+        "si_static_info_190",
+        "si_static_info_236",
+        "si_static_info_276",
+        "si_static_info_312",
+        "si_static_info_246",
+        "si_static_info_303",
+        "si_static_info_193",
+        "si_static_info_186"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "기타",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0204-4000-8000-000000000204",
+      "query": "뷰티아트전공은 어떤 학부야?",
+      "expected_doc_ids": [
+        "si_static_info_157"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_173",
+        "si_static_info_324",
+        "si_static_info_170",
+        "si_static_info_223",
+        "si_static_info_135",
+        "si_static_info_7",
+        "lec_lecture_reviews_101_c22",
+        "lec_lecture_reviews_12_c18",
+        "lec_lecture_reviews_63_c24",
+        "lec_lecture_reviews_92_c22"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "기타",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0205-4000-8000-000000000205",
+      "query": "간호학과 성남이랑 의정부 교육과정이 달라?",
+      "expected_doc_ids": [
+        "cur_curriculum_0",
+        "cur_curriculum_1"
+      ],
+      "retrieved_doc_ids": [
+        "cur_curriculum_1",
+        "si_static_info_133",
+        "si_static_info_109",
+        "si_static_info_112",
+        "cur_curriculum_0",
+        "cur_curriculum_38",
+        "cur_curriculum_3",
+        "aca_academic_info_19_s1",
+        "aca_academic_info_8_s7",
+        "si_static_info_40"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0206-4000-8000-000000000206",
+      "query": "임상병리학과도 의정부에 있어?",
+      "expected_doc_ids": [
+        "cur_curriculum_3"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_237",
+        "si_static_info_198",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_252",
+        "si_static_info_187"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0207-4000-8000-000000000207",
+      "query": "식품영양학과 교육과정 어디서 확인해?",
+      "expected_doc_ids": [
+        "cur_curriculum_9"
+      ],
+      "retrieved_doc_ids": [
+        "cur_curriculum_9",
+        "si_static_info_98",
+        "si_static_info_323",
+        "si_static_info_265",
+        "aca_academic_info_19_s3",
+        "aca_academic_info_19_s0",
+        "aca_academic_info_19_s1",
+        "aca_academic_info_19_s2",
+        "aca_academic_info_19_s4",
+        "aca_academic_info_19_s5"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0208-4000-8000-000000000208",
+      "query": "안경광학과 교육과정 어디서 보나요?",
+      "expected_doc_ids": [
+        "cur_curriculum_4"
+      ],
+      "retrieved_doc_ids": [
+        "cur_curriculum_4",
+        "si_static_info_84",
+        "si_static_info_78",
+        "aca_academic_info_19_s2",
+        "aca_academic_info_19_s0",
+        "aca_academic_info_19_s1",
+        "aca_academic_info_19_s3",
+        "aca_academic_info_19_s4",
+        "aca_academic_info_19_s5",
+        "si_static_info_301"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0209-4000-8000-000000000209",
+      "query": "치위생학과 교육과정 정보는 어디서 봐?",
+      "expected_doc_ids": [
+        "cur_curriculum_7"
+      ],
+      "retrieved_doc_ids": [
+        "cur_curriculum_7",
+        "si_static_info_221",
+        "si_static_info_322",
+        "si_static_info_53",
+        "si_static_info_12",
+        "si_static_info_292",
+        "aca_academic_info_19_s2",
+        "si_static_info_180",
+        "aca_academic_info_19_s0",
+        "aca_academic_info_19_s1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0210-4000-8000-000000000210",
+      "query": "방사선학과 교육과정 로드맵 어디서 봐?",
+      "expected_doc_ids": [
+        "cur_curriculum_6"
+      ],
+      "retrieved_doc_ids": [
+        "cur_curriculum_6",
+        "si_static_info_221",
+        "si_static_info_322",
+        "aca_academic_info_19_s2",
+        "cur_curriculum_4",
+        "cur_curriculum_18",
+        "cur_curriculum_10",
+        "cur_curriculum_14",
+        "cur_curriculum_17",
+        "cur_curriculum_19"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "교육과정",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0211-4000-8000-000000000211",
+      "query": "국가장학금 I유형 받을 수 있는 소득분위가 몇 구간까지야?",
+      "expected_doc_ids": [
+        "si_static_info_90"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_90",
+        "si_static_info_65",
+        "si_static_info_136",
+        "si_static_info_24",
+        "si_static_info_125",
+        "si_static_info_241",
+        "si_static_info_68",
+        "si_static_info_48",
+        "si_static_info_113",
+        "si_static_info_202"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0212-4000-8000-000000000212",
+      "query": "졸업하려면 전공 몇 학점이 필요해?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_96"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_48",
+        "si_static_info_241",
+        "si_static_info_181",
+        "si_static_info_68",
+        "si_static_info_113",
+        "si_static_info_202",
+        "si_static_info_24",
+        "학칙_학칙_대학_109",
+        "si_static_info_145",
+        "aca_academic_info_19_s0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0213-4000-8000-000000000213",
+      "query": "졸업 심사에서 탈락하면 어떻게 돼?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_98"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_304",
+        "si_static_info_214",
+        "si_static_info_181",
+        "si_static_info_269",
+        "학칙_학칙_대학_328",
+        "si_static_info_29",
+        "si_static_info_77",
+        "si_static_info_321_part1",
+        "si_static_info_176",
+        "si_static_info_16"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0214-4000-8000-000000000214",
+      "query": "외국대학과 복수학위도 받을 수 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_99"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96",
+        "si_static_info_135",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0215-4000-8000-000000000215",
+      "query": "학교 정규 방학은 어떻게 구분돼?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_26"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_34",
+        "si_static_info_306",
+        "si_static_info_181",
+        "si_static_info_61",
+        "si_static_info_304",
+        "si_static_info_114",
+        "si_static_info_199",
+        "si_static_info_314_part0",
+        "si_static_info_175",
+        "si_static_info_15"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0216-4000-8000-000000000216",
+      "query": "을지대에는 정원 외로 입학할 수 있는 특별 학과가 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_6"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96",
+        "si_static_info_135",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0217-4000-8000-000000000217",
+      "query": "성적이 좋으면 졸업을 일찍 할 수 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_9"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_24",
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96",
+        "si_static_info_135",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0218-4000-8000-000000000218",
+      "query": "입학 자격이 없는 사람이 합격하면 어떻게 돼?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_38"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_214",
+        "si_static_info_304",
+        "학칙_학칙_대학_156",
+        "si_static_info_269",
+        "si_static_info_201",
+        "si_static_info_16",
+        "si_static_info_199",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0219-4000-8000-000000000219",
+      "query": "을지대 각 캠퍼스는 어디 어디에 있어?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_1"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_249",
+        "si_static_info_187",
+        "si_static_info_237",
+        "si_static_info_245",
+        "si_static_info_198",
+        "si_static_info_183",
+        "si_static_info_194",
+        "si_static_info_185",
+        "si_static_info_96",
+        "si_static_info_35"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0220-4000-8000-000000000220",
+      "query": "학교에 현장실습 학점을 인정해주나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_81"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_184",
+        "si_static_info_239",
+        "si_static_info_173",
+        "si_static_info_48",
+        "학칙_학칙_대학_81",
+        "reg_regulations_16_part0",
+        "aca_academic_info_14_s3",
+        "aca_academic_info_14_s1",
+        "aca_academic_info_18_s0",
+        "lec_lecture_reviews_78_c8"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0221-4000-8000-000000000221",
+      "query": "수업 도중에 다른 캠퍼스 수업도 들을 수 있어?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_54"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_115",
+        "si_static_info_234",
+        "si_static_info_293",
+        "si_static_info_198",
+        "si_static_info_239",
+        "si_static_info_305",
+        "si_static_info_297",
+        "si_static_info_184"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0222-4000-8000-000000000222",
+      "query": "등록금 관련 학생 의견은 어디서 반영돼?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_52"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_310_part0",
+        "reg_regulations_58",
+        "si_static_info_311_part0",
+        "학칙_학칙_대학_144",
+        "학칙_학칙_대학_52",
+        "si_static_info_43",
+        "si_static_info_301",
+        "si_static_info_254",
+        "si_static_info_111",
+        "si_static_info_108"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0223-4000-8000-000000000223",
+      "query": "자진 퇴사 시 기숙사 환불이 가능한 최대 기간은 어떻게 돼?",
+      "expected_doc_ids": [
+        "si_static_info_6"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_258",
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_81",
+        "si_static_info_224",
+        "si_static_info_125",
+        "si_static_info_147",
+        "si_static_info_225",
+        "si_static_info_269",
+        "si_static_info_52"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0224-4000-8000-000000000224",
+      "query": "수강신청을 아예 안 하면 성적에 어떤 영향이 생겨?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_89"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_121",
+        "si_static_info_52",
+        "si_static_info_269",
+        "si_static_info_175",
+        "si_static_info_81",
+        "si_static_info_56",
+        "si_static_info_68",
+        "si_static_info_135",
+        "si_static_info_173",
+        "si_static_info_324"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0225-4000-8000-000000000225",
+      "query": "교양수업 학점은행제로도 인정받을 수 있나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_83",
+        "학칙_학칙_대학_97"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_74",
+        "si_static_info_180",
+        "si_static_info_140",
+        "si_static_info_24",
+        "si_static_info_35",
+        "si_static_info_173",
+        "si_static_info_170",
+        "si_static_info_96",
+        "si_static_info_135",
+        "si_static_info_142"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0226-4000-8000-000000000226",
+      "query": "전과하면 기존에 이수한 학점도 졸업요건에 포함되나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_81",
+        "학칙_학칙_대학_96"
+      ],
+      "retrieved_doc_ids": [
+        "학칙_학칙_대학_233",
+        "학칙_학칙_대학_263",
+        "학칙_학칙_대학_96",
+        "reg_regulations_96_part0",
+        "학칙_학칙_대학_100",
+        "학칙_학칙_대학_348",
+        "reg_regulations_81_part1",
+        "학칙_학칙_대학_97",
+        "si_static_info_82",
+        "reg_regulations_81_part0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0227-4000-8000-000000000227",
+      "query": "학점이 4.0 이상인 학생은 한 학기에 최대 몇 학점을 신청할 수 있어?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_78"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_24",
+        "si_static_info_202",
+        "si_static_info_48",
+        "si_static_info_181",
+        "si_static_info_140",
+        "si_static_info_268",
+        "si_static_info_241",
+        "si_static_info_68",
+        "si_static_info_113",
+        "si_static_info_234"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0228-4000-8000-000000000228",
+      "query": "성남캠퍼스에서 수인분당선을 타려면 어느 역을 이용해야 해?",
+      "expected_doc_ids": [
+        "si_static_info_3"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_301",
+        "si_static_info_278",
+        "si_static_info_280",
+        "si_static_info_272",
+        "si_static_info_253",
+        "si_static_info_317",
+        "si_static_info_240",
+        "si_static_info_295",
+        "si_static_info_308",
+        "si_static_info_261"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0229-4000-8000-000000000229",
+      "query": "교내 근로 시급이 2024년 기준으로 최저임금보다 높아?",
+      "expected_doc_ids": [
+        "si_static_info_131"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_322",
+        "si_static_info_15",
+        "si_static_info_131",
+        "si_static_info_201",
+        "si_static_info_199",
+        "si_static_info_200",
+        "si_static_info_263",
+        "aca_academic_info_16_s3",
+        "si_static_info_202",
+        "si_static_info_203"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "장학금",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0230-4000-8000-000000000230",
+      "query": "을지대 성남캠퍼스에 있는 편의시설이 뭐가 있어?",
+      "expected_doc_ids": [
+        "si_static_info_28",
+        "si_static_info_30",
+        "si_static_info_51"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_4",
+        "si_static_info_297",
+        "si_static_info_234",
+        "si_static_info_184",
+        "si_static_info_293",
+        "si_static_info_237",
+        "si_static_info_198",
+        "si_static_info_245",
+        "si_static_info_249",
+        "si_static_info_252"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T4_multi_intent"
+    },
+    {
+      "qid": "a1b2c3d4-0231-4000-8000-000000000231",
+      "query": "진로설계과정은 정규 전공 과정인가요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_107"
+      ],
+      "retrieved_doc_ids": [
+        "학칙_학칙_대학_109",
+        "si_static_info_145",
+        "aca_academic_info_19_s0",
+        "aca_academic_info_19_s1",
+        "aca_academic_info_19_s2",
+        "cal_calendar_51",
+        "aca_academic_info_19_s3",
+        "aca_academic_info_19_s4",
+        "aca_academic_info_19_s5",
+        "cal_calendar_23"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0232-4000-8000-000000000232",
+      "query": "글로벌커뮤니케이션1 같은 영어 관련 수업을 들으면 외국어 교양 학점이 채워지나요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_72"
+      ],
+      "retrieved_doc_ids": [
+        "aca_academic_info_8_s2",
+        "lec_lecture_reviews_5_c10",
+        "aca_academic_info_8_s4",
+        "si_static_info_104",
+        "aca_academic_info_8_s5",
+        "lec_lecture_reviews_5_c7",
+        "lec_lecture_reviews_5_c8",
+        "lec_lecture_reviews_5_c9",
+        "aca_academic_info_8_s0",
+        "lec_lecture_reviews_5_c0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0233-4000-8000-000000000233",
+      "query": "한국사 수업은 교양인가 전공인가요?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_72"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_41_c0",
+        "lec_lecture_reviews_41_c5",
+        "lec_lecture_reviews_41_c3",
+        "lec_lecture_reviews_41_c2",
+        "lec_lecture_reviews_41_c6",
+        "lec_lecture_reviews_41_c7",
+        "lec_lecture_reviews_41_c1",
+        "lec_lecture_reviews_41_c8",
+        "lec_lecture_reviews_41_c4",
+        "lec_lecture_reviews_98_c0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0234-4000-8000-000000000234",
+      "query": "복학하고 싶은데 학기 시작하고 한 달 지나도 복학 가능해?",
+      "expected_doc_ids": [
+        "학칙_학칙_대학_65"
+      ],
+      "retrieved_doc_ids": [
+        "reg_regulations_76",
+        "학칙_학칙_대학_65",
+        "si_static_info_233",
+        "si_static_info_289",
+        "si_static_info_266",
+        "학칙_학칙_대학_351",
+        "학칙_학칙_대학_240",
+        "si_static_info_298",
+        "si_static_info_235",
+        "si_static_info_248"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학칙_조항",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0235-4000-8000-000000000235",
+      "query": "공결 신청 후 EIS에서 저장만 하면 끝이야?",
+      "expected_doc_ids": [
+        "si_static_info_1"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_1",
+        "si_static_info_121",
+        "si_static_info_81",
+        "si_static_info_56",
+        "si_static_info_68",
+        "cal_calendar_49",
+        "cal_calendar_21",
+        "si_static_info_208_part0",
+        "si_static_info_201",
+        "si_static_info_213"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0236-4000-8000-000000000236",
+      "query": "수강신청 기간이 지났는데도 과목을 추가할 수 있어?",
+      "expected_doc_ids": [
+        "si_static_info_262_part4"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_267",
+        "si_static_info_262_part3",
+        "si_static_info_262_part1",
+        "reg_regulations_3",
+        "학칙_학칙_대학_54",
+        "cal_calendar_67",
+        "cal_calendar_7",
+        "si_static_info_176",
+        "si_static_info_262_part2",
+        "cal_calendar_32"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0237-4000-8000-000000000237",
+      "query": "학교 셔틀버스 없으면 대중교통으로 어떻게 가야 해?",
+      "expected_doc_ids": [
+        "si_static_info_3",
+        "si_static_info_306"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_304",
+        "si_static_info_19",
+        "si_static_info_34",
+        "si_static_info_303",
+        "si_static_info_314_part0",
+        "si_static_info_314_part1",
+        "si_static_info_278",
+        "si_static_info_280",
+        "si_static_info_272",
+        "si_static_info_253"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "시설_연락처",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0238-4000-8000-000000000238",
+      "query": "기숙사 인터넷은 무선으로만 써야 해?",
+      "expected_doc_ids": [
+        "si_static_info_7"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_31",
+        "si_static_info_88",
+        "si_static_info_252",
+        "si_static_info_240",
+        "si_static_info_247",
+        "si_static_info_248",
+        "si_static_info_256",
+        "si_static_info_251",
+        "si_static_info_253",
+        "si_static_info_258"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T2_vague"
+    },
+    {
+      "qid": "a1b2c3d4-0239-4000-8000-000000000239",
+      "query": "계절학기에 타 대학 학점교류도 포함돼?",
+      "expected_doc_ids": [
+        "si_static_info_11"
+      ],
+      "retrieved_doc_ids": [
+        "학칙_학칙_대학_276",
+        "학칙_학칙_대학_292",
+        "학칙_학칙_대학_115",
+        "학칙_학칙_대학_141",
+        "학칙_학칙_대학_177",
+        "학칙_학칙_대학_246",
+        "학칙_학칙_대학_15",
+        "학칙_학칙_대학_182",
+        "학칙_학칙_대학_213",
+        "학칙_학칙_대학_47"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "FAQ",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0240-4000-8000-000000000240",
+      "query": "수강신청 관련 공지는 어디서 확인해?",
+      "expected_doc_ids": [
+        "si_static_info_262_part3"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_323",
+        "si_static_info_265",
+        "si_static_info_310_part0",
+        "cal_calendar_67",
+        "cal_calendar_7",
+        "si_static_info_311_part0",
+        "si_static_info_301",
+        "reg_regulations_3",
+        "si_static_info_254",
+        "si_static_info_111"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "학사정보",
+      "challenge_type": "T1_conversational"
+    },
+    {
+      "qid": "a1b2c3d4-0241-4000-8000-000000000241",
+      "query": "글로벌문화영어는 시험 준비를 어떻게 해야 좋아?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_0_c1"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_199",
+        "si_static_info_309_part1",
+        "si_static_info_16",
+        "si_static_info_103",
+        "si_static_info_134",
+        "si_static_info_292",
+        "si_static_info_29",
+        "si_static_info_122",
+        "si_static_info_278",
+        "si_static_info_114"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0242-4000-8000-000000000242",
+      "query": "경영학개론 출석체크 방식이 어떻게 돼?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_1_c4"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_214",
+        "si_static_info_304",
+        "si_static_info_269",
+        "lec_lecture_reviews_1_c8",
+        "lec_lecture_reviews_1_c6",
+        "lec_lecture_reviews_1_c1",
+        "lec_lecture_reviews_1_c9",
+        "lec_lecture_reviews_1_c4",
+        "lec_lecture_reviews_1_c0",
+        "lec_lecture_reviews_1_c7"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0243-4000-8000-000000000243",
+      "query": "경영학개론에서 배경지식 없어도 따라갈 수 있어?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_1_c2"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_234",
+        "si_static_info_293",
+        "si_static_info_198",
+        "si_static_info_239",
+        "si_static_info_305",
+        "si_static_info_297",
+        "si_static_info_184",
+        "si_static_info_237",
+        "si_static_info_245",
+        "si_static_info_249"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0244-4000-8000-000000000244",
+      "query": "국토와자연의이해 수업 분위기가 어때?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_2_c2"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_2_c17",
+        "lec_lecture_reviews_2_c10",
+        "lec_lecture_reviews_2_c2",
+        "lec_lecture_reviews_2_c13",
+        "lec_lecture_reviews_2_c1",
+        "lec_lecture_reviews_2_c22",
+        "lec_lecture_reviews_2_c12",
+        "lec_lecture_reviews_2_c21",
+        "lec_lecture_reviews_2_c9",
+        "lec_lecture_reviews_2_c16"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0245-4000-8000-000000000245",
+      "query": "국토와자연의이해에서 교수님이 수업 외 사담이 많다는 게 사실이야?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_2_c0",
+        "lec_lecture_reviews_2_c1"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_113",
+        "lec_lecture_reviews_7_c9",
+        "lec_lecture_reviews_100_c0",
+        "lec_lecture_reviews_100_c8",
+        "lec_lecture_reviews_5_c0",
+        "lec_lecture_reviews_107_c2",
+        "lec_lecture_reviews_72_c0",
+        "si_static_info_312",
+        "lec_lecture_reviews_87_c0",
+        "lec_lecture_reviews_10_c0"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0246-4000-8000-000000000246",
+      "query": "기말고사는 중간고사보다 항상 어려운 편인가요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_111_c3"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_111_c3",
+        "lec_lecture_reviews_77_c5",
+        "lec_lecture_reviews_50_c5",
+        "lec_lecture_reviews_37_c1",
+        "lec_lecture_reviews_9_c1",
+        "lec_lecture_reviews_64_c0",
+        "lec_lecture_reviews_5_c4",
+        "lec_lecture_reviews_13_c0",
+        "lec_lecture_reviews_52_c1",
+        "lec_lecture_reviews_75_c3"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0247-4000-8000-000000000247",
+      "query": "인격개발과치유는 어떤 학생한테 추천해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_25_c5"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_70",
+        "si_static_info_61",
+        "si_static_info_173",
+        "si_static_info_324",
+        "si_static_info_170",
+        "si_static_info_223",
+        "si_static_info_135",
+        "si_static_info_7",
+        "lec_lecture_reviews_101_c22",
+        "lec_lecture_reviews_12_c18"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T3_paraphrase"
+    },
+    {
+      "qid": "a1b2c3d4-0248-4000-8000-000000000248",
+      "query": "호신술 수업을 들으려면 체력이 어느 정도 돼야 해?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_66_c23"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_66_c21",
+        "lec_lecture_reviews_66_c19",
+        "lec_lecture_reviews_66_c0",
+        "lec_lecture_reviews_66_c4",
+        "lec_lecture_reviews_66_c26",
+        "lec_lecture_reviews_66_c28",
+        "lec_lecture_reviews_66_c17",
+        "lec_lecture_reviews_66_c6",
+        "lec_lecture_reviews_66_c14",
+        "lec_lecture_reviews_66_c29"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0249-4000-8000-000000000249",
+      "query": "SF와인문학 수강 전 SF 소설을 읽어두어야 하나요?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_79_c4"
+      ],
+      "retrieved_doc_ids": [
+        "lec_lecture_reviews_79_c7",
+        "lec_lecture_reviews_79_c9",
+        "lec_lecture_reviews_79_c8",
+        "lec_lecture_reviews_79_c5",
+        "lec_lecture_reviews_79_c4",
+        "lec_lecture_reviews_79_c6",
+        "lec_lecture_reviews_79_c3",
+        "lec_lecture_reviews_79_c2",
+        "lec_lecture_reviews_79_c0",
+        "lec_lecture_reviews_79_c1"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T5_inference"
+    },
+    {
+      "qid": "a1b2c3d4-0250-4000-8000-000000000250",
+      "query": "진로탐색의이해 수업이 쉬운데 왜 학점 받기 힘들다는 말이 있어?",
+      "expected_doc_ids": [
+        "lec_lecture_reviews_102_c13"
+      ],
+      "retrieved_doc_ids": [
+        "si_static_info_69",
+        "lec_lecture_reviews_102_c14",
+        "lec_lecture_reviews_102_c15",
+        "lec_lecture_reviews_102_c16",
+        "lec_lecture_reviews_102_c26",
+        "lec_lecture_reviews_102_c20",
+        "lec_lecture_reviews_102_c13",
+        "lec_lecture_reviews_102_c0",
+        "lec_lecture_reviews_102_c23",
+        "lec_lecture_reviews_102_c11"
+      ],
+      "answer": "",
+      "has_citation": true,
+      "source_collection": "강의평가",
+      "challenge_type": "T5_inference"
+    }
+  ]
+}

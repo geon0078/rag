@@ -1,13 +1,13 @@
 {
-  "faithfulness": 0.694672801245891,
-  "answer_relevancy": 0.4199156436220563,
-  "context_precision": 0.763169785701048,
-  "context_recall": 0.8691206543967279,
-  "n": 163,
+  "faithfulness": 0.7281013691009001,
+  "answer_relevancy": 0.4153519259735124,
+  "context_precision": 0.7835233958767048,
+  "context_recall": 0.8922934076137419,
+  "n": 719,
   "meta": {
-    "started_at": "2026-04-27T15:09:32+09:00",
-    "started_at_utc": "2026-04-27T06:09:32+00:00",
-    "git_commit": "31fa8da",
+    "started_at": "2026-04-27T18:10:41+09:00",
+    "started_at_utc": "2026-04-27T09:10:41+00:00",
+    "git_commit": "6dcf74f",
     "platform": "Windows-11-10.0.26200-SP0",
     "python": "3.12.7",
     "config": {
@@ -28,6 +28,6 @@
       "default_campus": "성남",
       "bm25_tokenizer": "okt"
     },
-    "n_samples": 163
+    "n_samples": 719
   }
 }

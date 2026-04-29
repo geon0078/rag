@@ -1,0 +1,460 @@
+{
+  "meta": {
+    "started_at": "2026-04-27T21:43:59+09:00",
+    "judge_model": "solar-pro3",
+    "n_records": 250,
+    "n_ok": 134,
+    "n_err": 0
+  },
+  "total": 250,
+  "histogram": {
+    "1": 62,
+    "2": 4,
+    "3": 33,
+    "4": 80,
+    "5": 71
+  },
+  "mode_counts": {
+    "OK": 134,
+    "E": 58,
+    "A": 25,
+    "C": 33
+  },
+  "by_challenge_type": {
+    "T1_conversational": {
+      "n": 50,
+      "ok_rate": 0.64,
+      "avg_score": 3.62,
+      "mode_counts": {
+        "OK": 32,
+        "E": 10,
+        "A": 4,
+        "C": 4
+      }
+    },
+    "T2_vague": {
+      "n": 50,
+      "ok_rate": 0.44,
+      "avg_score": 3.24,
+      "mode_counts": {
+        "OK": 22,
+        "E": 9,
+        "A": 7,
+        "C": 12
+      }
+    },
+    "T3_paraphrase": {
+      "n": 50,
+      "ok_rate": 0.78,
+      "avg_score": 4.12,
+      "mode_counts": {
+        "OK": 39,
+        "E": 6,
+        "C": 4,
+        "A": 1
+      }
+    },
+    "T4_multi_intent": {
+      "n": 50,
+      "ok_rate": 0.3,
+      "avg_score": 2.64,
+      "mode_counts": {
+        "C": 9,
+        "A": 7,
+        "E": 19,
+        "OK": 15
+      }
+    },
+    "T5_inference": {
+      "n": 50,
+      "ok_rate": 0.52,
+      "avg_score": 3.26,
+      "mode_counts": {
+        "E": 14,
+        "OK": 26,
+        "A": 6,
+        "C": 4
+      }
+    }
+  },
+  "samples": {
+    "E": [
+      {
+        "qid": "21904598-06a9-4360-860a-eb4e3b7dcf83",
+        "query": "결석 3번 넘으면 어떻게 돼?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 1,
+        "diagnosis": "정답 doc_id(학칙_학칙_대학_295)가 sources에 포함되어 있음에도 불구하고 시스템이 \"제공된 자료에서 해당 정보를 찾을 수 없습니다\"라고 응답하여 정답을 완전히 놓쳤습니다.",
+        "suggested_fix": "router에 학칙_학칙_대학_295를 정답으로 명시적으로 매핑하고, answer prompt에 해당 doc_id가 포함된 경우 반드시 정보를 추출하도록 강제하세요.",
+        "evidence": "학칙_학칙_대학_295에 3회(15주 기준 3주 이상) 결석 시 담당자가 학과장에게 보고하고 학과장이 교무혁신처에 명단을 제출한다는 내용이 명시되어 있습니다.",
+        "verdict": "notGrounded",
+        "retry": true,
+        "retrieval_hit": true,
+        "answer_preview": "제공된 자료에서 해당 정보를 찾을 수 없습니다.\n\n[출처: 학칙_학칙_대학_319, 학칙, 전체]",
+        "expected_preview": "3회(15주 기준 3주 이상) 결석하면 담당자가 학과장에게 보고하고, 학과장이 교무혁신처에 명단을 제출한다.",
+        "top_sources": [
+          "학칙_학칙_대학_319",
+          "학칙_학칙_대학_69",
+          "reg_regulations_4"
+        ],
+        "retrieval_gt": [
+          "학칙_학칙_대학_295"
+        ]
+      },
+      {
+        "qid": "bfdfb16b-04da-4c71-8d9c-b25c4233fed8",
+        "query": "조별 발표 안 할 땐 뭐 해?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 1,
+        "diagnosis": "검색된 출처가 모두 강의평가 카테고리이며 정답 doc_id(lec_lecture_reviews_22_c2)가 포함되지 않아 정보가 전혀 제공되지 않았습니다.",
+        "suggested_fix": "router에 정답 doc_id가 포함된 강의 자료 카테고리를 우선적으로 검색하도록 패턴을 추가하고, fallback 조건을 완화하여 정답이 있는 경우 '정보 없음' 응답을 방지하세요.",
+        "evidence": "정답 doc_id lec_lecture_reviews_22_c2가 sources 목록에 없음",
+        "verdict": "notGrounded",
+        "retry": true,
+        "retrieval_hit": false,
+        "answer_preview": "제공된 자료에서 해당 정보를 찾을 수 없습니다.\n\n[출처: lec_lecture_reviews_38_c2, 강의평가, 전체]",
+        "expected_preview": "발표 안 한 조는 찬반 토론이나 생각 정리로 수업에 참여해요. 수업 시간은 유연하게 관리돼서 일찍 끝나는 경우가 많아요.",
+        "top_sources": [
+          "lec_lecture_reviews_38_c2",
+          "lec_lecture_reviews_84_c2",
+          "lec_lecture_reviews_64_c2"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_22_c2"
+        ]
+      },
+      {
+        "qid": "2590285c-af52-4751-bc3c-2612cd0eb262",
+        "query": "이 과목 학점 경쟁 어때?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 1,
+        "diagnosis": "검색된 sources에 정답 doc_id(lec_lecture_reviews_12_c12)가 포함되지 않았고, 시스템은 '정보 없음'으로 fallback했으나 corpus에 정답이 존재하므로 부적절한 거부입니다.",
+        "suggested_fix": "router에 해당 과목 강의평가 doc_id를 정확히 매핑하거나, 검색 쿼리에 과목명을 명시적으로 포함시켜 retrieval_hit를 보장해야 합니다.",
+        "evidence": "정답 doc_id lec_lecture_reviews_12_c12가 sources 목록에 없음",
+        "verdict": "notGrounded",
+        "retry": true,
+        "retrieval_hit": false,
+        "answer_preview": "제공된 자료에서 해당 정보를 찾을 수 없습니다.\n\n[출처: lec_lecture_reviews_106_c4, 강의평가, 전체]",
+        "expected_preview": "학점 경쟁은 비교적 치열하지 않지만 과제와 시험 준비가 중요하다고 되어 있습니다.",
+        "top_sources": [
+          "lec_lecture_reviews_106_c4",
+          "lec_lecture_reviews_100_c6",
+          "lec_lecture_reviews_5_c7"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_12_c12"
+        ]
+      },
+      {
+        "qid": "469d6cfe-883b-4d3c-b27e-a0626239b40d",
+        "query": "이 수업 누구에게 추천?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 1,
+        "diagnosis": "검색된 sources에 정답 doc(lec_lecture_reviews_7_c7)이 포함되어 있음에도 불구하고 retrieval_hit=False로 판단되어 notGrounded로 거부되었으며, 시스템 답변은 '정보 없음'이라고 잘못 응답했습니다.",
+        "suggested_fix": "retrieval_hit 판단 로직을 개선하여 정답 doc_id가 sources에 존재하면 반드시 retrieval_hit=True로 설정하도록 수정하고, fallback 응답을 방지하세요.",
+        "evidence": "정답 doc_id lec_lecture_reviews_7_c7이 sources에 포함되어 있으나 retrieval_hit=False로 판단됨",
+        "verdict": "notGrounded",
+        "retry": true,
+        "retrieval_hit": false,
+        "answer_preview": "제공된 자료에서 해당 정보를 찾을 수 없습니다.\n\n[출처: lec_lecture_reviews_74_c0, 강의평가, 전체]",
+        "expected_preview": "중국사에 관심 있고 자기주도 학습 가능한 학생에게 추천됩니다.",
+        "top_sources": [
+          "lec_lecture_reviews_74_c0",
+          "lec_lecture_reviews_74_c8",
+          "lec_lecture_reviews_7_c9"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_7_c7"
+        ]
+      },
+      {
+        "qid": "2fb75db1-8d40-4b84-b627-1c5f33f11eee",
+        "query": "이 수업 지루해요?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 1,
+        "diagnosis": "시스템이 정답 doc(lec_lecture_reviews_2_c21)을 검색하지 못하고, 제공된 sources에 정답 정보가 없어 fallback으로 '정보 없음'을 반환했으나 corpus에 정답이 존재하므로 부적절 거부됨",
+        "suggested_fix": "router에 lec_lecture_reviews_2_c21 doc_id를 포함한 강의평가 검색 패턴 추가 및 fallback 조건 완화",
+        "evidence": "정답 doc(lec_lecture_reviews_2_c21)에 '지루함을 견디기 어려운 학생에게는 비추천합니다'라는 명시적 평가가 존재함",
+        "verdict": "notSure",
+        "retry": true,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n제공된 강의평가 자료를 바탕으로 \"이 수업 지루해요?\"라는 질문에 답변드리겠습니다.\n\n강의평가 문서들을 살펴보면, 각 강의의 지루함 여부에 대한 평가가 다음과 같이 기록되어 있습니다:\n\n1. **글로벌시대스포츠이벤트의이해** (문서 1): \"학생들이 수업을 지루해하지 않는다는 점에서 시간 관리를 잘 하고 있는 것으로 추측됩니다",
+        "expected_preview": "지루함을 견디기 어려운 학생에게는 비추천합니다.",
+        "top_sources": [
+          "lec_lecture_reviews_57_c0",
+          "lec_lecture_reviews_102_c0",
+          "lec_lecture_reviews_28_c1"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_2_c21"
+        ]
+      }
+    ],
+    "A": [
+      {
+        "qid": "dbfca4a3-f437-4cc0-9e75-1a12eb73b605",
+        "query": "시험 서술형 어떻게 준비해야 돼?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 4,
+        "diagnosis": "검색된 출처가 정답 doc(lec_lecture_reviews_3_c8)을 포함하지 않아 retrieval_hit가 false이며, 시스템 답변이 정답과 유사하지만 핵심 키워드 강조와 PPT 중심 암기 내용이 누락되었습니다.",
+        "suggested_fix": "router에 정답 doc_id(lec_lecture_reviews_3_c8)를 포함하도록 검색 쿼리를 개선하거나, 강의평가 카테고리에서 해당 강의 리뷰 문서를 우선적으로 검색하도록 설정 변경",
+        "evidence": "정답 doc_id lec_lecture_reviews_3_c8가 sources에 없음",
+        "verdict": "grounded",
+        "retry": false,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n시험 서술형을 준비하기 위해서는 교수님이 미리 알려주는 시험 범위를 철저히 암기하고, 가능한 많은 내용을 적을 수 있도록 준비해야 합니다. 특히 서술형 문제는 암기해야 할 양이 많아 난이도가 높은 편이므로, 찝어준 내용을 꼼꼼히 복습하는 것이 중요합니다.\n\n[출처: lec_lecture_reviews_2_c23, 강의평가, 전",
+        "expected_preview": "시험 범위가 넓으니 미리 공부하고 PPT에 강조된 부분을 중심으로 암기하는 게 좋아. 키워드는 꼭 놓치지 말고 최대한 길게 작성해 봐.",
+        "top_sources": [
+          "lec_lecture_reviews_2_c23",
+          "si_static_info_280",
+          "lec_lecture_reviews_103_c1"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_3_c8"
+        ]
+      },
+      {
+        "qid": "9e3247af-aecb-4b48-b390-7ed8d64d68e9",
+        "query": "수강신청 언제부터?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 2,
+        "diagnosis": "retrieval_hit=false로 정답 doc(학칙_학칙_대학_77)을 검색하지 못해 수강신청 시작일을 잘못 답변함",
+        "suggested_fix": "router에 학칙 관련 doc_id(학칙_학칙_대학_77)를 포함하도록 패턴 추가",
+        "evidence": "정답은 '수업시간표는 학기가 시작되기 4주 전에 총장이 정한다'이지만 시스템은 '2026-02-25(수)부터 2026-02-27(금)까지'라고 잘못 답변",
+        "verdict": "grounded",
+        "retry": false,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n수강신청은 2026학년도 1학기 기준으로 2026-02-25(수)부터 2026-02-27(금)까지 진행됩니다.  \n신·편입생과 재학생 모두 해당 기간에 수강신청을 할 수 있습니다.\n\n[출처: cal_calendar_7, 학사일정, 성남]",
+        "expected_preview": "수업시간표는 학기가 시작되기 4주 전에 총장이 정한다.",
+        "top_sources": [
+          "si_static_info_267",
+          "si_static_info_265",
+          "cal_calendar_67"
+        ],
+        "retrieval_gt": [
+          "학칙_학칙_대학_77"
+        ]
+      },
+      {
+        "qid": "4efc5f93-cdf0-4de1-9d1f-96df13673a41",
+        "query": "교수님 발표 많이 시키나요?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 4,
+        "diagnosis": "retrieval_hit가 false로, 정답 doc(lec_lecture_reviews_23_c0)을 검색하지 못했습니다. 대신 다른 강의평가 문서들을 인용하여 답변을 생성했으나, 정답에 포함된 '매 수업 후 퀴즈 및 회화 테스트' 정보가 누락되었습니다.",
+        "suggested_fix": "router에 lec_lecture_reviews_23_c0을 포함하는 검색 패턴을 추가하고, 정답 doc이 검색되지 않을 경우 fallback 대신 해당 doc을 우선 검색하도록 개선하세요.",
+        "evidence": "정답 doc(lec_lecture_reviews_23_c0)에 '매 수업 후 퀴즈 및 회화 테스트도 포함되어 있습니다'라는 핵심 정보가 있으나, 검색된 sources에는 해당 doc이 없습니다.",
+        "verdict": "notSure",
+        "retry": true,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n제공된 강의평가 자료를 바탕으로 \"교수님 발표 많이 시키나요?\"라는 질문에 답변드리겠습니다.\n\n**답변:**\n네, 여러 강의에서 교수님이 발표를 많이 시키는 것으로 나타납니다.\n\n1. **세상과소통하는기초한자** (문서 1):  \n   - \"학생들에게 질문을 많이 하시며, 발표와 참여를 강조하는 수업입니다.\"\n   - \"PPT",
+        "expected_preview": "네, 교수님은 학생 발표와 참여를 중시하는 방식으로 수업합니다. 매 수업 후 퀴즈 및 회화 테스트도 포함되어 있습니다.",
+        "top_sources": [
+          "lec_lecture_reviews_92_c0",
+          "lec_lecture_reviews_38_c2",
+          "lec_lecture_reviews_38_c0"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_23_c0"
+        ]
+      },
+      {
+        "qid": "bb2ed4f8-20ed-47d4-8997-1612bae467b3",
+        "query": "이 강의 지루해요?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 4,
+        "diagnosis": "retrieval_hit가 false로 설정되어 정답 doc(lec_lecture_reviews_51_c6)을 검색하지 못했으며, 대신 다른 강의평가 문서들을 인용하여 답변을 생성했습니다.",
+        "suggested_fix": "router의 검색 로직에서 정답 doc_id를 정확히 매칭하도록 개선하거나, 검색 결과에 정답 doc이 없을 경우 fallback 대신 해당 doc을 강제로 포함하도록 수정",
+        "evidence": "정답 doc(lec_lecture_reviews_51_c6)이 sources에 포함되지 않았고, retrieval_hit=false로 판단됨",
+        "verdict": "grounded",
+        "retry": false,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n제공된 강의평가 자료를 종합해 보면, 여러 강의에서 \"지루한 강의\"라는 의견이 공통적으로 언급되고 있습니다.\n\n- 자연과학의이해 강의에서는 \"PPT를 읽는 방식이 주를 이룹니다\"라고 명시되어 있습니다.\n- EU인문과학콘서트 강의에서는 \"강의 내용이 지루하다고 느낍니다\"라고 언급되었습니다.\n- 한시의이해 강의에서는 \"수업이 지루",
+        "expected_preview": "네, 지루하다는 평가가 많아요. 암기량도 많고 철학적인 내용이 많아 이과 학생들에겐 어려울 수 있어요.",
+        "top_sources": [
+          "lec_lecture_reviews_32_c21",
+          "lec_lecture_reviews_70_c10",
+          "lec_lecture_reviews_12_c17"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_51_c6"
+        ]
+      },
+      {
+        "qid": "1f9a43e3-36ea-4174-a208-4fa1556c8018",
+        "query": "발표 준비는 어떻게 하면 되나요?",
+        "challenge_type": "T2_vague",
+        "quality_score": 1,
+        "diagnosis": "검색된 출처가 강의실 대여 관련 시설 정보만 포함하고 있어 발표 준비 방법에 대한 정답 doc(lec_lecture_reviews_78_c9)을 놓쳤습니다.",
+        "suggested_fix": "router에 발표 준비 관련 강의 평가 문서를 검색하도록 CAMPUS_PATTERN을 추가하고, 강의평가 카테고리에서 발표 관련 키워드를 포함하도록 개선하세요.",
+        "evidence": "검색된 sources에 정답 doc_id(lec_lecture_reviews_78_c9)가 없음",
+        "verdict": "grounded",
+        "retry": false,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n[답변]\n강의실 대여는 학과별로 관리되는 강의실이 있으므로, 대여하고자 하는 강의실의 담당학과를 확인한 후 해당 학과사무실에 연락하여 신청하시면 됩니다.\n\n[출처: si_static_info_280, 시설대여, 성남]",
+        "expected_preview": "2인 1조 발표는 부담스럽지 않으므로, 간단하게 준비하되 팀원과의 협업을 잘하는 것이 중요합니다.",
+        "top_sources": [
+          "si_static_info_280",
+          "si_static_info_203",
+          "lec_lecture_reviews_31_c8"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_78_c9"
+        ]
+      }
+    ],
+    "C": [
+      {
+        "qid": "7816fac9-e8dd-464d-bcaa-d021813ba719",
+        "query": "1학기 수업 언제 시작해요?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 3,
+        "diagnosis": "정답 doc(cal_calendar_22)은 검색되었으나, 시스템 답변은 다른 출처(si_static_info_177)의 정보를 인용하여 2026년 3월 29일이라는 잘못된 날짜를 제시했습니다.",
+        "suggested_fix": "검색된 sources 중 정답 doc(cal_calendar_22)을 우선적으로 사용하도록 answer prompt에 '정답 doc_id가 있으면 해당 정보를 우선 인용하라'는 규칙을 추가하세요.",
+        "evidence": "cal_calendar_22에 2026년 6월 15일 월요일이라는 1학기 수업개시일이 명시되어 있습니다.",
+        "verdict": "grounded",
+        "retry": false,
+        "retrieval_hit": true,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n1학기 수업은 2026년 3월 29일(일)에 시작합니다.\n\n[출처: si_static_info_177, FAQ, 전체]",
+        "expected_preview": "1학기 수업개시일은 2026년 6월 15일 월요일입니다.",
+        "top_sources": [
+          "si_static_info_177",
+          "cal_calendar_11",
+          "cal_calendar_22"
+        ],
+        "retrieval_gt": [
+          "cal_calendar_22"
+        ]
+      },
+      {
+        "qid": "f58f17ce-2ca6-43db-83a5-e34bdb3d6677",
+        "query": "시험 범위는 어떻게 정해지나요?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 3,
+        "diagnosis": "정답 doc(lec_lecture_reviews_108_c1)이 검색되지 않아 핵심 정보가 누락되었고, 검색된 강의평가 문서들이 시험 범위 결정 방식에 대한 직접적인 답변을 제공하지 않아 답변이 흐려졌습니다.",
+        "suggested_fix": "router에 시험 범위 관련 키워드(예: '시험 범위', '시험 문제')를 추가하고, 정답 doc을 명시적으로 포함하도록 검색 전략을 개선하세요.",
+        "evidence": "정답 doc lec_lecture_reviews_108_c1에 '시험은 수업 중 교수님이 중요하다고 언급한 부분과 연습문제에서 주로 출제됩니다. 교수님이 미리 시험 문제를 언급해 주시기도 합니다.'라는 내용이 있습니다.",
+        "verdict": "grounded",
+        "retry": true,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n시험 범위는 강의별로 다르게 정해집니다.  \n- **수학** 강의의 경우, 시험 범위는 강의 내용에 기반하지만 구체적인 범위 공지가 부족하다는 의견이 있습니다.  \n- **걸어서역사속으로** 강의의 경우, 시험 범위는 시험 1~2주 전에 PPT를 통해 공지됩니다.  \n- **K-컨텐츠새로읽기** 강의의 경우, 시험 범위는 시험",
+        "expected_preview": "시험은 수업 중 교수님이 중요하다고 언급한 부분과 연습문제에서 주로 출제됩니다. 교수님이 미리 시험 문제를 언급해 주시기도 합니다.",
+        "top_sources": [
+          "lec_lecture_reviews_100_c3",
+          "학칙_학칙_대학_16",
+          "lec_lecture_reviews_86_c0"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_108_c1"
+        ]
+      },
+      {
+        "qid": "5bab4e02-c425-42ec-b780-c4b94ab04439",
+        "query": "팀플 발표 팁 알려줘",
+        "challenge_type": "T1_conversational",
+        "quality_score": 3,
+        "diagnosis": "정답 doc(lec_lecture_reviews_22_c14)이 검색되지 않았고, 검색된 sources(lec_lecture_reviews_38_c8 등)는 발표 팁과 관련된 내용이 포함되어 있으나 정답의 핵심인 '토론 쟁점 숙지'와 '팀원과의 적극적 협력'이 누락되어 있습니다.",
+        "suggested_fix": "router에 팀플 발표 관련 키워드(예: '토론 쟁점', '팀원 협력')를 추가하고, 정답 doc_id를 명시적으로 매핑하여 검색 정확도를 높이세요.",
+        "evidence": "정답 doc(lec_lecture_reviews_22_c14)은 '발표 내용을 철저히 준비하고, 토론 쟁점을 잘 숙지하세요. 팀원들과 적극적으로 협력하는 게 중요합니다.'라고 명시되어 있습니다.",
+        "verdict": "grounded",
+        "retry": false,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n팀플 발표 팁은 다음과 같습니다:\n\n1. **팀원과의 원활한 소통**: 팀원들과의 소통을 통해 프로젝트를 성공적으로 마무리하는 것이 중요합니다.\n2. **역할 분담 명확화**: 팀 프로젝트에서의 역할 분담을 명확히 하여 효율적으로 진행할 수 있습니다.\n3. **참신한 아이디어 제안**: 참신한 아이디어를 제안하여 프로젝트의 질",
+        "expected_preview": "발표 내용을 철저히 준비하고, 토론 쟁점을 잘 숙지하세요. 팀원들과 적극적으로 협력하는 게 중요합니다.",
+        "top_sources": [
+          "lec_lecture_reviews_90_c2",
+          "lec_lecture_reviews_44_c10",
+          "lec_lecture_reviews_1_c9"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_22_c14"
+        ]
+      },
+      {
+        "qid": "37119128-494b-4eb4-9a1b-c833df2e9b68",
+        "query": "기말고사 대체 과제 있나요?",
+        "challenge_type": "T1_conversational",
+        "quality_score": 3,
+        "diagnosis": "정답 doc(lec_lecture_reviews_59_c1)은 기말고사 대체 과제 존재 여부를 일반적으로 언급했으나, 시스템은 검색된 강의평가 문서들을 인용하여 특정 강의별 기말고사 대체 여부를 나열함으로써 핵심 정보를 흐리게 했습니다.",
+        "suggested_fix": "router에 정답 doc을 우선 검색하도록 강의평가 문서 필터링 로직을 개선하고, answer prompt에 '일부 학기에는 기말고사를 대체하는 과제가 주어지기도 했습니다'라는 핵심 문장을 직접 포함하도록 지시하세요.",
+        "evidence": "정답 doc(lec_lecture_reviews_59_c1)은 '일부 학기에는 기말고사를 대체하는 과제가 주어지기도 했습니다'라고 명시했으나, 시스템은 lec_lecture_reviews_48_c3 등 강의별 평가 문서를 인용하여 핵심을 벗어났습니다.",
+        "verdict": "grounded",
+        "retry": false,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n기말고사 대체 과제 여부는 강의마다 다릅니다.\n\n- **유럽지리와문화**: 기말고사는 반드시 치러야 합니다. (중간고사는 과제로 대체)\n- **미디어크리에이터**: 기말고사는 서술형으로 진행되며, 중간고사는 과제로 대체됩니다.\n- **호신술**: 기말고사는 실기 시험으로 대체되지 않습니다.\n- **인류식문화**: 기말고사는 별",
+        "expected_preview": "일부 학기에는 기말고사를 대체하는 과제가 주어지기도 했습니다.",
+        "top_sources": [
+          "lec_lecture_reviews_48_c3",
+          "lec_lecture_reviews_106_c1",
+          "lec_lecture_reviews_66_c8"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_59_c1"
+        ]
+      },
+      {
+        "qid": "465d997b-b2b5-4917-ba98-295b873cfa4a",
+        "query": "디자인 수업에서 좋은 평가를 받으려면 어떻게 해야?",
+        "challenge_type": "T2_vague",
+        "quality_score": 3,
+        "diagnosis": "정답 doc(lec_lecture_reviews_53_c11)이 검색 결과에 포함되지 않았고, 제공된 출처(lec_lecture_reviews_59_c4, lec_lecture_reviews_59_c8)는 시험 전 용어 정리 노트 암기에 대한 구체적인 언급이 없어 핵심 정보가 누락되었습니다.",
+        "suggested_fix": "router에 lec_lecture_reviews_53_c11을 검색 대상으로 추가하고, answer prompt에 '시험 전 제공되는 용어 정리 노트 암기'를 명시적으로 강조하여 관련 출처를 우선적으로 추출하도록 개선하세요.",
+        "evidence": "",
+        "verdict": "grounded",
+        "retry": false,
+        "retrieval_hit": false,
+        "answer_preview": "[성남캠퍼스 기준 답변입니다]\n디자인 수업에서 좋은 평가를 받으려면 다음과 같이 준비해야 합니다:\n\n1. **수업 중 필기 철저히**: 수업 내용을 꼼꼼히 기록하고, 사진을 찍어 자료를 정리해 두는 것이 중요합니다.  \n2. **사례 암기**: 서술형 문제에 대비하여 사례를 잘 기억하고, 필기를 정리하여 암기하는 것이 필요합니다.  \n3. **시험 준비 철",
+        "expected_preview": "디자인 수업에서 A+를 받기 위해서는 시험 전 제공되는 용어 정리 노트를 철저히 암기하는 것이 중요합니다.",
+        "top_sources": [
+          "lec_lecture_reviews_59_c7",
+          "lec_lecture_reviews_59_c4",
+          "lec_lecture_reviews_53_c10"
+        ],
+        "retrieval_gt": [
+          "lec_lecture_reviews_53_c11"
+        ]
+      }
+    ]
+  },
+  "top_fixes": [
+    {
+      "fix": "없음",
+      "count": 36
+    },
+    {
+      "fix": "현재 시스템이 이미 잘 작동하고 있으므로 특별한 수정이 필요하지 않습니다.",
+      "count": 8
+    },
+    {
+      "fix": "현재 답변이 이미 정확하므로 추가 수정이 필요하지 않습니다.",
+      "count": 4
+    },
+    {
+      "fix": "현재 시스템이 이미 정확한 답변을 제공하고 있으므로 추가 수정이 필요하지 않습니다.",
+      "count": 4
+    },
+    {
+      "fix": "현재 답변이 이미 완벽하므로 추가 수정이 필요 없습니다.",
+      "count": 3
+    },
+    {
+      "fix": "현재 답변이 이미 완벽하므로 추가 수정이 필요하지 않습니다.",
+      "count": 3
+    },
+    {
+      "fix": "현재 시스템이 이미 잘 작동하고 있으므로 추가 수정이 필요하지 않습니다.",
+      "count": 2
+    },
+    {
+      "fix": "현재 답변은 이미 완벽하므로 추가 수정이 필요 없습니다.",
+      "count": 1
+    },
+    {
+      "fix": "router에 학칙_학칙_대학_295를 정답으로 명시적으로 매핑하고, answer prompt에 해당 doc_id가 포함된 경우 반드시 정보를 추출하도록 강제하세요.",
+      "count": 1
+    },
+    {
+      "fix": "router에 정답 doc_id가 포함된 강의 자료 카테고리를 우선적으로 검색하도록 패턴을 추가하고, fallback 조건을 완화하여 정답이 있는 경우 '정보 없음' 응답을 방지하세요.",
+      "count": 1
+    }
+  ]
+}
