@@ -41,3 +41,20 @@ logs/
 # Vector DB / large parquet outputs
 data/corpus_autorag.parquet
 qdrant_storage/
+postgres_data/
+
+# Workspace temp + backups
+tmp/
+backups/
+
+# Outline / Onyx env (시크릿 포함)
+outline/.env
+.env.onyx
+.env.onyx.template
+
+# Onyx 컨테이너 data (런타임)
+onyx-data/
+
+# Outline 인덱싱 산출물 (재생성 가능)
+data/outline_chunks.parquet
+data/outline_url_map.json
