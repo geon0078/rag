@@ -83,7 +83,8 @@ def _config_md() -> str:
     )
 
 
-async def _ask_async(query: str) -> tuple[str, str, str]:
+async def ask(query: str) -> tuple[str, str, str]:
+    """Gradio 6 supports async event handlers natively — no asyncio.run wrap."""
     if not query or not query.strip():
         return "_질문을 입력하세요._", "", ""
     pipeline = _get_pipeline()
@@ -95,15 +96,9 @@ async def _ask_async(query: str) -> tuple[str, str, str]:
     return result["answer"], _format_status(result), _format_sources(result["sources"])
 
 
-def ask(query: str) -> tuple[str, str, str]:
-    return asyncio.run(_ask_async(query))
-
-
 def build_app() -> gr.Blocks:
-    with gr.Blocks(
-        title="EulJi RAG Demo",
-        theme=gr.themes.Soft(primary_hue="blue"),
-    ) as app:
+    # Gradio 6: theme moves to launch(); gr.Markdown drops `label=`.
+    with gr.Blocks(title="EulJi RAG Demo") as app:
         gr.Markdown("# EulJi RAG Demo\n을지대학교 학사 안내 RAG 파이프라인 데모")
         gr.Markdown(_config_md())
 
@@ -119,17 +114,22 @@ def build_app() -> gr.Blocks:
                     clear = gr.Button("지우기")
                 gr.Examples(
                     examples=[
-                        "휴학 신청 기간은 언제인가요?",
-                        "성남캠퍼스 도서관 위치 알려줘",
-                        "장학금 신청 자격이 어떻게 되나요?",
-                        "학칙 제15조 내용이 뭐야?",
-                        "이번 학기 수강신청 일정은?",
+                        "위탁생이 되려면 어떤 조건이 필요한가요?",
+                        "학사학위취득유예는 언제 신청할 수 있고, 어떤 방법으로 신청하나요?",
+                        "학칙 제29조 제1항에 따르면 학생이 한 학기에 최대 몇 학점까지 수강할 수 있나요?",
+                        "을지대학교 성남캠퍼스에 셔틀버스가 있나요?",
+                        "기숙사 입사 시 휠체어 이용 가능한 건물은 어디인가요?",
+                        "교직과목은 어떻게 이수하나요?",
+                        "전체 교수회와 캠퍼스 교수회를 소집하는 사람은 누구인가요?",
+                        "학점은행제로 학사학위를 받으려면 본교에서 취득해야 하는 최소 학점은 얼마인가요?",
                     ],
                     inputs=query,
                 )
             with gr.Column(scale=3):
-                answer = gr.Markdown(label="답변", value="")
-                status = gr.Markdown(label="상태", value="")
+                gr.Markdown("### 답변")
+                answer = gr.Markdown(value="_아직 질문이 없습니다._")
+                gr.Markdown("### 상태")
+                status = gr.Markdown(value="")
 
         gr.Markdown("### 검색된 소스")
         sources = gr.Markdown(value="_아직 질문이 없습니다._")

@@ -26,7 +26,7 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
-from openai import AsyncOpenAI
+from openai import AsyncOpenAI, RateLimitError, APIError
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -38,23 +38,33 @@ log = get_logger(__name__)
 
 
 COLLECTION_QUOTAS: dict[str, int] = {
-    "학칙_조항": 30,
-    "FAQ": 25,
-    "학사정보": 20,
-    "강의평가": 30,
-    "시설_연락처": 15,
-    "장학금": 15,
-    "학사일정": 15,
-    "학과정보": 5,
-    "교육과정": 5,
-    "기타": 5,
+    # 5x scale-up (2026-04-27) so a single QA worth ≈0.1pt instead of ≈0.6pt,
+    # bringing the metric noise floor below the typical Solar API drift
+    # (±1pt before, ±0.4pt expected after). Some categories have fewer corpus
+    # docs than the quota — the sampler reuses docs with replacement once
+    # exhausted, which is acceptable for query-side variation testing.
+    "학칙_조항": 150,
+    "FAQ": 125,
+    "학사정보": 100,
+    "강의평가": 150,
+    "시설_연락처": 75,
+    "장학금": 75,
+    "학사일정": 75,
+    "학과정보": 25,
+    "교육과정": 25,
+    "기타": 25,
 }
 
 MULTI_HOP_RATIO = 0.20
 MAX_DOC_CHARS = 1500
 QA_LLM_MODEL = "solar-pro3"
 QA_LLM_TEMPERATURE = 0.6
-CONCURRENCY = 4
+# Concurrency lowered from 4 to 2 for the 5x scale-up: at 4 the burst hits
+# Solar's per-second rate ceiling and ~30% of calls return 429. Pair this
+# with the exponential-backoff retry loop in QAGenerator._chat below.
+CONCURRENCY = 2
+RATE_LIMIT_RETRIES = 5
+RATE_LIMIT_BASE_DELAY = 2.0
 
 
 SINGLE_HOP_SYSTEM = """당신은 한국어 RAG 평가 데이터셋을 만드는 전문가입니다.
@@ -136,16 +146,34 @@ class QAGenerator:
 
     async def _chat(self, system: str, user: str) -> str:
         async with self._sem:
-            resp = await self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": user},
-                ],
-                temperature=QA_LLM_TEMPERATURE,
-                max_tokens=400,
-            )
-        return resp.choices[0].message.content or ""
+            attempt = 0
+            delay = RATE_LIMIT_BASE_DELAY
+            while True:
+                attempt += 1
+                try:
+                    resp = await self.client.chat.completions.create(
+                        model=self.model,
+                        messages=[
+                            {"role": "system", "content": system},
+                            {"role": "user", "content": user},
+                        ],
+                        temperature=QA_LLM_TEMPERATURE,
+                        max_tokens=400,
+                    )
+                    return resp.choices[0].message.content or ""
+                except RateLimitError as exc:
+                    if attempt >= RATE_LIMIT_RETRIES:
+                        log.error(f"chat: 429 retry exhausted after {attempt} attempts")
+                        raise
+                    log.warning(f"chat: 429 retry {attempt}/{RATE_LIMIT_RETRIES} sleeping {delay:.1f}s")
+                    await asyncio.sleep(delay)
+                    delay = min(delay * 2.0, 30.0)
+                except APIError as exc:
+                    # Other transient errors — retry once with the same backoff.
+                    if attempt >= 2:
+                        raise
+                    log.warning(f"chat: transient APIError, retrying once: {exc}")
+                    await asyncio.sleep(delay)
 
     async def single_hop(self, doc_id: str, content: str) -> dict[str, Any] | None:
         try:
