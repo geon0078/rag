@@ -1,0 +1,91 @@
+version: "3.9"
+
+# Outline 자체 스택 — Docmost 대체.
+# 실행: docker compose -f docker-compose.outline.yml --env-file .env.outline --project-name outline up -d
+#
+# 외부 노출 포트:
+#   3002 — outline web (UI/API)
+#   8025 — mailpit UI (magic link 자동 처리용)
+# 1025 (mailpit SMTP) 는 컨테이너 내부에서만 사용.
+
+services:
+  outline-postgres:
+    image: postgres:16-alpine
+    container_name: outline-postgres
+    environment:
+      POSTGRES_USER: outline
+      POSTGRES_PASSWORD: outline
+      POSTGRES_DB: outline
+    volumes:
+      - outline_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U outline -d outline"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  outline-redis:
+    image: redis:7-alpine
+    container_name: outline-redis
+    volumes:
+      - outline_redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+    restart: unless-stopped
+
+  # SMTP catcher — Outline magic-link auth 자동 처리용.
+  # 1025 = SMTP (수신), 8025 = Web UI/API (이메일 조회).
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: outline-mailpit
+    ports:
+      - "8025:8025"
+    environment:
+      MP_MAX_MESSAGES: "5000"
+      MP_DATABASE: /data/mailpit.db
+    volumes:
+      - outline_mailpit_data:/data
+    restart: unless-stopped
+
+  outline:
+    image: outlinewiki/outline:1.7
+    container_name: outline
+    ports:
+      - "3002:3000"
+    environment:
+      NODE_ENV: production
+      SECRET_KEY: ${OUTLINE_SECRET_KEY}
+      UTILS_SECRET: ${OUTLINE_UTILS_SECRET}
+      DATABASE_URL: postgres://outline:outline@outline-postgres:5432/outline
+      PGSSLMODE: disable
+      REDIS_URL: redis://outline-redis:6379
+      URL: http://localhost:3002
+      PORT: "3000"
+      FORCE_HTTPS: "false"
+      ENABLE_UPDATES: "false"
+      WEB_CONCURRENCY: "1"
+      DEFAULT_LANGUAGE: ko_KR
+      FILE_STORAGE: local
+      FILE_STORAGE_LOCAL_ROOT_DIR: /var/lib/outline/data
+      FILE_STORAGE_UPLOAD_MAX_SIZE: "262144000"
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+      SMTP_FROM_EMAIL: outline@eulji.local
+      SMTP_REPLY_EMAIL: outline@eulji.local
+      SMTP_SECURE: "false"
+    depends_on:
+      outline-postgres:
+        condition: service_healthy
+      outline-redis:
+        condition: service_started
+      mailpit:
+        condition: service_started
+    volumes:
+      - outline_data:/var/lib/outline/data
+    restart: unless-stopped
+
+volumes:
+  outline_pg_data:
+  outline_redis_data:
+  outline_mailpit_data:
+  outline_data:

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Vespa Application Package — onyx+docmost 개발.md 시나리오 A.
+  단일-노드 dev 구성. 운영은 별도 클러스터.
+-->
+<services version="1.0">
+    <container id="default" version="1.0">
+        <document-api/>
+        <search/>
+        <nodes>
+            <node hostalias="node1"/>
+        </nodes>
+    </container>
+
+    <content id="eulji" version="1.0">
+        <redundancy>1</redundancy>
+        <documents>
+            <document type="eulji_chunk" mode="index"/>
+        </documents>
+        <nodes>
+            <node hostalias="node1" distribution-key="0"/>
+        </nodes>
+    </content>
+</services>

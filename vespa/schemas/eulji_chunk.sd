@@ -1,0 +1,116 @@
+schema eulji_chunk {
+
+    document eulji_chunk {
+        field doc_id type string {
+            indexing: summary | attribute
+            attribute: fast-search
+        }
+        field parent_doc_id type string {
+            indexing: summary | attribute
+        }
+        field source_collection type string {
+            indexing: summary | attribute
+            attribute: fast-search
+        }
+        field campus type string {
+            indexing: summary | attribute
+            attribute: fast-search
+        }
+        field path type string {
+            indexing: summary | attribute
+        }
+        field title type string {
+            indexing: summary | index
+            index: enable-bm25
+            stemming: none
+        }
+
+        # 한국어 본문 — Vespa 의 char-level n-gram 분석으로 토큰화.
+        # 우리 Okt 형태소 분석만큼 강하지 않지만 cjk char 매칭 가능.
+        field contents type string {
+            indexing: summary | index
+            index: enable-bm25
+            stemming: none
+            match {
+                gram
+                gram-size: 2
+            }
+        }
+
+        # Solar passage embedding (4096-dim).
+        field embedding type tensor<float>(x[4096]) {
+            indexing: attribute | index
+            attribute {
+                distance-metric: angular
+            }
+            index {
+                hnsw {
+                    max-links-per-node: 16
+                    neighbors-to-explore-at-insert: 200
+                }
+            }
+        }
+
+        field metadata_json type string {
+            indexing: summary
+        }
+        field status type string {
+            indexing: summary | attribute
+            attribute: fast-search
+        }
+    }
+
+    fieldset default {
+        fields: title, contents
+    }
+
+    # ─── 4개 ranking profile — variants sweep 에서 선택 ───
+
+    rank-profile bm25_only {
+        first-phase {
+            expression: bm25(title) + bm25(contents)
+        }
+    }
+
+    rank-profile vector_only {
+        inputs {
+            query(q_emb) tensor<float>(x[4096])
+        }
+        first-phase {
+            expression: closeness(field, embedding)
+        }
+    }
+
+    # CC fusion: w * (cosine similarity) + (1-w) * (normalized BM25)
+    rank-profile hybrid_cc {
+        inputs {
+            query(q_emb) tensor<float>(x[4096])
+            query(w) double
+        }
+        first-phase {
+            expression {
+                query(w) * closeness(field, embedding)
+                + (1.0 - query(w)) * (bm25(contents) / (1.0 + bm25(contents)))
+            }
+        }
+        match-features {
+            bm25(contents)
+            bm25(title)
+            closeness(field, embedding)
+        }
+    }
+
+    # RRF — first-phase 만으로 표현 가능하지 않아 sigmoid 정규화 후 합산.
+    # 정확한 RRF 는 global-phase 가 필요하지만 hybrid_cc 와 비교 충분.
+    rank-profile rrf_approx {
+        inputs {
+            query(q_emb) tensor<float>(x[4096])
+        }
+        first-phase {
+            expression {
+                1.0 / (60.0 + bm25(contents)) + closeness(field, embedding)
+            }
+        }
+    }
+
+}

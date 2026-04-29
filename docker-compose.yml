@@ -1,6 +1,47 @@
 version: "3.9"
 
+# 운영웹통합명세서 §4.2 — 6개 서비스 (postgres, qdrant, redis, api, worker, web).
+# Existing pipeline keeps using qdrant + redis for retrieval; new operating-web
+# stack adds postgres for chunk metadata + Celery worker + FastAPI admin API +
+# Vite React frontend.
+
 services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: euljiu-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: rag
+      POSTGRES_PASSWORD: rag
+      POSTGRES_DB: euljiu_rag
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rag -d euljiu_rag"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────────────────────
+  # Vespa — Onyx-스타일 retriever (시나리오 A 풀 교체 측정용).
+  # 우리 Qdrant 와 병존, settings.retriever_backend 로 전환.
+  # 처음 띄울 때 self-config + schema deploy ~30s.
+  # ─────────────────────────────────────────────────────────────
+  vespa:
+    image: vespaengine/vespa:latest
+    container_name: euljiu-vespa
+    hostname: vespa
+    ports:
+      - "8080:8080"   # Document/Search API
+      - "19071:19071" # Config server
+    volumes:
+      - vespa_data:/opt/vespa/var
+      - vespa_logs:/opt/vespa/logs
+      - ./vespa:/vespa-app:ro
+    restart: unless-stopped
+
   qdrant:
     image: qdrant/qdrant:latest
     container_name: euljiu-qdrant
@@ -20,3 +61,159 @@ services:
       - ./redis_data:/data
     command: ["redis-server", "--appendonly", "yes"]
     restart: unless-stopped
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: euljiu-api
+    ports:
+      - "8000:8000"
+    environment:
+      UPSTAGE_API_KEY: ${UPSTAGE_API_KEY}
+      DB_URL: postgresql+psycopg://rag:rag@postgres:5432/euljiu_rag
+      QDRANT_URL: http://qdrant:6333
+      REDIS_URL: redis://redis:6379
+      PYTHONPATH: /app:/workspace
+    depends_on:
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+      redis:
+        condition: service_started
+    volumes:
+      - ./backend:/app
+      # Day 5+ — RagPipeline 재사용을 위해 src/data/configs/.env 를 /workspace 로 마운트
+      - ./src:/workspace/src
+      - ./data:/workspace/data
+      - ./configs:/workspace/configs
+      - ./.env:/workspace/.env:ro
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: euljiu-worker
+    environment:
+      UPSTAGE_API_KEY: ${UPSTAGE_API_KEY}
+      DB_URL: postgresql+psycopg://rag:rag@postgres:5432/euljiu_rag
+      QDRANT_URL: http://qdrant:6333
+      REDIS_URL: redis://redis:6379
+      PYTHONPATH: /app:/workspace
+    depends_on:
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+      redis:
+        condition: service_started
+    volumes:
+      - ./backend:/app
+      - ./src:/workspace/src
+      - ./data:/workspace/data
+      - ./configs:/workspace/configs
+      - ./.env:/workspace/.env:ro
+    command: celery -A worker worker --loglevel=info
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: euljiu-web
+    ports:
+      - "5173:5173"
+    environment:
+      # Inside the docker network, the backend service is reachable as `api:8000`.
+      # The browser still hits localhost:5173, and Vite dev-server proxies /api/*.
+      VITE_API_BASE_URL: http://api:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev -- --host 0.0.0.0
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────────────────────
+  # Gradio RAG demo — 개발 시에만 사용. 운영 단계에서는 비활성.
+  # 운영자가 RAG 파이프라인 응답을 직접 시연/검증하기 위한 데모 UI.
+  # 운영 진입 시 `docker compose stop gradio` 또는 본 블록 주석 처리.
+  # ─────────────────────────────────────────────────────────────
+  gradio:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.gradio
+    container_name: euljiu-gradio
+    ports:
+      - "7861:7861"
+    environment:
+      UPSTAGE_API_KEY: ${UPSTAGE_API_KEY}
+      QDRANT_URL: http://qdrant:6333
+      REDIS_URL: redis://redis:6379
+      PYTHONPATH: /workspace
+    depends_on:
+      qdrant:
+        condition: service_started
+      redis:
+        condition: service_started
+    volumes:
+      # gradio_app.py 가 src/* 와 data/* 를 직접 import 하므로 통째로 마운트.
+      - ./src:/workspace/src
+      - ./data:/workspace/data
+      - ./scripts:/workspace/scripts
+      - ./configs:/workspace/configs
+      - ./.env:/workspace/.env:ro
+    working_dir: /workspace
+    command: python scripts/gradio_app.py --host 0.0.0.0 --port 7861
+    restart: unless-stopped
+
+  # Docmost — 2026-04-29 Outline 으로 마이그레이션 완료 후 비활성화.
+  # 데이터: backups/docmost_pre_migration.sql (10.5MB), volumes (docmost_data, docmost_pg_data) 보존.
+  # 재활성화: 아래 블록 주석 해제 + docker compose up -d docmost docmost-postgres.
+  # 대체: outline/docker-compose.yml (port 3002, 8 collections / 262 documents).
+  #
+  # docmost:
+  #   image: docmost/docmost:latest
+  #   container_name: euljiu-docmost
+  #   ports:
+  #     - "3001:3000"
+  #   environment:
+  #     APP_URL: http://localhost:3001
+  #     APP_SECRET: ${DOCMOST_SECRET:-change-me-please-32-chars-or-more-secret}
+  #     DATABASE_URL: postgresql://docmost:docmost@docmost-postgres:5432/docmost
+  #     REDIS_URL: redis://redis:6379
+  #     WEBHOOK_URL: http://api:8000/api/sync/docmost
+  #   depends_on:
+  #     docmost-postgres:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_started
+  #   volumes:
+  #     - docmost_data:/app/data/storage
+  #   restart: unless-stopped
+
+  # onyx-web (custom Next.js) 제거됨 — 풀 Onyx (docker-compose.onyx.yml, port 3010) 가 대체.
+
+  # docmost-postgres:
+  #   image: postgres:16-alpine
+  #   container_name: euljiu-docmost-postgres
+  #   environment:
+  #     POSTGRES_USER: docmost
+  #     POSTGRES_PASSWORD: docmost
+  #     POSTGRES_DB: docmost
+  #   volumes:
+  #     - docmost_pg_data:/var/lib/postgresql/data
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U docmost -d docmost"]
+  #     interval: 5s
+  #     timeout: 3s
+  #     retries: 5
+  #   restart: unless-stopped
+
+volumes:
+  docmost_data:    # 보존 — 마이그레이션 검증 후 docker volume rm 가능
+  docmost_pg_data: # 보존 — 마이그레이션 검증 후 docker volume rm 가능
+  vespa_data:
+  vespa_logs:
