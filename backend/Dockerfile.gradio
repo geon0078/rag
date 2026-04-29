@@ -1,0 +1,43 @@
+# Gradio RAG demo 전용 이미지 — 개발 시에만 사용.
+# api/worker 가 사용하는 backend/Dockerfile 과 분리한 이유:
+# gradio 6.x 가 fastapi >=0.118 을 요구하지만 api/worker 는 0.115 에 고정되어
+# 의존성 충돌 발생. 본 이미지는 gradio 내장 fastapi 버전을 그대로 사용.
+#
+# 운영 단계에서는 docker-compose.yml 의 gradio 블록과 함께 비활성화.
+
+FROM python:3.12-slim
+
+WORKDIR /workspace
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
+
+# konlpy.Okt 가 JVM 을 요구.
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends default-jre-headless \
+ && rm -rf /var/lib/apt/lists/*
+ENV JAVA_HOME=/usr/lib/jvm/default-java
+
+# Step 1 — gradio 먼저 설치 (자체 fastapi/pydantic 호환 버전을 끌어옴).
+RUN pip install --no-cache-dir gradio==6.1.0
+
+# Step 2 — RAG 파이프라인 의존성. 버전 핀을 느슨하게 하여 gradio 가 끌어온
+# pydantic 등을 손상하지 않게. 핵심 호환은 다음 라이브러리들이 자동 처리.
+RUN pip install --no-cache-dir \
+    "sqlalchemy>=2.0,<2.1" \
+    "psycopg[binary]>=3.2" \
+    "qdrant-client>=1.10" \
+    "openai>=1.40" \
+    "httpx>=0.27" \
+    "python-dotenv>=1.0" \
+    "pandas>=2.2" \
+    "pyarrow>=17.0" \
+    "numpy>=1.26,<2.0" \
+    "rank_bm25>=0.2" \
+    "konlpy>=0.6" \
+    "loguru>=0.7"
+
+EXPOSE 7861
+
+CMD ["python", "scripts/gradio_app.py", "--host", "0.0.0.0", "--port", "7861"]

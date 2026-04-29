@@ -1,0 +1,22 @@
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+pydantic==2.9.2
+pydantic-settings==2.5.2
+sqlalchemy==2.0.36
+psycopg[binary]==3.2.3
+alembic==1.13.3
+celery==5.4.0
+redis==5.1.1
+qdrant-client==1.12.0
+openai==1.51.0
+httpx==0.27.2
+python-dotenv==1.0.1
+python-multipart==0.0.12
+
+# Day 5+ — RagPipeline 재사용용 의존성 (src/ 코드가 import)
+pandas==2.2.3
+pyarrow==17.0.0
+numpy==1.26.4
+rank_bm25==0.2.2
+konlpy==0.6.0
+loguru==0.7.2
