@@ -58,3 +58,10 @@ onyx-data/
 # Outline 인덱싱 산출물 (재생성 가능)
 data/outline_chunks.parquet
 data/outline_url_map.json
+
+# Frontend 의존성
+node_modules/
+
+# 런타임 진단 로그
+reports/history/
+reports/diagnostics/
