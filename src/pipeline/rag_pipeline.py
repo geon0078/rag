@@ -19,6 +19,7 @@ from src.generation.citation import ensure_citation
 from src.generation.groundedness import GroundednessChecker
 from src.generation.prompts import annotate_inferred_campus, format_context
 from src.generation.solar_llm import SolarLLM
+from src.pipeline.query_rewriter import QueryRewriter, RewriteResult
 from src.retrieval.hybrid import HybridRetriever
 from src.retrieval.reranker import KoReranker, PassthroughReranker
 from src.retrieval.router import RoutingDecision, route
@@ -110,6 +111,9 @@ class RagPipeline:
         reranker: Any = None,
         llm: SolarLLM | None = None,
         groundedness: GroundednessChecker | None = None,
+        hyde_enabled: bool = True,
+        rewriter: QueryRewriter | None = None,
+        rewrite_enabled: bool = False,
     ) -> None:
         self.retriever = retriever or HybridRetriever()
         if reranker is None:
@@ -123,6 +127,12 @@ class RagPipeline:
             self.reranker = reranker
         self.llm = llm or SolarLLM()
         self.groundedness = groundedness or GroundednessChecker()
+        # 평가명세서 §13.3 — HyDE on/off A/B 테스트용 토글.
+        # False 면 retry 경로에서 HyDE 확장을 건너뛰고 원본 query 로만 재시도한다.
+        self.hyde_enabled = hyde_enabled
+        # 처방 2 — 쿼리 재작성기 (multi 분해 + vague best-guess).
+        self.rewrite_enabled = rewrite_enabled
+        self.rewriter = rewriter or (QueryRewriter(llm=self.llm) if rewrite_enabled else None)
 
     async def _retrieve_then_rerank(
         self,
@@ -142,17 +152,70 @@ class RagPipeline:
         )
         return candidates, decision
 
+    async def _retrieve_multi(
+        self,
+        original: str,
+        rewrites: list[str],
+        hybrid_top_k: int,
+        rerank_top_k: int,
+    ) -> tuple[list[dict[str, Any]], RoutingDecision]:
+        """multi/vague 케이스 — 여러 쿼리 각각 retrieve 후 dedup merge.
+
+        최종 reranker 는 ORIGINAL 쿼리 기준으로 다시 정렬해 의도 일치도 유지.
+        Routing decision 도 original 기준으로 산출 (sub-query 별 routing 충돌 회피).
+        """
+        decision = route(original)
+        seen: set[str] = set()
+        merged: list[dict[str, Any]] = []
+        for q in rewrites:
+            cands = await self.retriever.search(q, top_k=hybrid_top_k, decision=decision)
+            for c in cands:
+                did = c.get("doc_id")
+                if did and did not in seen:
+                    seen.add(did)
+                    merged.append(c)
+        # Final rerank against original to preserve intent.
+        candidates = await asyncio.to_thread(
+            self.reranker.rerank, original, merged, rerank_top_k
+        )
+        return candidates, decision
+
     async def run(self, query: str) -> dict[str, Any]:
         t0 = time.time()
         log.info(f"pipeline.run: {query!r}")
 
         relaxable = _is_relaxable(query)
 
-        candidates, decision = await self._retrieve_then_rerank(
-            query,
-            hybrid_top_k=settings.top_k_dense,
-            rerank_top_k=settings.top_k_rerank_final,
-        )
+        # 처방 2 — 쿼리 재작성. 실패 시 fallback to single-query retrieval.
+        rewrite: RewriteResult | None = None
+        if self.rewrite_enabled and self.rewriter is not None:
+            try:
+                rewrite = await self.rewriter.rewrite(query)
+                log.info(
+                    f"rewriter: type={rewrite.type} rewrites={rewrite.rewrites}"
+                )
+            except Exception as exc:  # noqa: BLE001
+                log.warning(f"rewriter unexpected error → fallback: {exc}")
+                rewrite = None
+
+        if rewrite and len(rewrite.rewrites) > 1:
+            candidates, decision = await self._retrieve_multi(
+                original=query,
+                rewrites=rewrite.rewrites,
+                hybrid_top_k=settings.top_k_dense,
+                rerank_top_k=settings.top_k_rerank_final,
+            )
+        else:
+            search_query = (
+                rewrite.rewrites[0]
+                if rewrite and rewrite.rewrites and rewrite.rewrites[0]
+                else query
+            )
+            candidates, decision = await self._retrieve_then_rerank(
+                search_query,
+                hybrid_top_k=settings.top_k_dense,
+                rerank_top_k=settings.top_k_rerank_final,
+            )
         answer = await self.llm.generate(query, candidates)
         answer = ensure_citation(answer, candidates)
         verdict = await self.groundedness.verify(format_context(candidates), answer)
@@ -162,11 +225,18 @@ class RagPipeline:
         # because the judge can't see the aggregation; only retry on hard fail.
         if verdict == "notGrounded" or (verdict == "notSure" and not relaxable):
             retry = True
-            log.warning(
-                f"verdict={verdict} relaxable={relaxable} -> HyDE retry"
-            )
-            hyde_doc = await self.llm.hyde_expand(query)
-            expanded_query = f"{query}\n\n{hyde_doc}"
+            if self.hyde_enabled:
+                log.warning(
+                    f"verdict={verdict} relaxable={relaxable} -> HyDE retry"
+                )
+                hyde_doc = await self.llm.hyde_expand(query)
+                expanded_query = f"{query}\n\n{hyde_doc}"
+            else:
+                # A/B test (HyDE off): retry uses the raw query only.
+                log.warning(
+                    f"verdict={verdict} relaxable={relaxable} -> retry (HyDE disabled)"
+                )
+                expanded_query = query
             # Reuse the original RoutingDecision so the campus filter survives
             # the HyDE expansion (the expanded text can dilute campus signals).
             candidates, decision = await self._retrieve_then_rerank(

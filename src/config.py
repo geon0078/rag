@@ -16,7 +16,7 @@ class Settings(BaseModel):
     project_root: Path = PROJECT_ROOT
     data_dir: Path = PROJECT_ROOT / "data"
     corpus_path: Path = PROJECT_ROOT / "data" / "corpus.parquet"
-    bm25_index_path: Path = PROJECT_ROOT / "data" / "bm25_okt.pkl"
+    bm25_index_path: Path = PROJECT_ROOT / "data" / "bm25_outline.pkl"
     log_dir: Path = PROJECT_ROOT / "logs"
 
     upstage_api_key: str = Field(default_factory=lambda: os.getenv("UPSTAGE_API_KEY", ""))
@@ -30,7 +30,7 @@ class Settings(BaseModel):
 
     qdrant_url: str = Field(default_factory=lambda: os.getenv("QDRANT_URL", "http://localhost:6333"))
     qdrant_api_key: str = Field(default_factory=lambda: os.getenv("QDRANT_API_KEY", ""))
-    qdrant_collection: str = "euljiu_knowledge"
+    qdrant_collection: str = "euljiu_outline"
 
     redis_url: str = Field(default_factory=lambda: os.getenv("REDIS_URL", "redis://localhost:6379"))
     cache_ttl_default_sec: int = 60 * 60 * 24
@@ -53,7 +53,10 @@ class Settings(BaseModel):
     # rrf:k=4}. Picked mm normalize (current) + 0.4 weight as the minimal-
     # change winner. Previous 0.15 came from the original AutoRAG run that
     # included reranker; 0.4 is the rerank-OFF optimum.
-    hybrid_cc_weight: float = 0.4  # semantic weight; (1 - w) goes to BM25
+    hybrid_cc_weight: float = 0.6  # semantic weight; (1 - w) goes to BM25
+    # 2026-04-28 sweep (12 variants × manual 250) 기준 V4_cc_w_high 가 베스트:
+    # recall@5 0.852 (목표 0.85 PASS), MRR 0.678, nDCG 0.716, grounded 0.960.
+    # 0.4 baseline 대비 +4.2pt recall@5, 비용 0.
     hybrid_cc_normalize: str = "mm"  # mm | tmm | z | dbsf
     rrf_k: int = 60  # used only when hybrid_method == "rrf"
 

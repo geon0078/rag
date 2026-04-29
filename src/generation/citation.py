@@ -19,7 +19,14 @@ CITATION_PATTERN = re.compile(r"\[출처\s*[::]")
 
 
 def _format_one(payload: dict[str, Any], doc_id: str | None) -> str:
-    cat = payload.get("category") or payload.get("source_collection") or "출처"
+    breadcrumb = payload.get("breadcrumb")
+    if breadcrumb:
+        return f"[출처: {breadcrumb}]"
+    # fallback (구 형식 — breadcrumb 없는 chunk)
+    cat = payload.get("category") or payload.get("collection") or payload.get("source_collection") or "출처"
+    title = payload.get("title")
+    if title:
+        return f"[출처: {cat} > {title}]"
     campus = payload.get("campus") or "전체"
     doc = doc_id or payload.get("doc_id") or "?"
     return f"[출처: {doc}, {cat}, {campus}]"
